@@ -15,8 +15,8 @@ function bubbleSortModificirani() {
                 anim(iznosi[j - 1], sipke_div[j - 1], sipke_visina[j - 1], zamijeniBoja);
                 pom = j;
             }
-            anim(iznosi[j], sipke_div[j], sipke_visina[j], resetirajBoja, 100);
-            anim(iznosi[j - 1], sipke_div[j - 1], sipke_visina[j - 1], resetirajBoja, 100);
+            anim(iznosi[j], sipke_div[j], sipke_visina[j], resetirajBoja);
+            anim(iznosi[j - 1], sipke_div[j - 1], sipke_visina[j - 1], resetirajBoja);
         }
         if (pom != 0) {
             anim(iznosi[sortirani], sipke_div[sortirani], sipke_visina[sortirani], sortiranBoja);

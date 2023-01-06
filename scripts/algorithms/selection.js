@@ -11,13 +11,13 @@ function selectionSort() {
 
             if (sipke_visina[j] < min) {
                 if (pmin != i) {
-                    anim(iznosi[pmin], sipke_div[pmin], sipke_visina[pmin], resetirajBoja, 100); // resetiranje prethodno nadjenog najmanjeg elementa
+                    anim(iznosi[pmin], sipke_div[pmin], sipke_visina[pmin], resetirajBoja); // resetiranje prethodno nadjenog najmanjeg elementa
                 }
                 min = sipke_visina[j];
                 pmin = j;
                 anim(iznosi[pmin], sipke_div[pmin], sipke_visina[pmin], privremeniBoja); // oznavacanje najmanjeg
             } else {
-                anim(iznosi[j], sipke_div[j], sipke_visina[j], resetirajBoja, 100); // resetiranje ako broj nije manji od trenutno najmanjeg
+                anim(iznosi[j], sipke_div[j], sipke_visina[j], resetirajBoja); // resetiranje ako broj nije manji od trenutno najmanjeg
             }
         }
 
@@ -27,7 +27,7 @@ function selectionSort() {
             anim(iznosi[i], sipke_div[i], sipke_visina[i], zamijeniBoja);
         }
 
-        anim(iznosi[pmin], sipke_div[pmin], sipke_visina[pmin], resetirajBoja, 100);
+        anim(iznosi[pmin], sipke_div[pmin], sipke_visina[pmin], resetirajBoja);
         anim(iznosi[i], sipke_div[i], sipke_visina[i], sortiranBoja);
     }
     anim(iznosi[n - 1], sipke_div[n - 1], sipke_visina[n - 1], sortiranBoja);

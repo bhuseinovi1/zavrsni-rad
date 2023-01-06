@@ -69,9 +69,9 @@ function countingSort() {
 
         sipke_C_visina[sipke_visina[j]] = sipke_C_visina[sipke_visina[j]] + 1
         anim(iznosi_C[sipke_visina[j]], sipke_C_div[sipke_visina[j]], sipke_C_visina[sipke_visina[j]], iteracijaBoja)
-        anim(iznosi_C[sipke_visina[j]], sipke_C_div[sipke_visina[j]], sipke_C_visina[sipke_visina[j]], resetirajBoja, 100)
+        anim(iznosi_C[sipke_visina[j]], sipke_C_div[sipke_visina[j]], sipke_C_visina[sipke_visina[j]], resetirajBoja)
 
-        anim(iznosi[j], sipke_div[j], sipke_visina[j], resetirajBoja, 100)
+        anim(iznosi[j], sipke_div[j], sipke_visina[j], resetirajBoja)
     }
 
     for (let i = 1; i <= K; i++) {
@@ -79,8 +79,8 @@ function countingSort() {
         anim(iznosi_C[i - 1], sipke_C_div[i - 1], sipke_C_visina[i - 1], privremeniBoja)
         sipke_C_visina[i] = sipke_C_visina[i] + sipke_C_visina[i - 1]
         anim(iznosi_C[i], sipke_C_div[i], sipke_C_visina[i], iteracijaBoja)
-        anim(iznosi_C[i - 1], sipke_C_div[i - 1], sipke_C_visina[i - 1], resetirajBoja, 100)
-        anim(iznosi_C[i], sipke_C_div[i], sipke_C_visina[i], resetirajBoja, 100)
+        anim(iznosi_C[i - 1], sipke_C_div[i - 1], sipke_C_visina[i - 1], resetirajBoja)
+        anim(iznosi_C[i], sipke_C_div[i], sipke_C_visina[i], resetirajBoja)
     }
 
     for (let j = n - 1; j >= 0; j--) {
@@ -91,7 +91,7 @@ function countingSort() {
 
         sipke_B_visina[sipke_C_visina[sipke_visina[j]]] = sipke_visina[j]
         anim(iznosi_B[sipke_C_visina[sipke_visina[j]]], sipke_B_div[sipke_C_visina[sipke_visina[j]]], sipke_B_visina[sipke_C_visina[sipke_visina[j]]], sortiranBoja)
-        anim(iznosi[j], sipke_div[j], sipke_visina[j], resetirajBoja, 100)
-        anim(iznosi_C[sipke_visina[j]], sipke_C_div[sipke_visina[j]], sipke_C_visina[sipke_visina[j]], resetirajBoja, 100)
+        anim(iznosi[j], sipke_div[j], sipke_visina[j], resetirajBoja)
+        anim(iznosi_C[sipke_visina[j]], sipke_C_div[sipke_visina[j]], sipke_C_visina[sipke_visina[j]], resetirajBoja)
     }
 }

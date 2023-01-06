@@ -23,8 +23,8 @@ function particija(prvi, zadnji) {
             [sipke_visina[i], sipke_visina[p]] = [sipke_visina[p], sipke_visina[i]]
             anim(iznosi[p], sipke_div[p], sipke_visina[p], zamijeniBoja)
             anim(iznosi[i], sipke_div[i], sipke_visina[i], zamijeniBoja)
-            anim(iznosi[p], sipke_div[p], sipke_visina[p], resetirajBoja, 100)
-            anim(iznosi[i], sipke_div[i], sipke_visina[i], resetirajBoja, 100)
+            anim(iznosi[p], sipke_div[p], sipke_visina[p], resetirajBoja)
+            anim(iznosi[i], sipke_div[i], sipke_visina[i], resetirajBoja)
             p = p + 1;
             anim(iznosi[p], sipke_div[p], sipke_visina[p], privremeniBoja)
         }

@@ -12,23 +12,23 @@ function POPRAVI_DOLJE(i, vel) {
             if (dd < vel && sipke_visina[dd] > sipke_visina[veci]) {
                 animateHeap(novi_kontejneri[dd], iznosi[dd], sipke_div[dd], sipke_visina[dd], privremeniBoja);
 
-                animateHeap(novi_kontejneri[veci], iznosi[veci], sipke_div[veci], sipke_visina[veci], resetirajBoja, 100);
+                animateHeap(novi_kontejneri[veci], iznosi[veci], sipke_div[veci], sipke_visina[veci], resetirajBoja);
 
                 veci = dd;
             }
             else {
                 animateHeap(novi_kontejneri[veci], iznosi[veci], sipke_div[veci], sipke_visina[veci], privremeniBoja);
 
-                animateHeap(novi_kontejneri[dd], iznosi[dd], sipke_div[dd], sipke_visina[dd], resetirajBoja, 100);
+                animateHeap(novi_kontejneri[dd], iznosi[dd], sipke_div[dd], sipke_visina[dd], resetirajBoja);
             }
         }
         else {
             animateHeap(novi_kontejneri[veci], iznosi[veci], sipke_div[veci], sipke_visina[veci], privremeniBoja);
         }
         if (sipke_visina[i] > sipke_visina[veci]) {
-            animateHeap(novi_kontejneri[i], iznosi[i], sipke_div[i], sipke_visina[i], resetirajBoja, 100);
+            animateHeap(novi_kontejneri[i], iznosi[i], sipke_div[i], sipke_visina[i], resetirajBoja);
 
-            animateHeap(novi_kontejneri[veci], iznosi[veci], sipke_div[veci], sipke_visina[veci], resetirajBoja, 100);
+            animateHeap(novi_kontejneri[veci], iznosi[veci], sipke_div[veci], sipke_visina[veci], resetirajBoja);
 
             return
         }
@@ -36,8 +36,8 @@ function POPRAVI_DOLJE(i, vel) {
         animateHeap(novi_kontejneri[i], iznosi[i], sipke_div[i], sipke_visina[i], zamijeniBoja);
         animateHeap(novi_kontejneri[veci], iznosi[veci], sipke_div[veci], sipke_visina[veci], zamijeniBoja);
         //animHeapZamijeni(novi_kontejneri[i], novi_kontejneri[veci]);
-        animateHeap(novi_kontejneri[i], iznosi[i], sipke_div[i], sipke_visina[i], resetirajBoja, 100);
-        animateHeap(novi_kontejneri[veci], iznosi[veci], sipke_div[veci], sipke_visina[veci], resetirajBoja, 100);
+        animateHeap(novi_kontejneri[i], iznosi[i], sipke_div[i], sipke_visina[i], resetirajBoja);
+        animateHeap(novi_kontejneri[veci], iznosi[veci], sipke_div[veci], sipke_visina[veci], resetirajBoja);
         i = veci
     }
     return
@@ -48,8 +48,8 @@ function IZBACI_PRVI(zadnji) {
     animateHeap(novi_kontejneri[0], iznosi[0], sipke_div[0], sipke_visina[0], helperBoja);
     animateHeap(novi_kontejneri[zadnji], iznosi[zadnji], sipke_div[zadnji], sipke_visina[zadnji], helperBoja);
     //animHeapZamijeni(novi_kontejneri[0], novi_kontejneri[zadnji]);
-    animateHeap(novi_kontejneri[0], iznosi[0], sipke_div[0], sipke_visina[0], resetirajBoja, 100);
-    animateHeap(novi_kontejneri[zadnji], iznosi[zadnji], sipke_div[zadnji], sipke_visina[zadnji], sortiranBoja, 100);
+    animateHeap(novi_kontejneri[0], iznosi[0], sipke_div[0], sipke_visina[0], resetirajBoja);
+    animateHeap(novi_kontejneri[zadnji], iznosi[zadnji], sipke_div[zadnji], sipke_visina[zadnji], sortiranBoja);
     POPRAVI_DOLJE(0, zadnji)
 }
 

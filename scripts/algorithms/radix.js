@@ -47,18 +47,18 @@ function radixSort() {
                     anim(iznosi_B[index], sipke_B_div[index], sipke_B_visina[index], privremeniBoja)
                     index = index + 1
                 }
-                anim(iznosi[i], sipke_div[i], sipke_visina[i], resetirajBoja, 100)
+                anim(iznosi[i], sipke_div[i], sipke_visina[i], resetirajBoja)
             }
             // Prekid ako je vec popunjen pomocni niz
             if (index == n) break;
         }
         for (let i = 0; i < n; i++) {
             sipke_visina[i] = sipke_B_visina[i]
-            anim(iznosi[i], sipke_div[i], sipke_visina[i], resetirajBoja, 100)
+            anim(iznosi[i], sipke_div[i], sipke_visina[i], resetirajBoja)
         }
         for (let i = 0; i < n; i++) {
             sipke_B_visina[i] = 0
-            anim(iznosi_B[i], sipke_B_div[i], sipke_B_visina[i], resetirajBoja, 100)
+            anim(iznosi_B[i], sipke_B_div[i], sipke_B_visina[i], resetirajBoja)
         }
         index = 0;
     }
