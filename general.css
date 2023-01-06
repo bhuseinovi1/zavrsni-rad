@@ -1,0 +1,27 @@
+html,
+body {
+  /* Za Firefox */
+  scrollbar-width: none;
+
+  /* Za Edge */
+  -ms-overflow-style: none;
+
+  /* Uklanjanje scroll bar-a */
+  overflow-x: hidden; 
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Za Webkit bazirane pretraživače */
+body::-webkit-scrollbar{
+    display: none;
+  }
+
+.content {
+  position: relative;
+  height: 100%;
+  margin: auto;
+}

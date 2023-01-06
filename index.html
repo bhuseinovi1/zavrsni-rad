@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pocetna | SORTIFY</title>
+    <link rel="icon" href="images/alphabetical.png" />
+
+    <!-- JQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styling -->
+    <link rel="stylesheet" href="general.css" />
+    <link rel="stylesheet" href="css/alert.css" />
+    <link rel="stylesheet" href="css/video.css" />
+    <link rel="stylesheet" href="css/sortiranje.css" />
+    <link rel="stylesheet" href="css/sipke.css" />
+    <link rel="stylesheet" href="css/lista.css" />
+    <link rel="stylesheet" href="css/stablo.css" />
+    <link rel="stylesheet" href="css/opcije.css" />
+    <link rel="stylesheet" href="css/mqueries.css" />
+    <!--<script type="module" async defer src="script.js"></script>-->
+  </head>
+  <body>
+    <div class="alert warning">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';"
+        >&times;</span
+      >
+      <strong>UPOZORENJE!</strong>
+      <span id="warning">a dangerous or potentially negative action.</span>
+    </div>
+    <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';"
+        >&times;</span
+      >
+      <strong>GREŠKA!</strong>
+      <span id="alert">a dangerous or potentially negative action.</span>
+    </div>
+
+    <video autoplay loop muted plays-inline class="back-video">
+      <source src="images/background-video.mp4" type="video/mp4" />
+    </video>
+
+    <div class="row content">
+      <div class="col-2 opcije px-3 py-4 my-3 ms-5">
+        <div>
+          <a class="navbar-brand appName text-white fw-bold" href="#"
+            >SORTIFY</a
+          >
+        </div>
+        <hr style="color: #ffffff; margin-bottom: 5px;" />
+        <div style="position: relative; height: 40px">
+          <ul class="navbar-nav metodeSortiranja">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle active disable"
+                href="#"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Bubble Sort</a
+              >
+              <ul
+                class="dropdown-menu metodeSortiranja"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <li><a class="dropdown-item" href="#">Address Sort</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">Bubble Sort Modified</a>
+                </li>
+                <li><a class="dropdown-item" href="#">Counting Sort</a></li>
+                <li><a class="dropdown-item" href="#">Heap Sort</a></li>
+                <li><a class="dropdown-item" href="#">Insertion Sort</a></li>
+                <li><a class="dropdown-item" href="#">Merge Sort</a></li>
+                <li><a class="dropdown-item" href="#">Quick Sort</a></li>
+                <li><a class="dropdown-item" href="#">Radix Sort</a></li>
+                <li><a class="dropdown-item" href="#">Selection Sort</a></li>
+                <li><a class="dropdown-item" href="#">Shell Sort</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="countingDiv">
+          <label for="countingSpan" class="form-label text-white fw-bold">
+            Counting sort - k : <span id="countingSpan"></span>
+          </label>
+        </div>
+        <div class="razmakDiv">
+          <label for="razmakInput" class="form-label text-white fw-bold">
+            Shell sort - razmak :
+          </label>
+          <input
+            placeholder="num1, num2, num3..."
+            id="razmakInput"
+            type="text"
+          />
+        </div>
+        <div class="funkcijaDiv">
+          <label for="funkcijaInput" class="form-label text-white fw-bold">
+            Funkcija :
+          </label>
+          <input placeholder="f(x)" id="funkcijaInput" type="text" />
+        </div>
+        <div>
+          <hr style="color: #ffffff; margin-bottom: 10px;" />
+          <label for="velicinaNiza" class="form-label text-white fw-bold"
+            >Veličina niza</label
+          >
+          <input
+            class="mb-2"
+            type="range"
+            min="6"
+            max="20"
+            value="10"
+            id="velicinaNiza"
+            style="display: block"
+            onchange="promijeniBrojElemenata(this.value)"
+          />
+          <label for="brzinaSortiranja" class="form-label text-white fw-bold"
+            >Brzina sortiranja</label
+          >
+          <input
+            class="mb-2"
+            type="range"
+            min="0"
+            max="19"
+            value="9"
+            id="brzinaSortiranja"
+            style="display: block"
+            onchange="promijeniBrzinu(this.value)"
+          />
+          <label for="faktorSkaliranja" class="form-label text-white fw-bold"
+            >Faktor skaliranja</label
+          >
+          <input
+            type="range"
+            min="1"
+            max="50"
+            value="1"
+            id="faktorSkaliranja"
+            style="display: block"
+            onchange="promijeniFaktorSkaliranja(this.value)"
+          />
+        </div>
+        <hr style="color: #ffffff; margin-bottom: 10px;" />
+        <div class="mb-3">
+          <label for="nizInput" class="form-label toChange text-white fw-bold"
+            >Unesi niz :</label
+          >
+          <input
+            placeholder="num1,num2,num3,num4,num5,num6..."
+            id="nizInput"
+            type="text"
+          />
+        </div>
+
+        <hr />
+
+        <div class="generisanje">
+          <a
+            class="nav-link form-label fw-bold mb-0"
+            aria-current="page"
+            href="#"
+            id="generisiNiz"
+            >GENERIŠI NIZ</a
+          >
+        </div>
+        <br />
+        <div class="generisanje">
+          <a
+            class="nav-link form-label fw-bold mb-0"
+            aria-current="page"
+            href="#"
+            id="generisiRandomNiz"
+            >GENERIŠI NASUMIČNI NIZ</a
+          >
+        </div>
+        <div>
+          <button class="btn btn-outline-light rounded-pill" id="sortBtn">
+            Sortiraj
+          </button>
+        </div>
+      </div>
+
+      <div
+        class="row col-9 sortiranje px-4 py-4 my-3 me-5"
+        style="margin: auto"
+      >
+        <div class="nazivSortiranja">
+          <h2 id="naziv">BUBBLE SORT</h2>
+        </div>
+
+        <div class="sipkeCon"></div>
+
+        <div class="pomocniKontejner"></div>
+
+        <div class="sipkeCon3"></div>
+
+        <button class="btn btn-outline-light rounded-pill" id="resetBtn">
+          Stopiraj
+        </button>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script async defer src="script.js"></script>
+    <script src="scripts/alerts.js"></script>
+    <script src="scripts/helper.js"></script>
+    <script src="scripts/algorithms/address.js"></script>
+    <script src="scripts/jplista.js"></script>
+    <script src="scripts/algorithms/bubble.js"></script>
+    <script src="scripts/algorithms/bubbleMod.js"></script>
+    <script src="scripts/algorithms/counting.js"></script>
+    <script src="scripts/algorithms/heap.js"></script>
+    <script src="scripts/algorithms/insertion.js"></script>
+    <script src="scripts/algorithms/merge.js"></script>
+    <script src="scripts/algorithms/radix.js"></script>
+    <script src="scripts/algorithms/selection.js"></script>
+    <script src="scripts/algorithms/shell.js"></script>
+    <script src="scripts/algorithms/quick.js"></script>
+    <script src="scripts/sort.js"></script>
+    <script src="scripts/animate.js"></script>
+  </body>
+</html>

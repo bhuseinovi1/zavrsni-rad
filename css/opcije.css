@@ -1,0 +1,105 @@
+.opcije {
+  position: relative;
+  text-align: center;
+  height: 96%;
+  min-height: 750px;
+/*   height: 900px; */
+  border: 2px solid #737373;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.85);
+  min-width: 200px;
+  /* ZA FIREFOX
+  background-color: #15171a;
+  */
+}
+
+.appName {
+  font-size: 1.8em;
+}
+
+.metodeSortiranja {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar-nav {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 2; /* Zbog input polja za Shell sort */
+}
+
+#velicinaNiza,
+#brzinaSortiranja,
+#faktorSkaliranja {
+  width: 100%;
+}
+
+/*
+#brzinaSortiranja {
+  transform: rotateY(180deg);;
+}
+*/
+
+#nizInput,
+#razmakInput,
+#funkcijaInput,
+#countingSpan {
+  width: 96%;
+}
+
+#nizInput:focus {
+  margin: auto;
+}
+
+input[type="text"] {
+  background-color: whitesmoke;
+  text-align: center;
+}
+
+input[type="text"]:focus {
+  position: fixed;
+  z-index: 3;
+  left: 2%; /* Ovo ga centrira horizontalno jer je width 96% */
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-size: 3em;
+  border-radius: 10px;
+  background-color: black;
+  color: whitesmoke;
+}
+
+.generisanje {
+  border: 2px solid #737373;
+  border-radius: 5px;
+}
+
+.generisanje:hover {
+  border-color: white;
+}
+
+/* TEKST */
+#generisiRandomNiz,
+#generisiNiz {
+  color: #9b9d9f;
+}
+
+#generisiRandomNiz:hover,
+#generisiNiz:hover {
+  color: white;
+  border-color: white;
+}
+
+#resetBtn,
+#sortBtn {
+  border-width: 2px;
+  font-size: 1.75rem;
+  border-radius: 50px;
+  font-weight: bold;
+  width: 95%;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}

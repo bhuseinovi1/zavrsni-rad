@@ -1,0 +1,16 @@
+@media only screen and (max-width: 1200px) {
+  .appName {
+    font-size: 3em;
+  }
+  /* POTREBNO ZBOG PRVOG UCITAVANJA STRANICE */
+  .sortiranje {
+    visibility: hidden;
+    position: absolute;
+  }
+}
+
+@-moz-document url-prefix() {
+  html,body {
+    background-color: #212529;
+  }
+}  

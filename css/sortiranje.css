@@ -1,0 +1,17 @@
+.sortiranje {
+  position: relative;
+  text-align: center;
+  height: 96%;
+  min-height: 750px;
+/*   height: 900px; */
+  border: 2px solid #737373;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.95);
+}
+
+.nazivSortiranja {
+  color: whitesmoke;
+  width: 100%;
+  margin-bottom: 0;
+  font-size: 1.2em;
+}

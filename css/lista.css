@@ -1,0 +1,38 @@
+.listaKontejner {
+  /*text-align: left;
+  */
+  height: 90%;
+}
+
+.lista {
+  color: black;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bolder;
+  display: block;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  width: 80px;
+  position: relative;
+  margin-bottom: 20px;
+  border-right: 40px solid white;
+}
+
+.elementiListe {
+  position: absolute;
+  left: 200%;
+  top: 0;
+  width: 3000px; /* MAGIČNA KONSTANTA */
+  text-align: left;
+}
+
+.elementListe {
+  width: 80px;
+  text-align: center;
+  font-size: 1em;
+  background-color: #5c5a59;
+  border-right: 40px solid whitesmoke;
+  border-radius: 10px;
+  margin-left: 50px;
+  display: inline-block;
+}
