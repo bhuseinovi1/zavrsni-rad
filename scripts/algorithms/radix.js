@@ -48,6 +48,7 @@ function radixSort() {
                     index = index + 1
                 }
                 anim(iznosi[i], sipke_div[i], sipke_visina[i], resetirajBoja)
+                if (index == n) break;
             }
             // Prekid ako je vec popunjen pomocni niz
             if (index == n) break;
