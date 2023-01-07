@@ -78,14 +78,8 @@ sortBtn.addEventListener("click", () => {
     document.getElementsByClassName("opcije")[0].style.visibility = "hidden"
     document.getElementsByClassName("opcije")[0].style.position = "absolute"
     
-
     // Proširenje sorting sekcije na cijeli ekran
-    document.getElementsByClassName("sortiranje")[0].classList.add("col-12");
-    document.getElementsByClassName("sortiranje")[0].style.borderRight = "none";
-    document.getElementsByClassName("sortiranje")[0].style.borderLeft = "none";
-    document.getElementsByClassName("sortiranje")[0].style.borderRadius = "0px"
-    document.getElementsByClassName("sortiranje")[0].style.visibility = "visible";
-    document.getElementsByClassName("sortiranje")[0].style.position = "relative";
+    fullWidthSection("sortiranje");
 
     // Popuniti Input sa vrijednostima iz barsHeight
     var preklopiSadrzaj = new String("")

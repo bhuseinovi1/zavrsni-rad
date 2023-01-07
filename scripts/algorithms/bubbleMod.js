@@ -18,17 +18,20 @@ function bubbleSortModificirani() {
             }
             anim(iznosi[j], sipke_div[j], sipke_visina[j], resetirajBoja);
             anim(iznosi[j - 1], sipke_div[j - 1], sipke_visina[j - 1], resetirajBoja);
-            anim(iznosi[pom], sipke_div[pom], sipke_visina[pom], "red");
+            for(let h=0; h<pom;h++) {
+                anim(iznosi[h], sipke_div[h], sipke_visina[h], resetirajBoja, 100);
+            }
+            if(pom!=0) anim(iznosi[pom], sipke_div[pom], sipke_visina[pom], zadnjiSortirani);
         }
         if (pom != 0) {
             for(let k = sortirani; k>=pom; k--) {
                 anim(iznosi[k], sipke_div[k], sipke_visina[k], sortiranBoja);
             }
-            sortirani-=(n-pom);
+            //sortirani-=(sortirani-pom);
+            sortirani = pom;
             /*anim(iznosi[sortirani], sipke_div[sortirani], sipke_visina[sortirani], sortiranBoja);
             sortirani = sortirani - 1;
             */
         }
     } while (pom != 0);
-    anim(iznosi[0], sipke_div[0], sipke_visina[0], sortiranBoja);
 }
