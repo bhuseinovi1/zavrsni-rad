@@ -54,11 +54,11 @@ function radixSort() {
         }
         for (let i = 0; i < n; i++) {
             sipke_visina[i] = sipke_B_visina[i]
-            anim(iznosi[i], sipke_div[i], sipke_visina[i], resetirajBoja)
+            anim(iznosi[i], sipke_div[i], sipke_visina[i], resetirajBoja, 100)
         }
         for (let i = 0; i < n; i++) {
             sipke_B_visina[i] = 0
-            anim(iznosi_B[i], sipke_B_div[i], sipke_B_visina[i], resetirajBoja)
+            anim(iznosi_B[i], sipke_B_div[i], sipke_B_visina[i], resetirajBoja, 100)
         }
         index = 0;
     }

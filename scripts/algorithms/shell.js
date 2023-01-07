@@ -35,7 +35,7 @@ function shellSort(razmaci) {
                     anim(iznosi[j + h], sipke_div[j + h], sipke_visina[j + h], resetirajBoja);
                 }
                 for (let k = (j > 0) ? j : j + h; k <= i; k = k + h) {
-                    anim(iznosi[k], sipke_div[k], sipke_visina[k], resetirajBoja);
+                    anim(iznosi[k], sipke_div[k], sipke_visina[k], resetirajBoja, 100);
                 }
             }
         }

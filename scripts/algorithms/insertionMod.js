@@ -47,7 +47,7 @@ function insertionSortModificirani() {
             anim(iznosi[j + 1], sipke_div[j + 1], sipke_visina[j + 1], resetirajBoja);
         }
         for (let k = Math.max(0, j); k <= i; k++) {
-            anim(iznosi[k], sipke_div[k], sipke_visina[k], resetirajBoja,100);
+            anim(iznosi[k], sipke_div[k], sipke_visina[k], resetirajBoja, 100);
         }
     }
     
