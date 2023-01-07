@@ -14,7 +14,6 @@ const animateHeap = (kontejnerHeap, iznos, sipka, visina, boja, factorAnim = del
         sipka.style.backgroundColor = boja;
         iznos.innerHTML = visina
         kontejnerHeap.style.backgroundColor = boja
-
         kontejnerHeap.innerHTML = visina;
 
         if (boja == sortiranBoja) {
@@ -44,8 +43,6 @@ const animateAddressRemove = (elementiListe, kontejner_kljuc, boja, factorAnim =
     }, (c += factorAnim));
 };
 
-
-
 // Animate za Merge Sort
 const animateMerge = (zaSortirati, kontejnerMerge, iznos, sipka, visina, boja, factorAnim = delay) => {
     setTimeout(() => {
@@ -53,6 +50,7 @@ const animateMerge = (zaSortirati, kontejnerMerge, iznos, sipka, visina, boja, f
         sipka.style.backgroundColor = boja;
         iznos.innerHTML = visina
         kontejnerMerge.style.backgroundColor = boja
+        
         if (Boolean(zaSortirati)) {
             let matches = kontejnerMerge.innerHTML.toString().match(/\d+/g);
             kontejnerMerge.innerHTML = ""

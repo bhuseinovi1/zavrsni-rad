@@ -2,31 +2,51 @@ let sortiranjeUToku = 0;
 
 // Promjena dimenzija preglednika
 window.addEventListener("resize", function () {
-  if (window.innerWidth <= 1200) {
-    // Ako je rezolucija manja od 1200, ukloni Sorting sekciju samo ako se trenutno ne izvršava sorting
-    if (!Boolean(sortiranjeUToku)) {
-      document.getElementsByClassName("sortiranje")[0].style.visibility = "hidden";
-      document.getElementsByClassName("sortiranje")[0].style.position = "absolute";
+  if (!Boolean(sortiranjeUToku)) {
+    if (window.innerWidth <= 1200) {
+      // Ako je rezolucija manja od 1200, ukloni Sorting sekciju samo ako se trenutno ne izvršava sorting
+      /*
+      if (!Boolean(sortiranjeUToku)) {
+        document.getElementsByClassName("sortiranje")[0].style.visibility = "hidden";
+        document.getElementsByClassName("sortiranje")[0].style.position = "absolute";
+      }
+      */
+
+      // Ako nema nista u Media Query, ispod Opcije ce se prikazati i Sorting - DODANO
+      document.getElementsByClassName("sortiranje")[0].classList.remove("me-5");
+      document.getElementsByClassName("sortiranje")[0].classList.add("col-12");
+      document.getElementsByClassName("sortiranje")[0].style.borderRight = "none";
+      document.getElementsByClassName("sortiranje")[0].style.borderLeft = "none";
+      document.getElementsByClassName("sortiranje")[0].style.borderRadius = "0px"
+
+      // Podešavanje Opcije sekcije za male ekrane
+      document.getElementsByClassName("opcije")[0].classList.remove("ms-5");
+      document.getElementsByClassName("opcije")[0].classList.add("col-12");
+      document.getElementsByClassName("opcije")[0].style.borderRight = "none";
+      document.getElementsByClassName("opcije")[0].style.borderLeft = "none";
+      document.getElementsByClassName("opcije")[0].style.borderRadius = "0px"
     }
+    else {
+      // Za veće rezolucije Sorting sekcija treba uvijek biti vidljiva
+      /*
+      document.getElementsByClassName("sortiranje")[0].style.visibility = "visible";
+      document.getElementsByClassName("sortiranje")[0].style.position = "relative";
+      */
 
-    // Podešavanje Opcije sekcije za male ekrane
-    document.getElementsByClassName("opcije")[0].classList.remove("ms-5");
-    document.getElementsByClassName("opcije")[0].classList.add("col-12");
-    document.getElementsByClassName("opcije")[0].style.borderRight = "none";
-    document.getElementsByClassName("opcije")[0].style.borderLeft = "none";
-    document.getElementsByClassName("opcije")[0].style.borderRadius = "0px"
-  }
-  else {
-    // Za veće rezolucije Sorting sekcija treba uvijek biti vidljiva
-    document.getElementsByClassName("sortiranje")[0].style.visibility = "visible";
-    document.getElementsByClassName("sortiranje")[0].style.position = "relative";
+      // Ako nema nista u Media Query, ispod Opcije ce se prikazati i Sorting - DODANO
+      document.getElementsByClassName("sortiranje")[0].classList.add("me-5");
+      document.getElementsByClassName("sortiranje")[0].classList.remove("col-12");
+      document.getElementsByClassName("sortiranje")[0].style.borderRight = "2px solid #737373";
+      document.getElementsByClassName("sortiranje")[0].style.borderLeft = "2px solid #737373";
+      document.getElementsByClassName("sortiranje")[0].style.borderRadius = "10px"
 
-    // A Opcije sekcija treba imati odgovarajuću širinu
-    document.getElementsByClassName("opcije")[0].classList.add("ms-5");
-    document.getElementsByClassName("opcije")[0].classList.remove("col-12");
-    document.getElementsByClassName("opcije")[0].style.borderLeft = "2px solid #737373";
-    document.getElementsByClassName("opcije")[0].style.borderRight = "2px solid #737373";
-    document.getElementsByClassName("opcije")[0].style.borderRadius = "10px"
+      // A Opcije sekcija treba imati odgovarajuću širinu
+      document.getElementsByClassName("opcije")[0].classList.add("ms-5");
+      document.getElementsByClassName("opcije")[0].classList.remove("col-12");
+      document.getElementsByClassName("opcije")[0].style.borderLeft = "2px solid #737373";
+      document.getElementsByClassName("opcije")[0].style.borderRight = "2px solid #737373";
+      document.getElementsByClassName("opcije")[0].style.borderRadius = "10px"
+    }
   }
 });
 
@@ -83,7 +103,7 @@ function checkAndGenerateFromTheList() {
 }
 
 // Velicina niza
-let n = 10;
+let n = 6;
 
 let velicinaNiza = document.getElementById("velicinaNiza");
 // velicinaNiza.addEventListener("click", arraySizeChange);
@@ -159,10 +179,41 @@ resetBtn.addEventListener("click", () => {
     document.getElementsByClassName("funkcijaDiv")[0].style.position = "relative";
   }
 
+  
   // Sve su opcije ponovo vidljive
   document.getElementsByClassName("opcije")[0].style.position = "relative"
   document.getElementsByClassName("opcije")[0].style.visibility = "visible"
+  
 
+  // DODANO
+  if (window.innerWidth <= 1200) {
+    document.getElementsByClassName("opcije")[0].style.borderLeft = "none";
+    document.getElementsByClassName("opcije")[0].style.borderRight = "none";
+    document.getElementsByClassName("opcije")[0].style.borderRadius = "0px"
+    document.getElementsByClassName("opcije")[0].classList.add("col-12");
+    document.getElementsByClassName("opcije")[0].classList.remove("ms-5");
+
+    document.getElementsByClassName("sortiranje")[0].style.borderLeft = "none";
+    document.getElementsByClassName("sortiranje")[0].style.borderRight = "none";
+    document.getElementsByClassName("sortiranje")[0].style.borderRadius = "0px"
+    document.getElementsByClassName("sortiranje")[0].classList.add("col-12");
+    document.getElementsByClassName("sortiranje")[0].classList.remove("me-5");
+  }
+  else {
+    document.getElementsByClassName("opcije")[0].style.borderLeft = "2px solid #737373";
+    document.getElementsByClassName("opcije")[0].style.borderRight = "2px solid #737373";
+    document.getElementsByClassName("opcije")[0].style.borderRadius = "10px"
+    document.getElementsByClassName("opcije")[0].classList.remove("col-12");
+    document.getElementsByClassName("opcije")[0].classList.add("ms-5");
+
+    document.getElementsByClassName("sortiranje")[0].style.borderLeft = "2px solid #737373";
+    document.getElementsByClassName("sortiranje")[0].style.borderRight = "2px solid #737373";
+    document.getElementsByClassName("sortiranje")[0].style.borderRadius = "10px"
+    document.getElementsByClassName("sortiranje")[0].classList.remove("col-12");
+    document.getElementsByClassName("sortiranje")[0].classList.add("me-5");
+  }
+
+  /*
   // Sekcija Sorting se više ne treba prikazivati na cijelom ekranu
   document.getElementsByClassName("sortiranje")[0].style.borderLeft = "2px solid #737373";
   document.getElementsByClassName("sortiranje")[0].style.borderRight = "2px solid #737373";
@@ -171,10 +222,12 @@ resetBtn.addEventListener("click", () => {
   document.getElementsByClassName("sortiranje")[0].classList.add("me-5")
 
   // U slučaju manjih ekrana, sekcija Sorting nestaje
+  
   if (window.innerWidth <= 1200) {
     document.getElementsByClassName("sortiranje")[0].style.visibility = "hidden";
     document.getElementsByClassName("sortiranje")[0].style.position = "absolute";
   }
+  */
 
   sortiranjeUToku = 0;
 
@@ -200,7 +253,7 @@ var nizKompleksnosti = [{ a: "Bubble Sort", tc: "n<sup>2</sup>" },
 { a: "Heap Sort", tc: "nlog(n)" },
 { a: "Address Sort", tc: "n" },
 { a: "Merge Sort", tc: "nlog(n)" },
-  { a: "Insertion Sort Modified", tc: "n<sup>2</sup>" }];
+{ a: "Insertion Sort Modified", tc: "n<sup>2</sup>" }];
 
 // Event listener za Navigation Bar
 let algoritmi = document.getElementsByClassName("dropdown-item");
@@ -211,9 +264,9 @@ for (let i = 0; i < algoritmi.length; i++) {
     document.getElementById("naziv").innerHTML = trenutniAlgoritam.toUpperCase()
 
     // Ispitivanje kompleksnosti
-    for(let i=0;i<nizKompleksnosti.length;i++) {
-      if(nizKompleksnosti[i].a == trenutniAlgoritam) {
-        document.getElementById("naziv").innerHTML+= (" - O("+nizKompleksnosti[i].tc+")");
+    for (let i = 0; i < nizKompleksnosti.length; i++) {
+      if (nizKompleksnosti[i].a == trenutniAlgoritam) {
+        document.getElementById("naziv").innerHTML += (" - O(" + nizKompleksnosti[i].tc + ")");
         break;
       }
     }
@@ -248,8 +301,8 @@ for (let i = 0; i < algoritmi.length; i++) {
       document.getElementById("countingSpan").innerHTML = Math.max(...sipke_visina)
       document.getElementsByClassName("countingDiv")[0].style.visibility = "visible";
       document.getElementsByClassName("countingDiv")[0].style.position = "relative";
-      document.getElementById("velicinaNiza").value = 10
-      n = 10
+      document.getElementById("velicinaNiza").value = 6
+      n = 6
       document.getElementById("velicinaNiza")["max"] = 10
       document.getElementById("faktorSkaliranja").value = 50
       faktorSkaliranja = 50
@@ -536,12 +589,21 @@ for (let i = 0; i < document.getElementsByClassName("alert").length; i++) {
   document.getElementsByClassName("alert")[i].style.display = "none";
 }
 
+// Prvo ucitavanje
 if (window.innerWidth <= 1200) {
+  // Raširi Opcije sekciju na cijeli ekran
   document.getElementsByClassName("opcije")[0].classList.remove("ms-5");
   document.getElementsByClassName("opcije")[0].classList.add("col-12");
   document.getElementsByClassName("opcije")[0].style.borderRight = "none";
   document.getElementsByClassName("opcije")[0].style.borderLeft = "none";
   document.getElementsByClassName("opcije")[0].style.borderRadius = "0px"
+
+  // Ako nema nista u Media Query, ispod Opcije ce se prikazati i Sorting - DODANO
+  document.getElementsByClassName("sortiranje")[0].classList.remove("me-5");
+  document.getElementsByClassName("sortiranje")[0].classList.add("col-12");
+  document.getElementsByClassName("sortiranje")[0].style.borderRight = "none";
+  document.getElementsByClassName("sortiranje")[0].style.borderLeft = "none";
+  document.getElementsByClassName("sortiranje")[0].style.borderRadius = "0px"
 }
 
 generateNewArray();

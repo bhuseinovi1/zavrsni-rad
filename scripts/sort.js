@@ -1,8 +1,5 @@
-
-// Sortiraj dugme
 let sortBtn = document.getElementById("sortBtn");
 
-//Sorting Button
 sortBtn.addEventListener("click", () => {
     // Validacija Address Sort
     if (trenutniAlgoritam == "Address Sort") {
@@ -46,7 +43,7 @@ sortBtn.addEventListener("click", () => {
     }
     else if (trenutniAlgoritam == "Counting Sort") {
         if (window.innerWidth <= 1600) document.documentElement.style.setProperty("--width", "20px");
-        //document.documentElement.style.setProperty("--width", "20px");
+
         // Dijeljenje Sorting sekcije na tri podsekcije
         document.getElementsByClassName("pomocniKontejner")[0].style.visibility = "visible";
         document.getElementsByClassName("pomocniKontejner")[0].style.position = "relative";
@@ -76,9 +73,12 @@ sortBtn.addEventListener("click", () => {
         */
     }
     sortiranjeUToku = 1;
+    
     // Sakrivanje sekcije za opcije metode sortiranja, veličine niza...
     document.getElementsByClassName("opcije")[0].style.visibility = "hidden"
     document.getElementsByClassName("opcije")[0].style.position = "absolute"
+    
+
     // Proširenje sorting sekcije na cijeli ekran
     document.getElementsByClassName("sortiranje")[0].classList.add("col-12");
     document.getElementsByClassName("sortiranje")[0].style.borderRight = "none";
@@ -86,7 +86,6 @@ sortBtn.addEventListener("click", () => {
     document.getElementsByClassName("sortiranje")[0].style.borderRadius = "0px"
     document.getElementsByClassName("sortiranje")[0].style.visibility = "visible";
     document.getElementsByClassName("sortiranje")[0].style.position = "relative";
-
 
     // Popuniti Input sa vrijednostima iz barsHeight
     var preklopiSadrzaj = new String("")
