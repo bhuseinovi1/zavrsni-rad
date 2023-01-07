@@ -1,14 +1,14 @@
 // Obični anim
-const anim = (iznos, sipka, visina, boja, factorAnim = factorAnimVrijednost) => {
+const anim = (iznos, sipka, visina, boja, factorAnim = delay) => {
     setTimeout(() => {
         sipka.style.height = visina * faktorSkaliranja + "px";
         sipka.style.backgroundColor = boja;
         iznos.innerHTML = visina
-    }, (c += delay - factorAnim));
+    }, (c += factorAnim));
 };
 
 // Animate za Heap Sort
-const animateHeap = (kontejnerHeap, iznos, sipka, visina, boja, factorAnim = factorAnimVrijednost) => {
+const animateHeap = (kontejnerHeap, iznos, sipka, visina, boja, factorAnim = delay) => {
     setTimeout(() => {
         sipka.style.height = visina * faktorSkaliranja + "px";
         sipka.style.backgroundColor = boja;
@@ -21,11 +21,11 @@ const animateHeap = (kontejnerHeap, iznos, sipka, visina, boja, factorAnim = fac
             kontejnerHeap.style.visibility = "hidden"
             kontejnerHeap.style.position = "absolute"
         }
-    }, (c += delay - factorAnim));
+    }, (c += factorAnim));
 };
 
 // Animate za Address Sort
-const animateAddress = (elementiListe, elementListe, kontejner_kljuc, iznos, sipka, visina, boja, factorAnim = factorAnimVrijednost) => {
+const animateAddress = (elementiListe, elementListe, kontejner_kljuc, iznos, sipka, visina, boja, factorAnim = delay) => {
     setTimeout(() => {
         sipka.style.height = visina * faktorSkaliranja + "px";
         sipka.style.backgroundColor = boja;
@@ -34,20 +34,20 @@ const animateAddress = (elementiListe, elementListe, kontejner_kljuc, iznos, sip
         elementListe.innerHTML = visina
         elementiListe.appendChild(elementListe)
         elementListe.style.backgroundColor = boja;
-    }, (c += delay - factorAnim));
+    }, (c += factorAnim));
 };
 
-const animateAddressRemove = (elementiListe, kontejner_kljuc, boja, factorAnim = factorAnimVrijednost) => {
+const animateAddressRemove = (elementiListe, kontejner_kljuc, boja, factorAnim = delay) => {
     setTimeout(() => {
         elementiListe.innerHTML = '';
         kontejner_kljuc.style.backgroundColor = boja;
-    }, (c += delay - factorAnim));
+    }, (c += factorAnim));
 };
 
 
 
 // Animate za Merge Sort
-const animateMerge = (zaSortirati, kontejnerMerge, iznos, sipka, visina, boja, factorAnim = factorAnimVrijednost) => {
+const animateMerge = (zaSortirati, kontejnerMerge, iznos, sipka, visina, boja, factorAnim = delay) => {
     setTimeout(() => {
         sipka.style.height = visina * faktorSkaliranja + "px";
         sipka.style.backgroundColor = boja;
@@ -62,13 +62,13 @@ const animateMerge = (zaSortirati, kontejnerMerge, iznos, sipka, visina, boja, f
                 else kontejnerMerge.innerHTML += matches[i]
             }
         }
-    }, (c += delay - factorAnim));
+    }, (c += factorAnim));
 };
 
-const animateMergeSplit = (kontejnerMerge, sipka1, sipka2, boja, factorAnim = factorAnimVrijednost) => {
+const animateMergeSplit = (kontejnerMerge, sipka1, sipka2, boja, factorAnim = delay) => {
     setTimeout(() => {
         sipka1.style.backgroundColor = boja;
         sipka2.style.backgroundColor = boja;
         kontejnerMerge.style.backgroundColor = boja
-    }, (c += delay - factorAnim));
+    }, (c += factorAnim));
 };

@@ -145,7 +145,7 @@ sortBtn.addEventListener("click", () => {
 
     if (trenutniAlgoritam != 'Counting Sort') { // Niz A nije sortiran kod Counting Sorta
         for (let i = n - 1; i >= 0; i--) {
-            anim(iznosi[i], sipke_div[i], sipke_visina[i], sortiranBoja)
+            anim(iznosi[i], sipke_div[i], sipke_visina[i], sortiranBoja,100)
         }
     }
     c = 0;
