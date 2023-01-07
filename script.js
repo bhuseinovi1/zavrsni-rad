@@ -540,7 +540,7 @@ function isMobileBrowser() {
   return /Mobi|Android/i.test(navigator.userAgent);
 }
 
-if(isMobileDevice() || isMobileBrowser()) {
+if (isMobileDevice() || isMobileBrowser() || window.screen.width<767 || window.screen.width<767) {
   prikaziUpozorenje("Pristupate ovoj stranici koristeći mobilni uređaj! Neke funkcionalnosti neće raditi u skladu sa očekivanjima!");
 }
 
