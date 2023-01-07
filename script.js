@@ -345,7 +345,7 @@ function generateFromTheList() {
     sipke_div[index].classList.add("sipka");
 
     // Ako ima vise od 15 elemenata, napravi razmak
-    if (n > 15) sipke_div[index].style.marginLeft = "15px"
+    if (n > 15) sipke_div[index].style.marginLeft = "14px"
 
     // Dodaj šipku 'index' u kontejner
     sipkeKontejner.appendChild(sipke_div[index]);
@@ -441,7 +441,7 @@ function generateNewArray() {
     sipke_div[i].classList.add("sipka");
 
     // Ako ima vise od 15 elemenata, napravi razmak
-    if (n > 15) sipke_div[i].style.marginLeft = "15px"
+    if (n > 15) sipke_div[i].style.marginLeft = "14px"
 
     sipkeKontejner.appendChild(sipke_div[i]);
     sipke_div[i].style.height = sipke_visina[i] * faktorSkaliranja + "px";
