@@ -4,7 +4,7 @@ let sortiranjeUToku = 0;
 window.addEventListener("resize", function () {
   if (window.innerWidth <= 1200) {
     // Ako je rezolucija manja od 1200, ukloni Sorting sekciju samo ako se trenutno ne izvršava sorting
-    if(!Boolean(sortiranjeUToku)) {
+    if (!Boolean(sortiranjeUToku)) {
       document.getElementsByClassName("sortiranje")[0].style.visibility = "hidden";
       document.getElementsByClassName("sortiranje")[0].style.position = "absolute";
     }
@@ -31,9 +31,9 @@ window.addEventListener("resize", function () {
 });
 
 // Uklanjanje alerta
-document.body.addEventListener('click', function(arg1,arg2) {
+document.body.addEventListener('click', function (arg1, arg2) {
   ukloniAlert();
-}, true); 
+}, true);
 
 // GENERIŠI NASUMIČNI NIZ
 let generisiRandom = document.getElementById("generisiRandomNiz");
@@ -103,7 +103,7 @@ let speed = 16;
 let c = 0;
 let delay = 10000 / speed;
 
-let mapiran = [4,5,6,7,8,9,10,12,14,16,18,20,25,40,80,100,150,200,500,1000]
+let mapiran = [4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 25, 40, 80, 100, 150, 200, 500, 1000]
 
 function promijeniBrzinu(changed) {
   speed = mapiran[changed];
@@ -189,6 +189,19 @@ resetBtn.addEventListener("click", () => {
   generateFromTheList();
 })
 
+var nizKompleksnosti = [{ a: "Bubble Sort", tc: "n<sup>2</sup>" },
+{ a: "Bubble Sort Modified", tc: "n<sup>2</sup>" },
+{ a: "Insertion Sort", tc: "n<sup>2</sup>" },
+{ a: "Shell Sort", tc: "n<sup>1.3</sup>" },
+{ a: "Selection Sort", tc: "n<sup>2</sup>" },
+{ a: "Radix Sort", tc: "nk" },
+{ a: "Counting Sort", tc: "n+k" },
+{ a: "Quick Sort", tc: "nlog(n)" },
+{ a: "Heap Sort", tc: "nlog(n)" },
+{ a: "Address Sort", tc: "n" },
+{ a: "Merge Sort", tc: "nlog(n)" },
+  { a: "Insertion Sort Modified", tc: "n<sup>2</sup>" }];
+
 // Event listener za Navigation Bar
 let algoritmi = document.getElementsByClassName("dropdown-item");
 let trenutniAlgoritam = "Bubble Sort";
@@ -196,6 +209,14 @@ for (let i = 0; i < algoritmi.length; i++) {
   algoritmi[i].addEventListener("click", function () {
     trenutniAlgoritam = algoritmi[i].innerHTML;
     document.getElementById("naziv").innerHTML = trenutniAlgoritam.toUpperCase()
+
+    // Ispitivanje kompleksnosti
+    for(let i=0;i<nizKompleksnosti.length;i++) {
+      if(nizKompleksnosti[i].a == trenutniAlgoritam) {
+        document.getElementById("naziv").innerHTML+= (" - O("+nizKompleksnosti[i].tc+")");
+        break;
+      }
+    }
 
     // Promjena maksimalne vrijednosti slidera za veličinu niza na 20, ukoliko nije u pitanju Counting Sort
     document.getElementById("velicinaNiza")["max"] = 20

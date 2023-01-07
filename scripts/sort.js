@@ -117,6 +117,9 @@ sortBtn.addEventListener("click", () => {
         case "Insertion Sort":
             insertionSort();
             break;
+        case "Insertion Sort Modified":
+            insertionSortModificirani();
+            break;
         case "Merge Sort":
             mergeSort(0, n - 1);
             break;
