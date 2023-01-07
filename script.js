@@ -540,8 +540,14 @@ function isMobileBrowser() {
   return /Mobi|Android/i.test(navigator.userAgent);
 }
 
-if (isMobileDevice() || isMobileBrowser() || window.screen.width<767 || window.screen.width<767) {
+if (isMobileDevice() || isMobileBrowser() || window.screen.width<767 || window.screen.width<767 || 0<1) {
   prikaziUpozorenje("Pristupate ovoj stranici koristeći mobilni uređaj! Neke funkcionalnosti neće raditi u skladu sa očekivanjima!");
+}
+
+window.onload = function() {
+  if (isMobileDevice()) {
+    prikaziUpozorenje("Pristupate ovoj stranici koristeći mobilni uređaj! Neke funkcionalnosti neće raditi u skladu sa očekivanjima!");
+  }
 }
 
 generateNewArray();
