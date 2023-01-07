@@ -429,9 +429,9 @@ function generateNewArray() {
   }
 
   for (let i = 0; i < n; i++) {
-    sipke_visina[i] = randomBroj(50, 500);
+    sipke_visina[i] = Math.floor(Math.random() * (450 + 1) + 50);
     if (trenutniAlgoritam == "Counting Sort") {
-      sipke_visina[i] = randomBroj(0, 9);
+      sipke_visina[i] = Math.floor(Math.random() * 10);
     }
     else {
       if (i == 3) sipke_visina[i] = 500
@@ -530,6 +530,14 @@ if (window.innerWidth <= 1200) {
   // Raširi Opcije sekciju na cijeli ekran
   fullWidthSection("opcije");
   fullWidthSection("sortiranje");
+}
+
+function isMobileDevice() {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
+if(isMobileDevice()) {
+  prikaziUpozorenje("Pristupate ovoj stranici koristeći mobilni uređaj! Neke funkcionalnosti neće raditi u skladu sa očekivanjima!");
 }
 
 generateNewArray();

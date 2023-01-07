@@ -8,6 +8,7 @@ body {
 
   /* Uklanjanje scroll bar-a */
   overflow-x: hidden; 
+  
   height: 100%;
   margin: 0;
   padding: 0;

@@ -3,7 +3,6 @@
   text-align: center;
   height: 96%;
   min-height: 750px;
-/*   height: 900px; */
   border: 2px solid #737373;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.85);
@@ -27,7 +26,7 @@
   top: 0;
   left: 50%;
   transform: translate(-50%, 0);
-  z-index: 2; /* Zbog input polja za Shell sort */
+  z-index: 2; /* Zbog Input polja za Shell sort */
 }
 
 #velicinaNiza,
@@ -35,12 +34,6 @@
 #faktorSkaliranja {
   width: 100%;
 }
-
-/*
-#brzinaSortiranja {
-  transform: rotateY(180deg);;
-}
-*/
 
 #nizInput,
 #razmakInput,
