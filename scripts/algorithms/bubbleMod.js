@@ -1,4 +1,3 @@
-// Modificirano Bubble sortiranje
 function bubbleSortModificirani() {
     disable();
     let pom = n;
@@ -14,24 +13,17 @@ function bubbleSortModificirani() {
                 anim(iznosi[j], sipke_div[j], sipke_visina[j], zamijeniBoja);
                 anim(iznosi[j - 1], sipke_div[j - 1], sipke_visina[j - 1], zamijeniBoja);
                 pom = j;
-                //anim(iznosi[j], sipke_div[j], sipke_visina[j], "red");
             }
             anim(iznosi[j], sipke_div[j], sipke_visina[j], resetirajBoja);
             anim(iznosi[j - 1], sipke_div[j - 1], sipke_visina[j - 1], resetirajBoja);
-            for(let h=0; h<pom;h++) {
+            for (let h = 0; h < pom; h++) {
                 anim(iznosi[h], sipke_div[h], sipke_visina[h], resetirajBoja, 100);
             }
-            if(pom!=0) anim(iznosi[pom], sipke_div[pom], sipke_visina[pom], zadnjiSortirani);
+            if (pom != 0) anim(iznosi[pom], sipke_div[pom], sipke_visina[pom], zadnjiSortirani);
         }
-        if (pom != 0) {
-            for(let k = sortirani; k>=pom; k--) {
-                anim(iznosi[k], sipke_div[k], sipke_visina[k], sortiranBoja);
-            }
-            //sortirani-=(sortirani-pom);
-            sortirani = pom;
-            /*anim(iznosi[sortirani], sipke_div[sortirani], sipke_visina[sortirani], sortiranBoja);
-            sortirani = sortirani - 1;
-            */
+        for (let k = sortirani; k >= pom; k--) {
+            anim(iznosi[k], sipke_div[k], sipke_visina[k], sortiranBoja);
         }
+        sortirani = pom;
     } while (pom != 0);
 }

@@ -1,6 +1,6 @@
-// Merge sort
 function mergeSort(l, u) {
     disable();
+    // Kontejner za Merge Sort
     let stabloKontejner = document.createElement("div");
     stabloKontejner.classList.add("stabloKontejner")
     sipkeKontejnerB.appendChild(stabloKontejner);
@@ -26,22 +26,14 @@ function mergeSort(l, u) {
 function mergeSortStart(l, u, iteracija) {
     let counter = iteracija;
     if (u >= l) {
-        /*
-        animateMerge(0, novi_kontejneri[counter], iznosi[l], sipke_div[l], sipke_visina[l], iteracijaBoja);
-        if (u != l) animateMerge(0, novi_kontejneri[counter], iznosi[u], sipke_div[u], sipke_visina[u], iteracijaBoja);
-
-        animateMerge(0, novi_kontejneri[counter], iznosi[l], sipke_div[l], sipke_visina[l], resetirajBoja);
-        if (u != l) animateMerge(0, novi_kontejneri[counter], iznosi[u], sipke_div[u], sipke_visina[u], resetirajBoja);
-        */
+        // FAZA 1 - Kreiranje podnizova
         animateMergeSplit(novi_kontejneri[counter],sipke_div[l],sipke_div[u],iteracijaBoja);
         animateMergeSplit(novi_kontejneri[counter], sipke_div[l], sipke_div[u], resetirajBoja);
-
-        novi_kontejneri[counter].innerHTML = ""
+        novi_kontejneri[counter].innerHTML = "";
         for (let brojac = l; brojac <= u; brojac++) {
-            if (brojac != u) novi_kontejneri[counter].innerHTML += (sipke_visina[brojac]) + ","
-            else novi_kontejneri[counter].innerHTML += (sipke_visina[brojac])
+            if (brojac != u) novi_kontejneri[counter].innerHTML += (sipke_visina[brojac]) + ",";
+            else novi_kontejneri[counter].innerHTML += (sipke_visina[brojac]);
         }
-
         if (u > l) {
             let p = Math.floor((l + u - 1) / 2)
             let q = p + 1
@@ -50,11 +42,12 @@ function mergeSortStart(l, u, iteracija) {
             let spoji = merge(l, p, q, u, counter);
         }
         else {
+            // Šalje se vrijednost 0 kada je u podnizu samo jedan element (FAZA 2)
             animateMerge(0, novi_kontejneri[counter], iznosi[u], sipke_div[u], sipke_visina[u], parcijalnoSortiran);
-            return 1
+            return 1;
         }
     }
-    return 1
+    return 1;
 }
 
 function merge(l, p, q, u, counter) {
@@ -74,25 +67,24 @@ function merge(l, p, q, u, counter) {
             sipke_visina[k] = B[j];
             j++;
         }
-        animateMerge(1, novi_kontejneri[counter], iznosi[k], sipke_div[k], sipke_visina[k], zamijeniBoja)
-        animateMerge(1, novi_kontejneri[counter], iznosi[k], sipke_div[k], sipke_visina[k], parcijalnoSortiran)
+        // Šalje se vrijednost 1 kada se trebaju sortirati elementi u samom podnizu (FAZA 2)
+        animateMerge(1, novi_kontejneri[counter], iznosi[k], sipke_div[k], sipke_visina[k], zamijeniBoja);
+        animateMerge(1, novi_kontejneri[counter], iznosi[k], sipke_div[k], sipke_visina[k], parcijalnoSortiran);
         k++;
     }
     while (i <= p - l) {
-        sipke_visina[k] = B[i]
-        animateMerge(1, novi_kontejneri[counter], iznosi[k], sipke_div[k], sipke_visina[k], zamijeniBoja)
-        animateMerge(1, novi_kontejneri[counter], iznosi[k], sipke_div[k], sipke_visina[k], parcijalnoSortiran)
+        sipke_visina[k] = B[i];
+        animateMerge(1, novi_kontejneri[counter], iznosi[k], sipke_div[k], sipke_visina[k], zamijeniBoja);
+        animateMerge(1, novi_kontejneri[counter], iznosi[k], sipke_div[k], sipke_visina[k], parcijalnoSortiran);
         k++;
         i++;
     }
     while (j <= u - l) {
-        sipke_visina[k] = B[j]
-        animateMerge(1, novi_kontejneri[counter], iznosi[k], sipke_div[k], sipke_visina[k], zamijeniBoja)
-        animateMerge(1, novi_kontejneri[counter], iznosi[k], sipke_div[k], sipke_visina[k], parcijalnoSortiran)
+        sipke_visina[k] = B[j];
+        animateMerge(1, novi_kontejneri[counter], iznosi[k], sipke_div[k], sipke_visina[k], zamijeniBoja);
+        animateMerge(1, novi_kontejneri[counter], iznosi[k], sipke_div[k], sipke_visina[k], parcijalnoSortiran);
         k++;
         j++;
     }
     return 1
 }
-
-

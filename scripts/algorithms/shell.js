@@ -1,7 +1,6 @@
 
-// Shell sort
 function shellSort(razmaci) {
-    disable()
+    disable();
 
     let matches = [];
     if (razmaci == '') {

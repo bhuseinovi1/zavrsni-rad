@@ -1,23 +1,21 @@
-// Selektivno sortiranje 
 function selectionSort() {
     disable();
     for (let i = 0; i < n - 1; i++) {
-        anim(iznosi[i], sipke_div[i], sipke_visina[i], pivotBoja); // element sa kojim se poredi
+        anim(iznosi[i], sipke_div[i], sipke_visina[i], pivotBoja);
         let min = sipke_visina[i];
         let pmin = i;
 
         for (let j = i + 1; j < n; j++) {
-            anim(iznosi[j], sipke_div[j], sipke_visina[j], iteracijaBoja); // elementi u nizu
-
+            anim(iznosi[j], sipke_div[j], sipke_visina[j], iteracijaBoja);
             if (sipke_visina[j] < min) {
                 if (pmin != i) {
-                    anim(iznosi[pmin], sipke_div[pmin], sipke_visina[pmin], resetirajBoja); // resetiranje prethodno nadjenog najmanjeg elementa
+                    anim(iznosi[pmin], sipke_div[pmin], sipke_visina[pmin], resetirajBoja);
                 }
                 min = sipke_visina[j];
                 pmin = j;
-                anim(iznosi[pmin], sipke_div[pmin], sipke_visina[pmin], privremeniBoja); // oznavacanje najmanjeg
+                anim(iznosi[pmin], sipke_div[pmin], sipke_visina[pmin], privremeniBoja);
             } else {
-                anim(iznosi[j], sipke_div[j], sipke_visina[j], resetirajBoja); // resetiranje ako broj nije manji od trenutno najmanjeg
+                anim(iznosi[j], sipke_div[j], sipke_visina[j], resetirajBoja);
             }
         }
 
@@ -26,7 +24,6 @@ function selectionSort() {
             anim(iznosi[pmin], sipke_div[pmin], sipke_visina[pmin], zamijeniBoja);
             anim(iznosi[i], sipke_div[i], sipke_visina[i], zamijeniBoja);
         }
-
         anim(iznosi[pmin], sipke_div[pmin], sipke_visina[pmin], resetirajBoja);
         anim(iznosi[i], sipke_div[i], sipke_visina[i], sortiranBoja);
     }

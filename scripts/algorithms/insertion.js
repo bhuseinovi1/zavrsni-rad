@@ -1,7 +1,5 @@
-// Sortiranje umetanjem
 function insertionSort() {
     disable();
-
     for (let i = 1; i < n; i++) {
         let priv = sipke_visina[i];
         anim(iznosi[i], sipke_div[i], sipke_visina[i], privremeniBoja);
@@ -17,7 +15,6 @@ function insertionSort() {
             j = j - 1;
         }
         sipke_visina[j + 1] = priv;
-
         if (i != j + 1) {
             anim(iznosi[j + 1], sipke_div[j + 1], sipke_visina[j + 1], privremeniBoja);
         } else {
