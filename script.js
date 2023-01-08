@@ -609,7 +609,7 @@ function startTimer() {
   timeoutId = setTimeout(function () {
     window.stop();
     afterLoading();
-  }, 5000);
+  }, 2000);
 }
 
 function stopTimer() {
