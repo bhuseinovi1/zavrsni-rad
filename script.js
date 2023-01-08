@@ -318,6 +318,7 @@ let indeksi_C = [];
 
 // Za Address, Merge i Heap
 let novi_kontejneri = []
+let linije = []
 
 // Reference na kontejnere sipki
 let sipkeKontejner = document.querySelector(".sipkeCon");

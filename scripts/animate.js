@@ -33,6 +33,15 @@ const animateAddress = (elementiListe, elementListe, kontejner_kljuc, iznos, sip
         elementListe.innerHTML = visina;
         elementiListe.appendChild(elementListe);
         elementListe.style.backgroundColor = boja;
+        //console.log(elementListe.previousSibling);
+        if (elementListe.previousElementSibling != null) {
+            let line = new LeaderLine(
+                LeaderLine.pointAnchor(elementListe.previousSibling, { x: 60, y: 18}),
+                elementListe,
+                { startPlug: 'square', color: 'red', size: 3 }
+            );
+            linije[0].push(line)
+        }
     }, (c += factorAnim));
 };
 
@@ -40,6 +49,9 @@ const animateAddressRemove = (elementiListe, kontejner_kljuc, boja, factorAnim =
     setTimeout(() => {
         elementiListe.innerHTML = '';
         kontejner_kljuc.style.backgroundColor = boja;
+        for(let k = 0; k < linije[0].length; k++) {
+            linije[0][k].hide();
+        }
     }, (c += factorAnim));
 };
 

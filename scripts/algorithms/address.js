@@ -9,6 +9,9 @@ function addressSort(funkcija) {
         if (rezultat > brojKlasa) brojKlasa = rezultat;
     }
     brojKlasa++;
+    for (let i = 0; i < brojKlasa; i++) {
+        linije[i] = [];
+    }
 
     // Kontejner u kojem će biti smještene sve jednostruko povezane liste
     let listeKontejner = document.createElement("div");
@@ -44,7 +47,7 @@ function addressSort(funkcija) {
         // Kontejner za prikaz elementa liste
         let elementListe = document.createElement("div");
         elementListe.classList.add("elementListe");
-
+        
         animateAddress(elementiListe[kod], elementListe, novi_kontejneri[kod], iznosi[i], sipke_div[i], sipke_visina[i], parcijalnoSortiran);
         animateAddress(elementiListe[kod], elementListe, novi_kontejneri[kod], iznosi[i], sipke_div[i], sipke_visina[i], resetirajBoja);
     }
@@ -58,7 +61,7 @@ function addressSort(funkcija) {
     // Brisi i upisi iz jednostruko povezane liste
     let k = 0;
     for (let i = 0; i < brojKlasa; i++) {
-        animateAddressRemove(elementiListe[i], novi_kontejneri[i], iteracijaBoja);
+        animateAddressRemove(elementiListe[i], novi_kontejneri[i],iteracijaBoja);
         while (nizListi[i].get(0) != null) {
             // Uzmi element iz jednostruko povezane liste i ukloni ga iz iste
             var izbaceniElement = nizListi[i].shift().vrijednost;
