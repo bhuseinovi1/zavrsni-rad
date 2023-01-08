@@ -44,20 +44,20 @@ window.addEventListener("resize", function () {
   else {
     if (trenutniAlgoritam == "Counting Sort") {
       if (window.innerWidth <= 1600) document.documentElement.style.setProperty("--width", "20px");
-      else document.documentElement.style.setProperty("--width", "30px");
+      else document.documentElement.style.setProperty("--width", "28px");
     }
-    else if (trenutniAlgoritam == "Radix Sort") {
+    else if (trenutniAlgoritam == "Radix Sort" || trenutniAlgoritam == "Address Sort") {
       if (window.innerWidth <= 1600) {
-        if (n > 10) {
+        if (n > 15) {
           document.documentElement.style.setProperty("--width", "14px");
         }
         else document.documentElement.style.setProperty("--width", "20px");
       }
       else {
-        if (n > 10) {
-          document.documentElement.style.setProperty("--width", "25px");
+        if (n > 15) {
+          document.documentElement.style.setProperty("--width", "22px");
         }
-        else document.documentElement.style.setProperty("--width", "30px");
+        else document.documentElement.style.setProperty("--width", "28px");
       }
     }
   }
@@ -382,9 +382,9 @@ function generateFromTheList() {
 
   // Podešavanje širine jedne šipke
   if (n > 15) {
-    document.documentElement.style.setProperty("--width", "25px");
+    document.documentElement.style.setProperty("--width", "22px");
   } else {
-    document.documentElement.style.setProperty("--width", "30px");
+    document.documentElement.style.setProperty("--width", "28px");
   }
 
   for (let index = 0; index < n; index++) {
@@ -461,9 +461,9 @@ function generateNewArray() {
 
   // Podešavanje širine jedne šipke
   if (n > 15) {
-    document.documentElement.style.setProperty("--width", "25px");
+    document.documentElement.style.setProperty("--width", "22px");
   } else {
-    document.documentElement.style.setProperty("--width", "30px");
+    document.documentElement.style.setProperty("--width", "28px");
   }
 
   // U sadrzajPolja se upisuje string koji predstavlja sve generisane nasumične elemente odvojene zarezom
@@ -616,7 +616,7 @@ function stopTimer() {
   clearTimeout(timeoutId);
 }
 
-window.addEventListener("load", function() {
+window.addEventListener("load", function () {
   stopTimer();
   afterLoading();
 });

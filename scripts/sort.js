@@ -27,6 +27,14 @@ sortBtn.addEventListener("click", () => {
             return;
         }
 
+        if (window.innerWidth <= 1600) {
+            if (n > 15) document.documentElement.style.setProperty("--width", "14px");
+            else document.documentElement.style.setProperty("--width", "20px");
+        }
+        else {
+            if (n > 15) document.documentElement.style.setProperty("--width", "22px");
+        }
+
         // Dijeljenje Sorting sekcije na dvije podsekcije
         document.getElementsByClassName("pomocniKontejner")[0].style.visibility = "visible";
         document.getElementsByClassName("pomocniKontejner")[0].style.position = "relative";
@@ -57,11 +65,11 @@ sortBtn.addEventListener("click", () => {
     }
     else if (trenutniAlgoritam == "Radix Sort") {
         if (window.innerWidth <= 1600) {
-            if(n>10) document.documentElement.style.setProperty("--width", "14px");
+            if (n > 15) document.documentElement.style.setProperty("--width", "14px");
             else document.documentElement.style.setProperty("--width", "20px");
         }
         else {
-            if(n>10) document.documentElement.style.setProperty("--width", "25px"); 
+            if (n > 15) document.documentElement.style.setProperty("--width", "22px");
         }
 
         // Dijeljenje Sorting sekcije na dvije podsekcije
@@ -80,11 +88,11 @@ sortBtn.addEventListener("click", () => {
 
     // Zastava da je sortiranje u toku
     sortiranjeUToku = 1;
-    
+
     // Sakrivanje sekcije Opcije
     document.getElementsByClassName("opcije")[0].style.visibility = "hidden"
     document.getElementsByClassName("opcije")[0].style.position = "absolute"
-    
+
     // Proširenje Sorting sekcije na cijeli ekran
     fullWidthSection("sortiranje");
 
@@ -136,7 +144,7 @@ sortBtn.addEventListener("click", () => {
         case "Radix Sort":
             radixSort();
             break;
-        default: 
+        default:
             bubbleSort();
     }
 
