@@ -31,14 +31,14 @@ window.addEventListener("resize", function () {
     }
   }
   else {
-    if(trenutniAlgoritam == "Counting Sort") {
+    if (trenutniAlgoritam == "Counting Sort") {
       if (window.innerWidth <= 1600) document.documentElement.style.setProperty("--width", "20px");
       else document.documentElement.style.setProperty("--width", "30px");
     }
     else if (trenutniAlgoritam == "Radix Sort") { // PODEŠAVANJA ZA RADIX SORT
       if (window.innerWidth <= 1600) {
-        if (n > 10)  { 
-          document.documentElement.style.setProperty("--width", "14px"); 
+        if (n > 10) {
+          document.documentElement.style.setProperty("--width", "14px");
         }
         else document.documentElement.style.setProperty("--width", "20px");
       }
@@ -83,7 +83,7 @@ function checkAndGenerateFromTheList() {
     prikaziAlert("Potrebno je minimalno 6 elemenata!")
     return
   }
-  else if(trenutniAlgoritam == 'Counting Sort') {
+  else if (trenutniAlgoritam == 'Counting Sort') {
     if (matches.length > 10) {
       prikaziAlert("Dozvoljeno je najviše 10 elemenata!")
       return
@@ -177,11 +177,20 @@ resetBtn.addEventListener("click", () => {
   else if (trenutniAlgoritam == 'Address Sort') {
     document.getElementsByClassName("funkcijaDiv")[0].style.visibility = "visible";
     document.getElementsByClassName("funkcijaDiv")[0].style.position = "relative";
+    nizLinija.forEach(linije => linije.forEach(linija => {
+      try {
+        linija.remove();
+        console.log("Linija obrisana");
+      }
+      catch {
+        console.log("Ne može se obrisati nedefinirana linija");
+      }
+    }));
   }
-  
+
   // Sve su opcije ponovo vidljive
   document.getElementsByClassName("opcije")[0].style.position = "relative"
-  document.getElementsByClassName("opcije")[0].style.visibility = "visible"  
+  document.getElementsByClassName("opcije")[0].style.visibility = "visible"
 
   if (window.innerWidth <= 1200) {
     fullWidthSection("opcije");
@@ -318,7 +327,7 @@ let indeksi_C = [];
 
 // Za Address, Merge i Heap
 let novi_kontejneri = []
-let linije = []
+let nizLinija = []
 
 // Reference na kontejnere sipki
 let sipkeKontejner = document.querySelector(".sipkeCon");
@@ -354,7 +363,7 @@ function generateFromTheList() {
   let ispod20 = 0;
 
   // Podesavanje širine jedne šipke
-  
+
   if (n > 15) {
     document.documentElement.style.setProperty("--width", "25px");
   } else {
@@ -433,7 +442,7 @@ function generateNewArray() {
   indeksi_B = []
   indeksi_C = []
 
-  
+
   if (n > 15) {
     document.documentElement.style.setProperty("--width", "25px");
   } else {
@@ -559,7 +568,7 @@ function isMobileDevice() {
   return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
 
-window.onload = function() {
+window.onload = function () {
   if (isMobileDevice()) {
     prikaziUpozorenje("Pristupate ovoj stranici koristeći mobilni uređaj! Neke funkcionalnosti neće raditi u skladu sa očekivanjima!");
   }

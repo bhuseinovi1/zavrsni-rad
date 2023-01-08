@@ -24,9 +24,8 @@ const animateHeap = (kontejnerHeap, iznos, sipka, visina, boja, factorAnim = del
 };
 
 // Animate za Address Sort
-const animateAddress = (elementiListe, elementListe, kontejner_kljuc, iznos, sipka, visina, kod, boja, factorAnim = delay) => {
+const animateAddress = (elementiListe, elementListe, kontejner_kljuc, iznos, sipka, visina, linije, boja, factorAnim = delay) => {
     setTimeout(() => {
-        console.log(kod);
         sipka.style.height = visina * faktorSkaliranja + "px";
         sipka.style.backgroundColor = boja;
         iznos.innerHTML = visina;
@@ -35,23 +34,23 @@ const animateAddress = (elementiListe, elementListe, kontejner_kljuc, iznos, sip
         elementiListe.appendChild(elementListe);
         elementListe.style.backgroundColor = boja;
         //console.log(elementListe.previousSibling);
-        if (elementListe.previousElementSibling != null) {
+        if (elementListe.previousElementSibling != null && elementListe!=null) {
             let line = new LeaderLine(
-                LeaderLine.pointAnchor(elementListe.previousSibling, { x: 60, y: 18}),
+                LeaderLine.pointAnchor(elementListe.previousSibling, { x: 60, y: 18 }),
                 elementListe,
                 { startPlug: 'square', color: 'red', size: 3 }
             );
-            linije[kod].push(line)
+            linije.push(line)
         }
     }, (c += factorAnim));
 };
 
-const animateAddressRemove = (elementiListe, kontejner_kljuc, kod, boja, factorAnim = delay) => {
+const animateAddressRemove = (elementiListe, kontejner_kljuc, linije, boja, factorAnim = delay) => {
     setTimeout(() => {
         elementiListe.innerHTML = '';
         kontejner_kljuc.style.backgroundColor = boja;
-        for(let k = 0; k < linije[kod].length; k++) {
-            linije[kod][k].hide();
+        for (let k = 0; k < linije.length; k++) {
+            linije[k].remove();
         }
     }, (c += factorAnim));
 };
@@ -63,7 +62,7 @@ const animateMerge = (zaSortirati, kontejnerMerge, iznos, sipka, visina, boja, f
         sipka.style.backgroundColor = boja;
         iznos.innerHTML = visina;
         kontejnerMerge.style.backgroundColor = boja;
-        
+
         if (Boolean(zaSortirati)) {
             let matches = kontejnerMerge.innerHTML.toString().match(/\d+/g);
             kontejnerMerge.innerHTML = "";

@@ -11,7 +11,7 @@ function addressSort(funkcija) {
     brojKlasa++;
     // Kreiranje nizova linija
     for (let i = 0; i < brojKlasa; i++) {
-        linije[i] = [];
+        nizLinija[i] = [];
     }
 
     // Kontejner u kojem će biti smještene sve jednostruko povezane liste
@@ -50,8 +50,8 @@ function addressSort(funkcija) {
         elementListe.classList.add("elementListe");
         
         // Animiraj dodavanje elementa u listu
-        animateAddress(elementiListe[kod], elementListe, novi_kontejneri[kod], iznosi[i], sipke_div[i], sipke_visina[i], kod, parcijalnoSortiran);
-        animateAddress(elementiListe[kod], elementListe, novi_kontejneri[kod], iznosi[i], sipke_div[i], sipke_visina[i], kod, resetirajBoja);
+        animateAddress(elementiListe[kod], elementListe, novi_kontejneri[kod], iznosi[i], sipke_div[i], sipke_visina[i], nizLinija[kod], parcijalnoSortiran);
+        animateAddress(elementiListe[kod], elementListe, novi_kontejneri[kod], iznosi[i], sipke_div[i], sipke_visina[i], nizLinija[kod], resetirajBoja);
     }
 
     // Sortiranje jednostruko povezanih listi metodom sortiranja umetanjem
@@ -64,7 +64,7 @@ function addressSort(funkcija) {
     let k = 0;
     for (let i = 0; i < brojKlasa; i++) {
         // Animacija uklanjanja elemenata i linija
-        animateAddressRemove(elementiListe[i], novi_kontejneri[i], i, iteracijaBoja);
+        animateAddressRemove(elementiListe[i], novi_kontejneri[i], nizLinija[i], iteracijaBoja);
         while (nizJPListi[i].get(0) != null) {
             // Uzmi element iz jednostruko povezane liste i ukloni ga iz iste
             var izbaceniElement = nizJPListi[i].shift().vrijednost;
@@ -73,14 +73,9 @@ function addressSort(funkcija) {
             elementListe.classList.add("elementListe");
             
             // Animiraj dodavanje elementa u listu
-            animateAddress(elementiListe[i], elementListe, novi_kontejneri[i], iznosi[k], sipke_div[k], sipke_visina[k], i, parcijalnoSortiran);
+            animateAddress(elementiListe[i], elementListe, novi_kontejneri[i], iznosi[k], sipke_div[k], sipke_visina[k], nizLinija[i], parcijalnoSortiran);
             k++;
         }
-    }
-
-    // Vrati listu na default postavke
-    for (let i = 0; i < brojKlasa; i++) {
-        animateAddressRemove(elementiListe[i], novi_kontejneri[i], i, iteracijaBoja);
     }
 
     novi_kontejneri = [];
