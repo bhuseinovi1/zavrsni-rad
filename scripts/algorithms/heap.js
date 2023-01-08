@@ -51,6 +51,7 @@ function heapSort() {
     stabloKontejner.classList.add("stabloKontejner")
     sipkeKontejnerB.appendChild(stabloKontejner);
 
+    // Kreiranje kontejnera za prikaz elemenata gomile u obliku stabla
     let k = 0;
     for (let i = 1; i <= n; i *= 2) {
         for (let j = 0; j < i; j++) {

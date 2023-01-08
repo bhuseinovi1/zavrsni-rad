@@ -31,7 +31,6 @@ function particija(prvi, zadnji) {
         }
     }
 
-    // Oni koji nisu do sad sortirani
     if (p <= zadnji) {
         anim(iznosi[p], sipke_div[p], sipke_visina[p], resetirajBoja);
     }

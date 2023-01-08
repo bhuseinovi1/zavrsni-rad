@@ -5,7 +5,8 @@
 }
 
 @-moz-document url-prefix() {
-  html,body {
+  html,
+  body {
     background-color: #212529;
   }
-}  
+}

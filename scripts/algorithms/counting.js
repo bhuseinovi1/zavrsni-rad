@@ -10,7 +10,7 @@ function countingSort() {
         sipke_B_div[i] = document.createElement("div");
         sipke_B_div[i].classList.add("sipka");
 
-        // Ako ima vise od 15 elemenata, napravi razmak
+        // Ako ima vise od 15 elemenata, dodaj margin
         if (n > 15) sipke_B_div[i].style.marginLeft = "15px";
 
         sipkeKontejnerB.appendChild(sipke_B_div[i]);
@@ -41,7 +41,7 @@ function countingSort() {
         sipke_C_div[i] = document.createElement("div");
         sipke_C_div[i].classList.add("sipka");
 
-        // Ako ima vise od 15 elemenata, napravi razmak
+        // Ako ima vise od 15 elemenata, dodaj margin
         if (n > 15) sipke_C_div[i].style.marginLeft = "15px";
 
         sipkeKontejnerC.appendChild(sipke_C_div[i]);
@@ -77,7 +77,7 @@ function countingSort() {
         anim(iznosi[j], sipke_div[j], sipke_visina[j], resetirajBoja);
     }
 
-    // Druga faza algoritma - svaki element niza C jednako zbiru samog sebe sa prethodnim elementom
+    // Druga faza algoritma - svaki element niza C jednak zbiru samog sebe sa prethodnim elementom
     for (let i = 1; i <= K; i++) {
         anim(iznosi_C[i], sipke_C_div[i], sipke_C_visina[i], iteracijaBoja);
         anim(iznosi_C[i - 1], sipke_C_div[i - 1], sipke_C_visina[i - 1], privremeniBoja);
@@ -87,7 +87,7 @@ function countingSort() {
         anim(iznosi_C[i], sipke_C_div[i], sipke_C_visina[i], resetirajBoja);
     }
 
-    // Treća faza - svako X iz niza A smjesti na odgovarajući indeks niza B
+    // Treća faza - svako X iz niza A smjesti na odgovarajući indeks niza B koji se određuje tako što se uzima vrijednost iz niza C koja odgovara elementu X umanjena za 1
     for (let j = n - 1; j >= 0; j--) {
         anim(iznosi[j], sipke_div[j], sipke_visina[j], iteracijaBoja);
         anim(iznosi_C[sipke_visina[j]], sipke_C_div[sipke_visina[j]], sipke_C_visina[sipke_visina[j]], iteracijaBoja)

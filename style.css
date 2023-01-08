@@ -7,8 +7,8 @@ body {
   -ms-overflow-style: none;
 
   /* Uklanjanje scroll bar-a */
-  overflow-x: hidden; 
-  
+  overflow-x: hidden;
+
   height: 100%;
   margin: 0;
   padding: 0;
@@ -17,9 +17,9 @@ body {
 }
 
 /* Za Webkit bazirane pretraživače */
-body::-webkit-scrollbar{
-    display: none;
-  }
+body::-webkit-scrollbar {
+  display: none;
+}
 
 .content {
   position: relative;

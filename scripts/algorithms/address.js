@@ -32,7 +32,7 @@ function addressSort(funkcija) {
         novi_kontejneri[i].appendChild(elementiListe[i]);
     }
 
-    // Kreiranje niza jednostruko povezanih lista
+    // Kreiranje niza jednostruko povezanih listi
     let nizJPListi = [];
     for (let i = 0; i < brojKlasa; i++) {
         nizJPListi[i] = new JPLista();
@@ -48,7 +48,7 @@ function addressSort(funkcija) {
         // Kontejner za prikaz elementa liste
         let elementListe = document.createElement("div");
         elementListe.classList.add("elementListe");
-        
+
         // Animiraj dodavanje elementa u listu
         animateAddress(elementiListe[kod], elementListe, novi_kontejneri[kod], iznosi[i], sipke_div[i], sipke_visina[i], nizLinija[kod], parcijalnoSortiran);
         animateAddress(elementiListe[kod], elementListe, novi_kontejneri[kod], iznosi[i], sipke_div[i], sipke_visina[i], nizLinija[kod], resetirajBoja);
@@ -60,7 +60,7 @@ function addressSort(funkcija) {
         nizJPListi[kod].insertionSort(nizJPListi[kod].pocetak);
     }
 
-    // Brisi i upisi iz jednostruko povezane liste
+    // Briši i upiši iz jednostruko povezane liste
     let k = 0;
     for (let i = 0; i < brojKlasa; i++) {
         // Animacija uklanjanja elemenata i linija
@@ -71,7 +71,7 @@ function addressSort(funkcija) {
             sipke_visina[k] = izbaceniElement;
             let elementListe = document.createElement("div");
             elementListe.classList.add("elementListe");
-            
+
             // Animiraj dodavanje elementa u listu
             animateAddress(elementiListe[i], elementListe, novi_kontejneri[i], iznosi[k], sipke_div[k], sipke_visina[k], nizLinija[i], parcijalnoSortiran);
             k++;

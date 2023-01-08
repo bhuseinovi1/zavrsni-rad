@@ -9,11 +9,11 @@ sortBtn.addEventListener("click", () => {
             prikaziAlert("Niste unijeli izraz!");
             return;
         }
+
         // Funkcija mora biti validna za sve ulaze
-        let fija = funkcija.toString();
         try {
             sipke_visina.forEach(function (item) {
-                eval(fija.replace(/x/g, "(" + item + ")"));
+                eval(funkcija.toString().replace(/x/g, "(" + item + ")"));
             })
         }
         catch {
@@ -21,17 +21,19 @@ sortBtn.addEventListener("click", () => {
             return;
         }
         if (!sipke_visina.every(function (item) {
-            return Number.isFinite(eval(fija.replace(/x/g, "(" + item + ")")));
+            return Number.isFinite(eval(funkcija.toString().replace(/x/g, "(" + item + ")")));
         })) {
             prikaziAlert("Postoje članovi niza nad kojima primjena date funkcije nije definisana!");
             return;
         }
+
         // Dijeljenje Sorting sekcije na dvije podsekcije
         document.getElementsByClassName("pomocniKontejner")[0].style.visibility = "visible";
         document.getElementsByClassName("pomocniKontejner")[0].style.position = "relative";
         document.getElementsByClassName("sipkeCon")[0].style.width = "50%";
         document.getElementsByClassName("pomocniKontejner")[0].style.width = "50%";
     }
+    // Validacija Shell Sort
     else if (trenutniAlgoritam == "Shell Sort") {
         // Validacija niza razmaka
         var razmaciValidacija = document.getElementById('razmaciInput').value;
@@ -43,6 +45,7 @@ sortBtn.addEventListener("click", () => {
     }
     else if (trenutniAlgoritam == "Counting Sort") {
         if (window.innerWidth <= 1600) document.documentElement.style.setProperty("--width", "20px");
+
         // Dijeljenje Sorting sekcije na tri podsekcije
         document.getElementsByClassName("pomocniKontejner")[0].style.visibility = "visible";
         document.getElementsByClassName("pomocniKontejner")[0].style.position = "relative";
@@ -60,6 +63,7 @@ sortBtn.addEventListener("click", () => {
         else {
             if(n>10) document.documentElement.style.setProperty("--width", "25px"); 
         }
+
         // Dijeljenje Sorting sekcije na dvije podsekcije
         document.getElementsByClassName("pomocniKontejner")[0].style.visibility = "visible";
         document.getElementsByClassName("pomocniKontejner")[0].style.position = "relative";
@@ -73,24 +77,26 @@ sortBtn.addEventListener("click", () => {
         document.getElementsByClassName("sipkeCon")[0].style.width = "100%";
         document.getElementsByClassName("pomocniKontejner")[0].style.width = "100%";
     }
+
+    // Zastava da je sortiranje u toku
     sortiranjeUToku = 1;
     
-    // Sakrivanje sekcije za opcije metode sortiranja, veličine niza...
+    // Sakrivanje sekcije Opcije
     document.getElementsByClassName("opcije")[0].style.visibility = "hidden"
     document.getElementsByClassName("opcije")[0].style.position = "absolute"
     
     // Proširenje Sorting sekcije na cijeli ekran
     fullWidthSection("sortiranje");
 
-    // Popuniti Input sa vrijednostima iz sipke_visina
-    var preklopiSadrzaj = new String("")
+    // Popuniti Input sa vrijednostima zadnjeg validnog unosa
+    var upisiUInputPolje = new String("")
     for (let i = 0; i < n; i++) {
-        preklopiSadrzaj += sipke_visina[i];
-        if (i != n - 1) preklopiSadrzaj += ',';
+        upisiUInputPolje += sipke_visina[i];
+        if (i != n - 1) upisiUInputPolje += ',';
     }
-    document.getElementById('nizInput').value = preklopiSadrzaj;
+    document.getElementById('nizInput').value = upisiUInputPolje;
 
-    // Odabir algoritma
+    // Odabir algoritma za sortiranje
     switch (trenutniAlgoritam) {
         case "Address Sort":
             let funkcija = document.getElementById("funkcijaInput").value;

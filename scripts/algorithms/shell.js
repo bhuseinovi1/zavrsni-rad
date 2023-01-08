@@ -1,8 +1,8 @@
-
 function shellSort(razmaci) {
     disable();
 
     let matches = [];
+    // Ako se proslijedilo prazno polje pretpostavlja se da niz razmaka ima jedan element - 1, tako da se vrši običan Insertion Sort
     if (razmaci == '') {
         matches[0] = 1;
     }

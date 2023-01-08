@@ -1,5 +1,5 @@
 function insertionSortModificirani() {
-    disable();    
+    disable();
     for (let i = 1; i < n; i++) {
         let priv = sipke_visina[i];
         anim(iznosi[i], sipke_div[i], sipke_visina[i], privremeniBoja);
@@ -9,15 +9,15 @@ function insertionSortModificirani() {
         let privL = l;
         let mid;
         // Binarna pretraga
-        while(r >= l) {
-            mid = l + Math.floor((r-l)/2);
-            anim(iznosi[mid],sipke_div[mid],sipke_visina[mid],iteracijaBoja);
-            if(sipke_visina[mid] > priv) {
-                if(mid-1 < privL) {
+        while (r >= l) {
+            mid = l + Math.floor((r - l) / 2);
+            anim(iznosi[mid], sipke_div[mid], sipke_visina[mid], iteracijaBoja);
+            if (sipke_visina[mid] > priv) {
+                if (mid - 1 < privL) {
                     j = -1;
                     break;
                 }
-                else if(sipke_visina[mid-1] <= priv) {
+                else if (sipke_visina[mid - 1] <= priv) {
                     j = mid - 1;
                     break;
                 }
@@ -31,8 +31,8 @@ function insertionSortModificirani() {
                 l = mid + 1;
             }
         }
-        for(let k = i; k > j + 1; k--) {
-            sipke_visina[k] = sipke_visina[k-1];
+        for (let k = i; k > j + 1; k--) {
+            sipke_visina[k] = sipke_visina[k - 1];
             anim(iznosi[k], sipke_div[k], sipke_visina[k], helperBoja);
         }
         sipke_visina[j + 1] = priv;

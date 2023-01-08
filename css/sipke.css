@@ -11,7 +11,8 @@
   background-color: whitesmoke;
   margin-left: 10px;
   display: inline-block;
-  border-radius: 50px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
   transition: ease-out 0.3s;
 }
 
@@ -27,7 +28,7 @@
 
 .iznosi {
   background-color: black;
-  top: -0.8em;
+  top: -20px;
   width: 150%;
   border: 1px solid whitesmoke;
   border-radius: 50%;
@@ -35,6 +36,6 @@
 
 .indeksi {
   background-color: rgba(0, 0, 0, 0);
-  bottom: -2em;
+  bottom: -32px;
   margin-bottom: 0;
 }

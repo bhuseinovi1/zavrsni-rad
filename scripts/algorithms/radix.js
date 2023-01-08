@@ -7,7 +7,7 @@ function radixSort() {
         sipke_B_div[i] = document.createElement("div");
         sipke_B_div[i].classList.add("sipka");
 
-        // Ako ima vise od 15 elemenata, napravi razmak
+        // Ako ima vise od 15 elemenata, dodaj margin
         if (n > 15) sipke_B_div[i].style.marginLeft = "15px";
 
         sipkeKontejnerB.appendChild(sipke_B_div[i]);
@@ -49,10 +49,10 @@ function radixSort() {
                     index = index + 1;
                 }
                 anim(iznosi[i], sipke_div[i], sipke_visina[i], resetirajBoja);
-                // Prekid ako je vec popunjen pomocni niz
+                // Prekid ako je već popunjen pomoćni niz
                 if (index == n) break;
             }
-            // Prekid ako je vec popunjen pomocni niz
+            // Prekid ako je već popunjen pomoćni niz
             if (index == n) break;
         }
         // Prebacivanje elemenata iz niza B u niz A

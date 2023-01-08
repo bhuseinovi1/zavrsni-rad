@@ -1,9 +1,12 @@
 function mergeSort(l, u) {
     disable();
+
     // Kontejner za Merge Sort
     let stabloKontejner = document.createElement("div");
     stabloKontejner.classList.add("stabloKontejner")
     sipkeKontejnerB.appendChild(stabloKontejner);
+
+    // Kreiranje elemenata za čuvanje kreiranih podnizova
     let k = 0;
     for (let i = 1; ; i *= 2) {
         for (let j = 0; j < i; j++) {
@@ -18,16 +21,18 @@ function mergeSort(l, u) {
         if (i >= n) break;
     }
 
+    // Pokretanje Merge Sort
     let iteracija = 0;
     let kraj = mergeSortStart(l, u, iteracija);
     novi_kontejneri = [];
 }
 
+// FAZA 1 - DIJELJENJE
 function mergeSortStart(l, u, iteracija) {
     let counter = iteracija;
     if (u >= l) {
         // FAZA 1 - Kreiranje podnizova
-        animateMergeSplit(novi_kontejneri[counter],sipke_div[l],sipke_div[u],iteracijaBoja);
+        animateMergeSplit(novi_kontejneri[counter], sipke_div[l], sipke_div[u], iteracijaBoja);
         animateMergeSplit(novi_kontejneri[counter], sipke_div[l], sipke_div[u], resetirajBoja);
         novi_kontejneri[counter].innerHTML = "";
         for (let brojac = l; brojac <= u; brojac++) {
@@ -42,7 +47,7 @@ function mergeSortStart(l, u, iteracija) {
             let spoji = merge(l, p, q, u, counter);
         }
         else {
-            // Šalje se vrijednost 0 kada je u podnizu samo jedan element (FAZA 2)
+            // FAZA 2 - Kada se u podnizu nađe jedan element, nema potrebe za sortiranjem
             animateMerge(0, novi_kontejneri[counter], iznosi[u], sipke_div[u], sipke_visina[u], parcijalnoSortiran);
             return 1;
         }
@@ -50,6 +55,7 @@ function mergeSortStart(l, u, iteracija) {
     return 1;
 }
 
+// FAZA 2 - SASTAVLJANJE
 function merge(l, p, q, u, counter) {
     let i = 0;
     let j = q - l;
@@ -67,7 +73,6 @@ function merge(l, p, q, u, counter) {
             sipke_visina[k] = B[j];
             j++;
         }
-        // Šalje se vrijednost 1 kada se trebaju sortirati elementi u samom podnizu (FAZA 2)
         animateMerge(1, novi_kontejneri[counter], iznosi[k], sipke_div[k], sipke_visina[k], zamijeniBoja);
         animateMerge(1, novi_kontejneri[counter], iznosi[k], sipke_div[k], sipke_visina[k], parcijalnoSortiran);
         k++;
