@@ -592,7 +592,7 @@ function isMobileDevice() {
   return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
 
-window.onload = function () {
+function afterLoading() {
   if (isMobileDevice()) {
     document.getElementById("velicinaNiza").value = 6;
     n = 6;
@@ -602,3 +602,23 @@ window.onload = function () {
     prikaziUpozorenje("Pristupate ovoj stranici koristeći mobilni uređaj! Neke funkcionalnosti neće raditi u skladu sa očekivanjima!");
   }
 }
+
+let timeoutId;
+
+function startTimer() {
+  timeoutId = setTimeout(function () {
+    window.stop();
+    afterLoading();
+  }, 5000);
+}
+
+function stopTimer() {
+  clearTimeout(timeoutId);
+}
+
+window.addEventListener("load", function() {
+  stopTimer();
+  afterLoading();
+});
+
+startTimer();
