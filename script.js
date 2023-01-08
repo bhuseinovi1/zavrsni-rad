@@ -594,8 +594,11 @@ function isMobileDevice() {
 
 window.onload = function () {
   if (isMobileDevice()) {
+    document.getElementById("velicinaNiza").value = 6;
+    n = 6;
+  }
+  generateNewArray();
+  if (isMobileDevice()) {
     prikaziUpozorenje("Pristupate ovoj stranici koristeći mobilni uređaj! Neke funkcionalnosti neće raditi u skladu sa očekivanjima!");
   }
 }
-
-generateNewArray();
