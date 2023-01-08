@@ -50,7 +50,7 @@ function addressSort(funkcija) {
         elementListe.classList.add("elementListe");
 
         // Animiraj dodavanje elementa u listu
-        animateAddress(elementiListe[kod], elementListe, novi_kontejneri[kod], iznosi[i], sipke_div[i], sipke_visina[i], nizLinija[kod], parcijalnoSortiran);
+        animateAddress(elementiListe[kod], elementListe, novi_kontejneri[kod], iznosi[i], sipke_div[i], sipke_visina[i], nizLinija[kod], parcijalnoSortiranBoja);
         animateAddress(elementiListe[kod], elementListe, novi_kontejneri[kod], iznosi[i], sipke_div[i], sipke_visina[i], nizLinija[kod], resetirajBoja);
     }
 
@@ -73,7 +73,7 @@ function addressSort(funkcija) {
             elementListe.classList.add("elementListe");
 
             // Animiraj dodavanje elementa u listu
-            animateAddress(elementiListe[i], elementListe, novi_kontejneri[i], iznosi[k], sipke_div[k], sipke_visina[k], nizLinija[i], parcijalnoSortiran);
+            animateAddress(elementiListe[i], elementListe, novi_kontejneri[i], iznosi[k], sipke_div[k], sipke_visina[k], nizLinija[i], parcijalnoSortiranBoja);
             k++;
         }
     }

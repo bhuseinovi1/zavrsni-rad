@@ -11,7 +11,7 @@ function countingSort() {
         sipke_B_div[i].classList.add("sipka");
 
         // Ako ima vise od 15 elemenata, dodaj margin
-        if (n > 15) sipke_B_div[i].style.marginLeft = "15px";
+        if (n > 15) sipke_B_div[i].style.marginLeft = "14px";
 
         sipkeKontejnerB.appendChild(sipke_B_div[i]);
         sipke_B_div[i].style.height = "0px";
@@ -42,7 +42,7 @@ function countingSort() {
         sipke_C_div[i].classList.add("sipka");
 
         // Ako ima vise od 15 elemenata, dodaj margin
-        if (n > 15) sipke_C_div[i].style.marginLeft = "15px";
+        if (n > 15) sipke_C_div[i].style.marginLeft = "14px";
 
         sipkeKontejnerC.appendChild(sipke_C_div[i]);
         sipke_C_div[i].style.height = "0px";

@@ -1,7 +1,7 @@
 // Obični animate
 const anim = (iznos, sipka, visina, boja, factorAnim = delay) => {
     setTimeout(() => {
-        sipka.style.height = visina * faktorSkaliranja + "px";
+        sipka.style.height = visina * scaleFactor + "px";
         sipka.style.backgroundColor = boja;
         iznos.innerHTML = visina;
     }, (c += factorAnim));
@@ -10,7 +10,7 @@ const anim = (iznos, sipka, visina, boja, factorAnim = delay) => {
 // Animate za Heap Sort
 const animateHeap = (kontejnerHeap, iznos, sipka, visina, boja, factorAnim = delay) => {
     setTimeout(() => {
-        sipka.style.height = visina * faktorSkaliranja + "px";
+        sipka.style.height = visina * scaleFactor + "px";
         sipka.style.backgroundColor = boja;
         iznos.innerHTML = visina;
         kontejnerHeap.style.backgroundColor = boja;
@@ -26,7 +26,7 @@ const animateHeap = (kontejnerHeap, iznos, sipka, visina, boja, factorAnim = del
 // Animate za Address Sort
 const animateAddress = (elementiListe, elementListe, kontejner_kljuc, iznos, sipka, visina, linije, boja, factorAnim = delay) => {
     setTimeout(() => {
-        sipka.style.height = visina * faktorSkaliranja + "px";
+        sipka.style.height = visina * scaleFactor + "px";
         sipka.style.backgroundColor = boja;
         iznos.innerHTML = visina;
         kontejner_kljuc.style.backgroundColor = boja;
@@ -34,7 +34,7 @@ const animateAddress = (elementiListe, elementListe, kontejner_kljuc, iznos, sip
         elementiListe.appendChild(elementListe);
         elementListe.style.backgroundColor = boja;
         try {
-            if (elementListe.previousElementSibling != null && elementListe!=null) {
+            if (elementListe.previousElementSibling != null && elementListe != null) {
                 let line = new LeaderLine(
                     LeaderLine.pointAnchor(elementListe.previousSibling, { x: 60, y: 18 }),
                     elementListe,
@@ -67,7 +67,7 @@ const animateAddressRemove = (elementiListe, kontejner_kljuc, linije, boja, fact
 // Animate za Merge Sort
 const animateMerge = (zaSortirati, kontejnerMerge, iznos, sipka, visina, boja, factorAnim = delay) => {
     setTimeout(() => {
-        sipka.style.height = visina * faktorSkaliranja + "px";
+        sipka.style.height = visina * scaleFactor + "px";
         sipka.style.backgroundColor = boja;
         iznos.innerHTML = visina;
         kontejnerMerge.style.backgroundColor = boja;
