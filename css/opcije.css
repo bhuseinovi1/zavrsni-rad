@@ -2,14 +2,11 @@
   position: relative;
   text-align: center;
   height: 96%;
-  min-height: 750px;
+  min-height: 850px;
   border: 2px solid #737373;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.85);
   min-width: 200px;
-  /* ZA FIREFOX
-  background-color: #15171a;
-  */
 }
 
 .appName {
@@ -54,7 +51,7 @@ input[type="text"] {
 input[type="text"]:focus {
   position: fixed;
   z-index: 3;
-  left: 2%; /* Ovo ga centrira horizontalno jer je width 96% */
+  left: 2%; /* Horizontalno centriranje jer je width: 96% */
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   font-size: 3em;

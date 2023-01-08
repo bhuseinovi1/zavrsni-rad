@@ -43,7 +43,6 @@ sortBtn.addEventListener("click", () => {
     }
     else if (trenutniAlgoritam == "Counting Sort") {
         if (window.innerWidth <= 1600) document.documentElement.style.setProperty("--width", "20px");
-
         // Dijeljenje Sorting sekcije na tri podsekcije
         document.getElementsByClassName("pomocniKontejner")[0].style.visibility = "visible";
         document.getElementsByClassName("pomocniKontejner")[0].style.position = "relative";
@@ -54,6 +53,13 @@ sortBtn.addEventListener("click", () => {
         document.getElementsByClassName("sipkeCon3")[0].style.width = "calc(100% / 3)";
     }
     else if (trenutniAlgoritam == "Radix Sort") {
+        if (window.innerWidth <= 1600) {
+            if(n>10) document.documentElement.style.setProperty("--width", "14px");
+            else document.documentElement.style.setProperty("--width", "20px");
+        }
+        else {
+            if(n>10) document.documentElement.style.setProperty("--width", "25px"); 
+        }
         // Dijeljenje Sorting sekcije na dvije podsekcije
         document.getElementsByClassName("pomocniKontejner")[0].style.visibility = "visible";
         document.getElementsByClassName("pomocniKontejner")[0].style.position = "relative";

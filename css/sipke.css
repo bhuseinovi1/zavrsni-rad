@@ -21,7 +21,7 @@
   position: absolute;
   left: 50%;
   transform: translate(-50%, 0);
-  font-size: 1.2em;
+  font-size: 1em;
   font-weight: bolder;
 }
 
@@ -31,6 +31,10 @@
   width: 150%;
   border: 1px solid whitesmoke;
   border-radius: 50%;
+  /*
+  padding-top: 25%;
+  padding-bottom: 25%;
+  */
 }
 
 .indeksi {

@@ -30,6 +30,26 @@ window.addEventListener("resize", function () {
       partialWidthSection("sortiranje");
     }
   }
+  else {
+    if(trenutniAlgoritam == "Counting Sort") {
+      if (window.innerWidth <= 1600) document.documentElement.style.setProperty("--width", "20px");
+      else document.documentElement.style.setProperty("--width", "30px");
+    }
+    else if (trenutniAlgoritam == "Radix Sort") { // PODEŠAVANJA ZA RADIX SORT
+      if (window.innerWidth <= 1600) {
+        if (n > 10)  { 
+          document.documentElement.style.setProperty("--width", "14px"); 
+        }
+        else document.documentElement.style.setProperty("--width", "20px");
+      }
+      else {
+        if (n > 10) {
+          document.documentElement.style.setProperty("--width", "25px");
+        }
+        document.documentElement.style.setProperty("--width", "30px");
+      }
+    }
+  }
 });
 
 // Uklanjanje alerta
@@ -333,8 +353,9 @@ function generateFromTheList() {
   let ispod20 = 0;
 
   // Podesavanje širine jedne šipke
+  
   if (n > 15) {
-    document.documentElement.style.setProperty("--width", "20px");
+    document.documentElement.style.setProperty("--width", "25px");
   } else {
     document.documentElement.style.setProperty("--width", "30px");
   }
@@ -411,8 +432,9 @@ function generateNewArray() {
   indeksi_B = []
   indeksi_C = []
 
+  
   if (n > 15) {
-    document.documentElement.style.setProperty("--width", "20px");
+    document.documentElement.style.setProperty("--width", "25px");
   } else {
     document.documentElement.style.setProperty("--width", "30px");
   }
@@ -534,14 +556,6 @@ if (window.innerWidth <= 1200) {
 
 function isMobileDevice() {
   return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-}
-
-function isMobileBrowser() {
-  return /Mobi|Android/i.test(navigator.userAgent);
-}
-
-if (isMobileDevice() || isMobileBrowser() || window.screen.width<767 || window.screen.width<767 || 0<1) {
-  prikaziUpozorenje("Pristupate ovoj stranici koristeći mobilni uređaj! Neke funkcionalnosti neće raditi u skladu sa očekivanjima!");
 }
 
 window.onload = function() {
