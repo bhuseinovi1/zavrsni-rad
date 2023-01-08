@@ -46,7 +46,7 @@ window.addEventListener("resize", function () {
         if (n > 10) {
           document.documentElement.style.setProperty("--width", "25px");
         }
-        document.documentElement.style.setProperty("--width", "30px");
+        else document.documentElement.style.setProperty("--width", "30px");
       }
     }
   }
@@ -109,7 +109,7 @@ function checkAndGenerateFromTheList() {
 }
 
 // Velicina niza
-let n = 6;
+let n = 10;
 
 let velicinaNiza = document.getElementById("velicinaNiza");
 
@@ -256,8 +256,8 @@ for (let i = 0; i < algoritmi.length; i++) {
     else if (trenutniAlgoritam == "Counting Sort") {
       document.getElementsByClassName("countingDiv")[0].style.visibility = "visible";
       document.getElementsByClassName("countingDiv")[0].style.position = "relative";
-      document.getElementById("velicinaNiza").value = 6
-      n = 6
+      document.getElementById("velicinaNiza").value = 10
+      n = 10
       document.getElementById("velicinaNiza")["max"] = 10
       document.getElementById("faktorSkaliranja").value = 50
       faktorSkaliranja = 50

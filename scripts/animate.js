@@ -24,8 +24,9 @@ const animateHeap = (kontejnerHeap, iznos, sipka, visina, boja, factorAnim = del
 };
 
 // Animate za Address Sort
-const animateAddress = (elementiListe, elementListe, kontejner_kljuc, iznos, sipka, visina, boja, factorAnim = delay) => {
+const animateAddress = (elementiListe, elementListe, kontejner_kljuc, iznos, sipka, visina, kod, boja, factorAnim = delay) => {
     setTimeout(() => {
+        console.log(kod);
         sipka.style.height = visina * faktorSkaliranja + "px";
         sipka.style.backgroundColor = boja;
         iznos.innerHTML = visina;
@@ -40,17 +41,17 @@ const animateAddress = (elementiListe, elementListe, kontejner_kljuc, iznos, sip
                 elementListe,
                 { startPlug: 'square', color: 'red', size: 3 }
             );
-            linije[0].push(line)
+            linije[kod].push(line)
         }
     }, (c += factorAnim));
 };
 
-const animateAddressRemove = (elementiListe, kontejner_kljuc, boja, factorAnim = delay) => {
+const animateAddressRemove = (elementiListe, kontejner_kljuc, kod, boja, factorAnim = delay) => {
     setTimeout(() => {
         elementiListe.innerHTML = '';
         kontejner_kljuc.style.backgroundColor = boja;
-        for(let k = 0; k < linije[0].length; k++) {
-            linije[0][k].hide();
+        for(let k = 0; k < linije[kod].length; k++) {
+            linije[kod][k].hide();
         }
     }, (c += factorAnim));
 };
