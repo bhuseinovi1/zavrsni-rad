@@ -5,10 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pocetna | SORTIFY</title>
-    <link rel="icon" href="images/alphabetical.png" />
-
-    <!-- JQuery-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="icon" href="images/icon.png" />
 
     <!-- Bootstrap CSS -->
     <link
@@ -25,18 +22,18 @@
     />
 
     <!-- Styling -->
-    <link rel="stylesheet" href="general.css" />
+    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="css/alert.css" />
     <link rel="stylesheet" href="css/video.css" />
+    <link rel="stylesheet" href="css/opcije.css" />
     <link rel="stylesheet" href="css/sortiranje.css" />
     <link rel="stylesheet" href="css/sipke.css" />
     <link rel="stylesheet" href="css/lista.css" />
     <link rel="stylesheet" href="css/stablo.css" />
-    <link rel="stylesheet" href="css/opcije.css" />
     <link rel="stylesheet" href="css/mqueries.css" />
-    <!--<script type="module" async defer src="script.js"></script>-->
   </head>
   <body>
+    <!-- Alert i upozorenje -->
     <div class="alert warning">
       <span class="closebtn" onclick="this.parentElement.style.display='none';"
         >&times;</span
@@ -52,20 +49,24 @@
       <span id="alert">Greška.</span>
     </div>
 
+    <!-- Video pozadina -->
     <video autoplay loop muted plays-inline class="back-video">
       <source src="images/background-video.mp4" type="video/mp4" />
     </video>
 
+    <!-- Sadržaj stranice -->
     <div class="row content">
+      <!-- Sadržaj sekcije Opcije -->
       <div class="col-2 opcije px-3 py-4 my-3 ms-5">
         <div>
-          <a class="navbar-brand appName text-white fw-bold" href="#"
+          <a class="navbar-brand text-white fw-bold" id="aplikacija" href="#"
             >SORTIFY</a
           >
         </div>
-        <hr style="color: #ffffff; margin-bottom: 5px;" />
-        <div style="position: relative; height: 40px">
-          <ul class="navbar-nav metodeSortiranja">
+        <hr class="mb-2" style="color: #ffffff" />
+        <!-- Navigacija -->
+        <div class="navigacija">
+          <ul class="navbar-nav metode-sortiranja">
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle active disable"
@@ -77,15 +78,21 @@
                 >Bubble Sort</a
               >
               <ul
-                class="dropdown-menu metodeSortiranja"
+                class="dropdown-menu metode-sortiranja"
                 aria-labelledby="navbarDropdownMenuLink"
               >
                 <li><a class="dropdown-item" href="#">Address Sort</a></li>
-                <li><a class="dropdown-item" href="#">Bubble Sort Modified</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">Bubble Sort Modificirani</a>
+                </li>
                 <li><a class="dropdown-item" href="#">Counting Sort</a></li>
                 <li><a class="dropdown-item" href="#">Heap Sort</a></li>
                 <li><a class="dropdown-item" href="#">Insertion Sort</a></li>
-                <li><a class="dropdown-item" href="#">Insertion Sort Modified</a></li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >Insertion Sort Modificirani</a
+                  >
+                </li>
                 <li><a class="dropdown-item" href="#">Merge Sort</a></li>
                 <li><a class="dropdown-item" href="#">Quick Sort</a></li>
                 <li><a class="dropdown-item" href="#">Radix Sort</a></li>
@@ -95,29 +102,31 @@
             </li>
           </ul>
         </div>
+        <!-- Opcije za metode sortiranja -->
         <div class="countingDiv">
-          <label for="countingSpan" class="form-label text-white fw-bold">
+          <label for="countingSpan" class="form-label text-white fw-bold mb-1">
             Counting sort - k : <span id="countingSpan"></span>
           </label>
         </div>
-        <div class="razmakDiv">
-          <label for="razmakInput" class="form-label text-white fw-bold">
-            Shell sort - razmak :
+        <div class="razmaciDiv">
+          <label for="razmaciInput" class="form-label text-white fw-bold mb-1">
+            Niz razmaka :
           </label>
           <input
             placeholder="num1, num2, num3..."
-            id="razmakInput"
+            id="razmaciInput"
             type="text"
           />
         </div>
         <div class="funkcijaDiv">
-          <label for="funkcijaInput" class="form-label text-white fw-bold">
+          <label for="funkcijaInput" class="form-label text-white fw-bold mb-1">
             Funkcija :
           </label>
           <input placeholder="f(x)" id="funkcijaInput" type="text" />
         </div>
+        <hr class="mt-2" style="color: #ffffff" />
+        <!-- Opcije za slider-e -->
         <div>
-          <hr style="color: #ffffff; margin-bottom: 10px;" />
           <label for="velicinaNiza" class="form-label text-white fw-bold"
             >Veličina niza</label
           >
@@ -157,9 +166,10 @@
             onchange="promijeniFaktorSkaliranja(this.value)"
           />
         </div>
-        <hr style="color: #ffffff; margin-bottom: 10px;" />
+        <hr class="mb-2" style="color: #ffffff" />
+        <!-- Unos niza -->
         <div class="mb-3">
-          <label for="nizInput" class="form-label toChange text-white fw-bold"
+          <label for="nizInput" class="form-label text-white fw-bold"
             >Unesi niz :</label
           >
           <input
@@ -169,6 +179,7 @@
           />
         </div>
         <hr />
+        <!-- Generisanje niza -->
         <div class="generisanje">
           <a
             class="nav-link form-label fw-bold mb-0"
@@ -188,6 +199,7 @@
             >GENERIŠI NASUMIČNI NIZ</a
           >
         </div>
+        <!-- Sortiraj dugme -->
         <div>
           <button class="btn btn-outline-light rounded-pill" id="sortBtn">
             Sortiraj
@@ -195,33 +207,39 @@
         </div>
       </div>
 
+      <!-- Sadržaj sekcije Sortiranje -->
       <div
         class="row col-9 sortiranje px-4 py-4 my-3 me-5"
         style="margin: auto"
       >
+        <!-- Naziv metode sortiranja -->
         <div class="nazivSortiranja">
           <h2 id="naziv">BUBBLE SORT - O(n<sup>2</sup>)</h2>
         </div>
 
+        <!-- Glavni niz -->
         <div class="sipkeCon"></div>
 
+        <!-- Pomoćni kontejneri -->
         <div class="pomocniKontejner"></div>
 
+        <!-- Treći pomoćni niz -->
         <div class="sipkeCon3"></div>
 
+        <!-- Stopiraj dugme -->
         <button class="btn btn-outline-light rounded-pill" id="resetBtn">
           Stopiraj
         </button>
       </div>
     </div>
 
+    <!-- Scripts -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       crossorigin="anonymous"
     ></script>
     <script src="scripts/alerts.js"></script>
     <script async defer src="script.js"></script>
-    <!-- <script src="line/leader-line.min.js"></script> -->
     <script src="scripts/leader-line.min.js"></script>
     <script src="scripts/algorithms/address.js"></script>
     <script src="scripts/jplista.js"></script>

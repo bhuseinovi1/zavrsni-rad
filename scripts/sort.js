@@ -34,9 +34,9 @@ sortBtn.addEventListener("click", () => {
     }
     else if (trenutniAlgoritam == "Shell Sort") {
         // Validacija niza razmaka
-        var razmakValidacija = document.getElementById('razmakInput').value;
-        var razmakRegex = /^[0-9]+(,[0-9]+)*$/;
-        if (!razmakRegex.test(razmakValidacija) && razmakValidacija != '') {
+        var razmaciValidacija = document.getElementById('razmaciInput').value;
+        var razmaciRegex = /^[0-9]+(,[0-9]+)*$/;
+        if (!razmaciRegex.test(razmaciValidacija) && razmaciValidacija != '') {
             prikaziAlert("Unesite opcije u validnom obliku!");
             return;
         }
@@ -72,11 +72,6 @@ sortBtn.addEventListener("click", () => {
         document.getElementsByClassName("pomocniKontejner")[0].style.position = "relative";
         document.getElementsByClassName("sipkeCon")[0].style.width = "100%";
         document.getElementsByClassName("pomocniKontejner")[0].style.width = "100%";
-        /*
-        document.querySelectorAll(".sipka").forEach(function (element) {
-          element.style.marginTop = "0px";
-        });
-        */
     }
     sortiranjeUToku = 1;
     
@@ -104,7 +99,7 @@ sortBtn.addEventListener("click", () => {
         case "Bubble Sort":
             bubbleSort();
             break;
-        case "Bubble Sort Modified":
+        case "Bubble Sort Modificirani":
             bubbleSortModificirani();
             break;
         case "Selection Sort":
@@ -113,7 +108,7 @@ sortBtn.addEventListener("click", () => {
         case "Insertion Sort":
             insertionSort();
             break;
-        case "Insertion Sort Modified":
+        case "Insertion Sort Modificirani":
             insertionSortModificirani();
             break;
         case "Merge Sort":
@@ -126,8 +121,8 @@ sortBtn.addEventListener("click", () => {
             quickSort(0, n - 1);
             break;
         case "Shell Sort":
-            let razmakString = document.getElementById("razmakInput").value;
-            shellSort(razmakString);
+            let razmaci = document.getElementById("razmaciInput").value;
+            shellSort(razmaci);
             break;
         case "Counting Sort":
             countingSort();
@@ -139,7 +134,8 @@ sortBtn.addEventListener("click", () => {
             bubbleSort();
     }
 
-    if (trenutniAlgoritam != 'Counting Sort') { // Niz A nije sortiran kod Counting Sorta
+    // Niz A nije sortiran kod Counting Sort-a
+    if (trenutniAlgoritam != 'Counting Sort') {
         for (let i = n - 1; i >= 0; i--) {
             anim(iznosi[i], sipke_div[i], sipke_visina[i], sortiranBoja, 100)
         }

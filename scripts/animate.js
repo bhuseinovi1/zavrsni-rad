@@ -1,4 +1,4 @@
-// Obični anim
+// Obični animate
 const anim = (iznos, sipka, visina, boja, factorAnim = delay) => {
     setTimeout(() => {
         sipka.style.height = visina * faktorSkaliranja + "px";
@@ -33,14 +33,18 @@ const animateAddress = (elementiListe, elementListe, kontejner_kljuc, iznos, sip
         elementListe.innerHTML = visina;
         elementiListe.appendChild(elementListe);
         elementListe.style.backgroundColor = boja;
-        //console.log(elementListe.previousSibling);
-        if (elementListe.previousElementSibling != null && elementListe!=null) {
-            let line = new LeaderLine(
-                LeaderLine.pointAnchor(elementListe.previousSibling, { x: 60, y: 18 }),
-                elementListe,
-                { startPlug: 'square', color: 'red', size: 3 }
-            );
-            linije.push(line)
+        try {
+            if (elementListe.previousElementSibling != null && elementListe!=null) {
+                let line = new LeaderLine(
+                    LeaderLine.pointAnchor(elementListe.previousSibling, { x: 60, y: 18 }),
+                    elementListe,
+                    { startPlug: 'square', color: 'red', size: 3 }
+                );
+                linije.push(line)
+            }
+        }
+        catch {
+            console.log("Linija nije uspješno unesena");
         }
     }, (c += factorAnim));
 };
@@ -49,8 +53,13 @@ const animateAddressRemove = (elementiListe, kontejner_kljuc, linije, boja, fact
     setTimeout(() => {
         elementiListe.innerHTML = '';
         kontejner_kljuc.style.backgroundColor = boja;
-        for (let k = 0; k < linije.length; k++) {
-            linije[k].remove();
+        try {
+            for (let k = 0; k < linije.length; k++) {
+                linije[k].remove();
+            }
+        }
+        catch {
+            console.log("Linija nije uspješno obrisana");
         }
     }, (c += factorAnim));
 };

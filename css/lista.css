@@ -20,7 +20,7 @@
   position: absolute;
   left: 200%;
   top: 0;
-  width: 3000px; /* MAGIČNA KONSTANTA */
+  width: max-content;
   text-align: left;
 }
 

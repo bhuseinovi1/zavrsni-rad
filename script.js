@@ -1,8 +1,12 @@
 let sortiranjeUToku = 0;
 
 function fullWidthSection(section) {
-  if (section == "sortiranje") document.getElementsByClassName(section)[0].classList.remove("me-5");
-  if (section == "opcije") document.getElementsByClassName(section)[0].classList.remove("ms-5");
+  if (section == "sortiranje") {
+    document.getElementsByClassName(section)[0].classList.remove("me-5");
+  }
+  else {
+    document.getElementsByClassName(section)[0].classList.remove("ms-5");
+  }
   document.getElementsByClassName(section)[0].classList.add("col-12");
   document.getElementsByClassName(section)[0].style.borderRight = "none";
   document.getElementsByClassName(section)[0].style.borderLeft = "none";
@@ -10,9 +14,13 @@ function fullWidthSection(section) {
 }
 
 function partialWidthSection(section) {
-  if (section == "sortiranje") document.getElementsByClassName(section)[0].classList.add("me-5");
-  if (section == "opcije") document.getElementsByClassName(section)[0].classList.add("ms-5");
-  document.getElementsByClassName(section)[0].classList.remove("col-12");
+  if (section == "sortiranje") { 
+    document.getElementsByClassName(section)[0].classList.add("me-5"); 
+  }
+  else {
+    document.getElementsByClassName(section)[0].classList.add("ms-5");
+  }
+  document.getElementsByClassName(section)[0].classList.remove("col-12"); 
   document.getElementsByClassName(section)[0].style.borderRight = "2px solid #737373";
   document.getElementsByClassName(section)[0].style.borderLeft = "2px solid #737373";
   document.getElementsByClassName(section)[0].style.borderRadius = "10px"
@@ -167,8 +175,8 @@ let resetBtn = document.getElementById("resetBtn");
 
 resetBtn.addEventListener("click", () => {
   if (trenutniAlgoritam == 'Shell Sort') {
-    document.getElementsByClassName("razmakDiv")[0].style.visibility = "visible";
-    document.getElementsByClassName("razmakDiv")[0].style.position = "relative";
+    document.getElementsByClassName("razmaciDiv")[0].style.visibility = "visible";
+    document.getElementsByClassName("razmaciDiv")[0].style.position = "relative";
   }
   else if (trenutniAlgoritam == 'Counting Sort') {
     document.getElementsByClassName("countingDiv")[0].style.visibility = "visible";
@@ -215,7 +223,7 @@ resetBtn.addEventListener("click", () => {
 })
 
 var nizKompleksnosti = [{ a: "Bubble Sort", tc: "n<sup>2</sup>" },
-{ a: "Bubble Sort Modified", tc: "n<sup>2</sup>" },
+{ a: "Bubble Sort Modificirani", tc: "n<sup>2</sup>" },
 { a: "Insertion Sort", tc: "n<sup>2</sup>" },
 { a: "Shell Sort", tc: "n<sup>1.3</sup>" },
 { a: "Selection Sort", tc: "n<sup>2</sup>" },
@@ -225,7 +233,7 @@ var nizKompleksnosti = [{ a: "Bubble Sort", tc: "n<sup>2</sup>" },
 { a: "Heap Sort", tc: "nlog(n)" },
 { a: "Address Sort", tc: "n" },
 { a: "Merge Sort", tc: "nlog(n)" },
-{ a: "Insertion Sort Modified", tc: "n<sup>2</sup>" }];
+{ a: "Insertion Sort Modificirani", tc: "n<sup>2</sup>" }];
 
 // Event listener za Navigation Bar
 let algoritmi = document.getElementsByClassName("dropdown-item");
@@ -249,8 +257,8 @@ for (let i = 0; i < algoritmi.length; i++) {
     // Prilikom promjene vrste algoritma ukloniti opcije 
     document.getElementsByClassName("funkcijaDiv")[0].style.visibility = "hidden";
     document.getElementsByClassName("funkcijaDiv")[0].style.position = "absolute";
-    document.getElementsByClassName("razmakDiv")[0].style.visibility = "hidden";
-    document.getElementsByClassName("razmakDiv")[0].style.position = "absolute";
+    document.getElementsByClassName("razmaciDiv")[0].style.visibility = "hidden";
+    document.getElementsByClassName("razmaciDiv")[0].style.position = "absolute";
     document.getElementsByClassName("countingDiv")[0].style.visibility = "hidden";
     document.getElementsByClassName("countingDiv")[0].style.position = "absolute";
 
@@ -259,8 +267,8 @@ for (let i = 0; i < algoritmi.length; i++) {
       document.getElementsByClassName("funkcijaDiv")[0].style.position = "relative";
     }
     else if (trenutniAlgoritam == "Shell Sort") {
-      document.getElementsByClassName("razmakDiv")[0].style.visibility = "visible";
-      document.getElementsByClassName("razmakDiv")[0].style.position = "relative";
+      document.getElementsByClassName("razmaciDiv")[0].style.visibility = "visible";
+      document.getElementsByClassName("razmaciDiv")[0].style.position = "relative";
     }
     else if (trenutniAlgoritam == "Counting Sort") {
       document.getElementsByClassName("countingDiv")[0].style.visibility = "visible";
@@ -302,14 +310,14 @@ function disable() {
   document.getElementsByClassName("funkcijaDiv")[0].style.visibility = "hidden";
   document.getElementsByClassName("funkcijaDiv")[0].style.position = "absolute";
 
-  document.getElementsByClassName("razmakDiv")[0].style.visibility = "hidden";
-  document.getElementsByClassName("razmakDiv")[0].style.position = "absolute";
+  document.getElementsByClassName("razmaciDiv")[0].style.visibility = "hidden";
+  document.getElementsByClassName("razmaciDiv")[0].style.position = "absolute";
 
   document.getElementsByClassName("countingDiv")[0].style.visibility = "hidden";
   document.getElementsByClassName("countingDiv")[0].style.position = "absolute";
 }
 
-// Barovi - Numeričke vrijednsoti
+// Šipke - Numeričke vrijednsoti
 let sipke_visina = [];
 let sipke_B_visina = [];
 let sipke_C_visina = [];
@@ -539,8 +547,8 @@ let zamijeniBoja = "#ff8ba0";
 document.getElementsByClassName("funkcijaDiv")[0].style.visibility = "hidden";
 document.getElementsByClassName("funkcijaDiv")[0].style.position = "absolute";
 
-document.getElementsByClassName("razmakDiv")[0].style.visibility = "hidden";
-document.getElementsByClassName("razmakDiv")[0].style.position = "absolute";
+document.getElementsByClassName("razmaciDiv")[0].style.visibility = "hidden";
+document.getElementsByClassName("razmaciDiv")[0].style.position = "absolute";
 
 document.getElementsByClassName("countingDiv")[0].style.visibility = "hidden";
 document.getElementsByClassName("countingDiv")[0].style.position = "absolute";
