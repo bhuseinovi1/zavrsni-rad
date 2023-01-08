@@ -301,7 +301,7 @@ function enable() {
   sortBtn.classList.remove("disabled");
   resetBtn.classList.add("disabled");
   brzinaSortiranja.removeAttribute("disabled");
-  velicinaNiza.removeAttribute("disabled");
+  if(!isMobileDevice()) velicinaNiza.removeAttribute("disabled");
   faktorSkaliranja.removeAttribute("disabled");
 }
 
@@ -311,7 +311,7 @@ function disable() {
   sortBtn.classList.add("disabled");
   resetBtn.classList.remove("disabled");
   brzinaSortiranja.setAttribute("disabled", "");
-  velicinaNiza.setAttribute("disabled", "");
+  //velicinaNiza.setAttribute("disabled", "");
   faktorSkaliranja.setAttribute("disabled", "");
 
   // Posebno za specifične algoritme
@@ -596,6 +596,7 @@ function afterLoading() {
   if (isMobileDevice()) {
     document.getElementById("velicinaNiza").value = 6;
     n = 6;
+    document.getElementById("velicinaNiza").disabled = true;
   }
   generateNewArray();
   if (isMobileDevice()) {
