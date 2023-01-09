@@ -305,7 +305,7 @@ function enable() {
   sortBtn.classList.remove("disabled");
   resetBtn.classList.add("disabled");
   brzinaSortiranja.removeAttribute("disabled");
-  if(!isMobileDevice()) velicinaNiza.removeAttribute("disabled");
+  if (!isMobileDevice()) velicinaNiza.removeAttribute("disabled");
   faktorSkaliranja.removeAttribute("disabled");
 }
 
@@ -582,6 +582,33 @@ document.getElementsByClassName("sipkeCon")[0].style.width = "100%";
 // Za alerte i upozorenja
 for (let i = 0; i < document.getElementsByClassName("alert").length; i++) {
   document.getElementsByClassName("alert")[i].style.display = "none";
+}
+
+// Učitavanje iz datoteke
+const fileInput = document.getElementById('fileInput');
+
+fileInput.addEventListener('click', function () {
+  this.value = null;
+})
+
+fileInput.addEventListener('change', async function () {
+  try {
+    const file = fileInput.files[0];
+    const text = await readFileAsync(file);
+    document.getElementById("nizInput").value = text;
+  }
+  catch {
+    console.log("Niste odabrali fajl!");
+  }
+});
+
+async function readFileAsync(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = reject;
+    reader.readAsText(file);
+  });
 }
 
 // Prvo učitavanje

@@ -31,7 +31,8 @@
   transition: 0.1s;
 }
 
-input[type="range"] {
+input[type="range"],
+input[type="file"] {
   width: 100%;
 }
 
