@@ -85,35 +85,39 @@ function checkAndGenerateFromTheList() {
   let nizString = document.getElementById("nizInput").value;
   var nizRegex = /^[0-9]+(,[0-9]+)*$/
   if (!nizRegex.test(nizString)) {
-    prikaziAlert("Unesite niz u validnom obliku!")
-    return
+    prikaziAlert("Unesite niz u validnom obliku!");
+    return;
   }
 
   // Provjeri dužinu niza i najveći element
   let matches = nizString.match(/\d+/g);
   let najveciBroj = Math.max(...matches)
+  if (isMobileDevice() && matches.length != 6) {
+    prikaziAlert("Na mobilnim uređajima je dozvoljeno isključivo 6 elemenata!");
+    return;
+  }
   if (matches.length < 6) {
-    prikaziAlert("Potrebno je minimalno 6 elemenata!")
-    return
+    prikaziAlert("Potrebno je minimalno 6 elemenata!");
+    return;
   }
   else if (trenutniAlgoritam == 'Counting Sort') {
     if (matches.length > 10) {
-      prikaziAlert("Dozvoljeno je najviše 10 elemenata!")
-      return
+      prikaziAlert("Dozvoljeno je najviše 10 elemenata!");
+      return;
     }
     if (najveciBroj > 9) {
-      prikaziAlert("Najveći element niza ne smije da bude veći od 9!")
-      return
+      prikaziAlert("Najveći element niza ne smije da bude veći od 9!");
+      return;
     }
   }
   else {
     if (matches.length > 20) {
-      prikaziAlert("Dozvoljeno je najviše 20 elemenata!")
-      return
+      prikaziAlert("Dozvoljeno je najviše 20 elemenata!");
+      return;
     }
     if (najveciBroj > 500) {
-      prikaziAlert("Najveći element niza ne smije da bude veći od 500!")
-      return
+      prikaziAlert("Najveći element niza ne smije da bude veći od 500!");
+      return;
     }
   }
 
