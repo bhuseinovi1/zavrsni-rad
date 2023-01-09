@@ -36,6 +36,17 @@ input[type="file"] {
   width: 100%;
 }
 
+input[type="file"] {
+  display: none;
+}
+
+label[for="fileInput"] {
+  width: 100%;
+  cursor: pointer;
+  padding: 5px;
+  background-color: #0075FF;
+}
+
 input[type="text"] {
   text-align: center;
   width: 98%;

@@ -593,9 +593,11 @@ fileInput.addEventListener('click', function () {
 
 fileInput.addEventListener('change', async function () {
   try {
-    const file = fileInput.files[0];
+    const file = this.files[0];
     const text = await readFileAsync(file);
     document.getElementById("nizInput").value = text;
+    document.getElementById('fileLabel').innerHTML = this.value.split('\\').pop();
+    checkAndGenerateFromTheList();
   }
   catch {
     console.log("Niste odabrali fajl!");
