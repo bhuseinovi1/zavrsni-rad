@@ -32,8 +32,8 @@ function mergeSortStart(l, u, iteracija) {
     let counter = iteracija;
     if (u >= l) {
         // FAZA 1 - Kreiranje podnizova
-        animateMergeSplit(novi_kontejneri[counter], sipke_div[l], sipke_div[u], iteracijaBoja);
-        animateMergeSplit(novi_kontejneri[counter], sipke_div[l], sipke_div[u], resetirajBoja);
+        animateMergeSplit(novi_kontejneri[counter], iznosi[l], iznosi[u], sipke_div[l], sipke_div[u], iteracijaBoja);
+        animateMergeSplit(novi_kontejneri[counter], iznosi[l], iznosi[u], sipke_div[l], sipke_div[u], resetirajBoja);
         novi_kontejneri[counter].innerHTML = "";
         for (let brojac = l; brojac <= u; brojac++) {
             if (brojac != u) novi_kontejneri[counter].innerHTML += (sipke_visina[brojac]) + ",";

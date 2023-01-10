@@ -4,6 +4,8 @@ const anim = (iznos, sipka, visina, boja, factorAnim = delay) => {
         sipka.style.height = visina * scaleFactor + "px";
         sipka.style.backgroundColor = boja;
         iznos.innerHTML = visina;
+        iznos.style.color = boja;
+        iznos.style.borderColor = boja;
     }, (c += factorAnim));
 };
 
@@ -13,6 +15,8 @@ const animateHeap = (kontejnerHeap, iznos, sipka, visina, boja, factorAnim = del
         sipka.style.height = visina * scaleFactor + "px";
         sipka.style.backgroundColor = boja;
         iznos.innerHTML = visina;
+        iznos.style.color = boja;
+        iznos.style.borderColor = boja;
         kontejnerHeap.style.backgroundColor = boja;
         kontejnerHeap.innerHTML = visina;
 
@@ -29,6 +33,8 @@ const animateAddress = (elementiListe, elementListe, kontejner_kljuc, iznos, sip
         sipka.style.height = visina * scaleFactor + "px";
         sipka.style.backgroundColor = boja;
         iznos.innerHTML = visina;
+        iznos.style.color = boja;
+        iznos.style.borderColor = boja;
         kontejner_kljuc.style.backgroundColor = boja;
         elementListe.innerHTML = visina;
         elementiListe.appendChild(elementListe);
@@ -70,6 +76,8 @@ const animateMerge = (zaSortirati, kontejnerMerge, iznos, sipka, visina, boja, f
         sipka.style.height = visina * scaleFactor + "px";
         sipka.style.backgroundColor = boja;
         iznos.innerHTML = visina;
+        iznos.style.color = boja;
+        iznos.style.borderColor = boja;
         kontejnerMerge.style.backgroundColor = boja;
 
         if (Boolean(zaSortirati)) {
@@ -84,10 +92,14 @@ const animateMerge = (zaSortirati, kontejnerMerge, iznos, sipka, visina, boja, f
     }, (c += factorAnim));
 };
 
-const animateMergeSplit = (kontejnerMerge, sipka1, sipka2, boja, factorAnim = delay) => {
+const animateMergeSplit = (kontejnerMerge, iznos1, iznos2, sipka1, sipka2, boja, factorAnim = delay) => {
     setTimeout(() => {
         sipka1.style.backgroundColor = boja;
         sipka2.style.backgroundColor = boja;
+        iznos1.style.color = boja;
+        iznos1.style.borderColor = boja;
+        iznos2.style.color = boja;
+        iznos2.style.borderColor = boja;
         kontejnerMerge.style.backgroundColor = boja;
     }, (c += factorAnim));
 };
