@@ -6,15 +6,13 @@ function countingSort() {
 
     // Kreiranje pomoćnog niza B
     for (let i = 0; i < n; i++) {
+        // Kreiranje šipki
         sipke_B_visina[i] = 0;
         sipke_B_div[i] = document.createElement("div");
         sipke_B_div[i].classList.add("sipka");
-
-        // Ako ima vise od 15 elemenata, dodaj margin
-        if (n > 15) sipke_B_div[i].style.marginLeft = "14px";
-
-        sipkeKontejnerB.appendChild(sipke_B_div[i]);
         sipke_B_div[i].style.height = "0px";
+        if (n > 15) sipke_B_div[i].style.marginLeft = "14px";
+        sipkeKontejnerB.appendChild(sipke_B_div[i]);
 
         // Vrijednosti elemenata
         iznosi_B[i] = document.createElement("p");
@@ -37,15 +35,13 @@ function countingSort() {
 
     // Kreiranje pomoćnog niza C
     for (let i = 0; i <= K; i++) {
+        // Kreiranje šipki
         sipke_C_visina[i] = 0;
         sipke_C_div[i] = document.createElement("div");
         sipke_C_div[i].classList.add("sipka");
-
-        // Ako ima vise od 15 elemenata, dodaj margin
-        if (n > 15) sipke_C_div[i].style.marginLeft = "14px";
-
-        sipkeKontejnerC.appendChild(sipke_C_div[i]);
         sipke_C_div[i].style.height = "0px";
+        if (n > 15) sipke_C_div[i].style.marginLeft = "14px";
+        sipkeKontejnerC.appendChild(sipke_C_div[i]);
 
         // Vrijednosti elemenata
         iznosi_C[i] = document.createElement("p");
@@ -69,20 +65,18 @@ function countingSort() {
     // Prva faza algoritma - za svako X iz niza A, povećati vrijednost na indeksu X niza C
     for (let j = 0; j < n; j++) {
         anim(iznosi[j], sipke_div[j], sipke_visina[j], iteracijaBoja);
-
         sipke_C_visina[sipke_visina[j]] = sipke_C_visina[sipke_visina[j]] + 1;
-        anim(iznosi_C[sipke_visina[j]], sipke_C_div[sipke_visina[j]], sipke_C_visina[sipke_visina[j]], iteracijaBoja);
+        anim(iznosi_C[sipke_visina[j]], sipke_C_div[sipke_visina[j]], sipke_C_visina[sipke_visina[j]], helperBoja);
         anim(iznosi_C[sipke_visina[j]], sipke_C_div[sipke_visina[j]], sipke_C_visina[sipke_visina[j]], resetirajBoja);
-
         anim(iznosi[j], sipke_div[j], sipke_visina[j], resetirajBoja);
     }
 
-    // Druga faza algoritma - svaki element niza C jednak zbiru samog sebe sa prethodnim elementom
+    // Druga faza algoritma - svaki element niza C je jednak zbiru samog sebe sa prethodnim elementom
     for (let i = 1; i <= K; i++) {
         anim(iznosi_C[i], sipke_C_div[i], sipke_C_visina[i], iteracijaBoja);
         anim(iznosi_C[i - 1], sipke_C_div[i - 1], sipke_C_visina[i - 1], privremeniBoja);
         sipke_C_visina[i] = sipke_C_visina[i] + sipke_C_visina[i - 1];
-        anim(iznosi_C[i], sipke_C_div[i], sipke_C_visina[i], iteracijaBoja);
+        anim(iznosi_C[i], sipke_C_div[i], sipke_C_visina[i], helperBoja);
         anim(iznosi_C[i - 1], sipke_C_div[i - 1], sipke_C_visina[i - 1], resetirajBoja);
         anim(iznosi_C[i], sipke_C_div[i], sipke_C_visina[i], resetirajBoja);
     }
@@ -90,10 +84,9 @@ function countingSort() {
     // Treća faza - svako X iz niza A smjesti na odgovarajući indeks niza B koji se određuje tako što se uzima vrijednost iz niza C koja odgovara elementu X umanjena za 1
     for (let j = n - 1; j >= 0; j--) {
         anim(iznosi[j], sipke_div[j], sipke_visina[j], iteracijaBoja);
-        anim(iznosi_C[sipke_visina[j]], sipke_C_div[sipke_visina[j]], sipke_C_visina[sipke_visina[j]], iteracijaBoja)
+        anim(iznosi_C[sipke_visina[j]], sipke_C_div[sipke_visina[j]], sipke_C_visina[sipke_visina[j]], privremeniBoja)
         sipke_C_visina[sipke_visina[j]] = sipke_C_visina[sipke_visina[j]] - 1;
-        anim(iznosi_C[sipke_visina[j]], sipke_C_div[sipke_visina[j]], sipke_C_visina[sipke_visina[j]], privremeniBoja);
-
+        anim(iznosi_C[sipke_visina[j]], sipke_C_div[sipke_visina[j]], sipke_C_visina[sipke_visina[j]], helperBoja);
         sipke_B_visina[sipke_C_visina[sipke_visina[j]]] = sipke_visina[j];
         anim(iznosi_B[sipke_C_visina[sipke_visina[j]]], sipke_B_div[sipke_C_visina[sipke_visina[j]]], sipke_B_visina[sipke_C_visina[sipke_visina[j]]], sortiranBoja);
         anim(iznosi[j], sipke_div[j], sipke_visina[j], resetirajBoja);

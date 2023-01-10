@@ -1,3 +1,5 @@
+// 'i'-ti element stabla je zadnji element u stablu koji nije list
+// 'vel' je broj elemenata niza od kojeg se pravi gomila
 function POPRAVI_DOLJE(i, vel) {
     while (!(i >= Math.floor(vel / 2) && i < vel)) {
         animateHeap(novi_kontejneri[i], iznosi[i], sipke_div[i], sipke_visina[i], pivotBoja);
@@ -20,8 +22,8 @@ function POPRAVI_DOLJE(i, vel) {
             animateHeap(novi_kontejneri[veci], iznosi[veci], sipke_div[veci], sipke_visina[veci], privremeniBoja);
         }
         if (sipke_visina[i] > sipke_visina[veci]) {
-            animateHeap(novi_kontejneri[i], iznosi[i], sipke_div[i], sipke_visina[i], resetirajBoja);
             animateHeap(novi_kontejneri[veci], iznosi[veci], sipke_div[veci], sipke_visina[veci], resetirajBoja);
+            animateHeap(novi_kontejneri[i], iznosi[i], sipke_div[i], sipke_visina[i], resetirajBoja);
             return;
         }
         [sipke_visina[i], sipke_visina[veci]] = [sipke_visina[veci], sipke_visina[i]];
@@ -34,6 +36,7 @@ function POPRAVI_DOLJE(i, vel) {
     return;
 }
 
+// 'zadnji' je ažurirana vrijednost broja elemenata u gomili nakon izbacivanja prvog elementa - korijena
 function IZBACI_PRVI(zadnji) {
     [sipke_visina[0], sipke_visina[zadnji]] = [sipke_visina[zadnji], sipke_visina[0]];
     animateHeap(novi_kontejneri[0], iznosi[0], sipke_div[0], sipke_visina[0], helperBoja);
@@ -57,7 +60,7 @@ function heapSort() {
         for (let j = 0; j < i; j++) {
             novi_kontejneri[k] = document.createElement("div");
             novi_kontejneri[k].classList.add("kontejner");
-            // Širina elemenata u jednom "nivou" je ista, a širina svakog elementa sljedećeg "nivoa" je duplo manja
+            // Računanje širine elemenata
             let sirina = 100 / i;
             novi_kontejneri[k].style.width = sirina + "%";
             novi_kontejneri[k].innerHTML = sipke_visina[k]

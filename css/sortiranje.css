@@ -1,12 +1,13 @@
 .sortiranje {
   position: relative;
   text-align: center;
-  height: 96%;
+  /* height: 96%; */
   min-height: 850px;
   border: 2px solid #737373;
   border-radius: 15px;
   background-color: rgba(0, 0, 0, 0.95);
   transition: 0.3s;
+  justify-content: center;
 }
 
 .nazivSortiranja {

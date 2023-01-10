@@ -60,6 +60,20 @@ window.addEventListener("resize", function () {
         else document.documentElement.style.setProperty("--width", "28px");
       }
     }
+    else if (trenutniAlgoritam == "Insertion Sort" || trenutniAlgoritam == "Insertion Sort Modificirani") {
+      if (window.innerWidth <= 1200) {
+        if (n > 15) {
+          document.documentElement.style.setProperty("--width", "20px");
+        }
+        else document.documentElement.style.setProperty("--width", "28px");
+      }
+      else {
+        if (n > 15) {
+          document.documentElement.style.setProperty("--width", "22px");
+        }
+        else document.documentElement.style.setProperty("--width", "28px");
+      }
+    }
   }
 });
 
@@ -558,15 +572,15 @@ function generateNewArray() {
 }
 
 // Boje
-let zadnjiPromijenjeniBoja = "#F44336"
-let helperBoja = "#D60060";
-let parcijalnoSortiranBoja = '#BFFF00'
-let sortiranBoja = "#40FF00";
-let privremeniBoja = "#FFD700";
-let pivotBoja = "#0075FF";
-let iteracijaBoja = "#5C5A59";
-let resetirajBoja = "whitesmoke";
-let zamijeniBoja = "#FF8BA0";
+let iteracijaBoja = '#5C5A59';
+let zamijeniBoja = '#FF8BA0';
+let resetirajBoja = 'whitesmoke';
+let pivotBoja = '#0075FF';
+let privremeniBoja = '#FFD700';
+let zadnjiPromijenjeniBoja = '#F44336';
+let helperBoja = '#D60060';
+let parcijalnoSortiranBoja = '#BFFF00';
+let sortiranBoja = '#40FF00';
 
 // Za opcije Shell, Counting i Address Sorta
 document.getElementsByClassName("funkcijaDiv")[0].style.visibility = "hidden";

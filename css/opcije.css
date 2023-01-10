@@ -1,11 +1,10 @@
 .opcije {
   position: relative;
-  text-align: center;
-  height: 96%;
   min-height: 850px;
   border: 2px solid #737373;
   border-radius: 15px;
   background-color: rgba(0, 0, 0, 0.85);
+  text-align: center;
 }
 
 #aplikacija {
@@ -17,22 +16,13 @@
   width: fit-content;
 }
 
-.nav-item {
-  z-index: 2;
-}
-
-.dropdown-toggle {
-  padding: 0;
-}
-
 .metode-sortiranja {
   font-size: 1.5rem;
   font-weight: bold;
   transition: 0.1s;
 }
 
-input[type="range"],
-input[type="file"] {
+input[type="range"] {
   width: 100%;
 }
 
@@ -44,7 +34,7 @@ label[for="fileInput"] {
   width: 100%;
   cursor: pointer;
   padding: 5px;
-  background-color: #0075FF;
+  background-color: #0075ff;
 }
 
 input[type="text"] {
@@ -92,11 +82,27 @@ input[type="text"]:focus {
 #sortBtn {
   font-size: 1.5rem;
   font-weight: bold;
+  width: 95%;
+  border-width: 2px;
+}
+
+#resetBtn {
   position: absolute;
-  bottom: 10px;
+  bottom: 8px;
   left: 50%;
   -ms-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
-  width: 95%;
-  border-width: 2px;
+}
+
+/* .stopirajBtn {
+  margin-top: auto;
+}
+ */
+
+#sortBtn {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  -ms-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
 }
