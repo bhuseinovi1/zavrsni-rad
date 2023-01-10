@@ -285,11 +285,17 @@ for (let i = 0; i < algoritmi.length; i++) {
     else if (trenutniAlgoritam == "Counting Sort") {
       document.getElementsByClassName("countingDiv")[0].style.visibility = "visible";
       document.getElementsByClassName("countingDiv")[0].style.position = "relative";
-      document.getElementById("velicinaNiza").value = 10
-      n = 10
-      document.getElementById("velicinaNiza")["max"] = 10
-      document.getElementById("faktorSkaliranja").value = 50
-      scaleFactor = 50
+      if(isMobileDevice()) {
+        document.getElementById("velicinaNiza").value = 6;
+        n = 6;
+      }
+      else {
+        document.getElementById("velicinaNiza").value = 10;
+        n = 10;
+      }
+      document.getElementById("velicinaNiza")["max"] = 10;
+      document.getElementById("faktorSkaliranja").value = 50;
+      scaleFactor = 50;
       generateNewArray();
     }
     algoritmi[i].innerHTML = document.getElementById(
