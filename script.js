@@ -43,7 +43,7 @@ window.addEventListener("resize", function () {
   }
   else {
     if (trenutniAlgoritam == "Counting Sort") {
-      if (window.innerWidth <= 1600) document.documentElement.style.setProperty("--width", "20px");
+      if (window.innerWidth <= 1600) document.documentElement.style.setProperty("--width", "18px");
       else document.documentElement.style.setProperty("--width", "28px");
     }
     else if (trenutniAlgoritam == "Radix Sort" || trenutniAlgoritam == "Address Sort") {
@@ -299,7 +299,7 @@ for (let i = 0; i < algoritmi.length; i++) {
     else if (trenutniAlgoritam == "Counting Sort") {
       document.getElementsByClassName("countingDiv")[0].style.visibility = "visible";
       document.getElementsByClassName("countingDiv")[0].style.position = "relative";
-      if(isMobileDevice()) {
+      if (isMobileDevice()) {
         document.getElementById("velicinaNiza").value = 6;
         n = 6;
       }
@@ -366,7 +366,7 @@ let indeksi_B = [];
 let indeksi_C = [];
 
 // Za Address, Merge i Heap
-let novi_kontejneri = []
+let cvor_kontejneri = []
 let niz_linija = []
 
 // Reference na kontejnere

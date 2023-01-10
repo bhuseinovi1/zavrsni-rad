@@ -58,7 +58,7 @@ sortBtn.addEventListener("click", () => {
         }
     }
     else if (trenutniAlgoritam == "Counting Sort") {
-        if (window.innerWidth <= 1600) document.documentElement.style.setProperty("--width", "20px");
+        if (window.innerWidth <= 1600) document.documentElement.style.setProperty("--width", "18px");
 
         // Dijeljenje Sorting sekcije na tri podsekcije
         document.getElementsByClassName("pomocni-kontejner")[0].style.visibility = "visible";
