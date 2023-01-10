@@ -1,10 +1,10 @@
 function bubbleSortModificirani() {
     disable();
-    let pom = n;
-    let sortirani = n - 1;
+    let sortirajDo = n;
+    let sortirajOd = n - 1;
     do {
-        let i = pom - 1;
-        pom = 0;
+        let i = sortirajDo - 1;
+        sortirajDo = 0;
         for (let j = 1; j <= i; j++) {
             anim(iznosi[j], sipke_div[j], sipke_visina[j], iteracijaBoja);
             anim(iznosi[j - 1], sipke_div[j - 1], sipke_visina[j - 1], iteracijaBoja);
@@ -12,18 +12,18 @@ function bubbleSortModificirani() {
                 [sipke_visina[j - 1], sipke_visina[j]] = [sipke_visina[j], sipke_visina[j - 1]];
                 anim(iznosi[j], sipke_div[j], sipke_visina[j], zamijeniBoja);
                 anim(iznosi[j - 1], sipke_div[j - 1], sipke_visina[j - 1], zamijeniBoja);
-                pom = j;
+                sortirajDo = j;
             }
             anim(iznosi[j], sipke_div[j], sipke_visina[j], resetirajBoja);
             anim(iznosi[j - 1], sipke_div[j - 1], sipke_visina[j - 1], resetirajBoja);
-            for (let h = 0; h < pom; h++) {
+            for (let h = 0; h < sortirajDo; h++) {
                 anim(iznosi[h], sipke_div[h], sipke_visina[h], resetirajBoja, 10);
             }
-            if (pom != 0) anim(iznosi[pom], sipke_div[pom], sipke_visina[pom], zadnjiPromijenjeniBoja);
+            if (sortirajDo != 0) anim(iznosi[sortirajDo], sipke_div[sortirajDo], sipke_visina[sortirajDo], zadnjiPromijenjeniBoja);
         }
-        for (let k = sortirani; k >= pom; k--) {
+        for (let k = sortirajOd; k >= sortirajDo; k--) {
             anim(iznosi[k], sipke_div[k], sipke_visina[k], sortiranBoja);
         }
-        sortirani = pom;
-    } while (pom != 0);
+        sortirajOd = sortirajDo - 1;
+    } while (sortirajDo != 0);
 }
