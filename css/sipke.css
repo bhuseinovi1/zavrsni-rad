@@ -1,10 +1,3 @@
-.sipkeCon,
-.pomocniKontejner,
-.sipkeCon3 {
-  position: relative;
-  display: inline-block;
-}
-
 .sipka {
   position: relative;
   width: var(--width);
@@ -36,6 +29,5 @@
 
 .indeksi {
   background-color: rgba(0, 0, 0, 0);
-  bottom: -32px;
-  margin-bottom: 0;
+  bottom: -44px;
 }

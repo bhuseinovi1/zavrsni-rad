@@ -196,9 +196,9 @@ function promijeniFaktorSkaliranja(changed) {
 }
 
 // Stopiranje dugme
-let resetBtn = document.getElementById("resetBtn");
+let stopBtn = document.getElementById("stopBtn");
 
-resetBtn.addEventListener("click", () => {
+stopBtn.addEventListener("click", () => {
   if (trenutniAlgoritam == 'Shell Sort') {
     document.getElementsByClassName("razmaciDiv")[0].style.visibility = "visible";
     document.getElementsByClassName("razmaciDiv")[0].style.position = "relative";
@@ -210,7 +210,7 @@ resetBtn.addEventListener("click", () => {
   else if (trenutniAlgoritam == 'Address Sort') {
     document.getElementsByClassName("funkcijaDiv")[0].style.visibility = "visible";
     document.getElementsByClassName("funkcijaDiv")[0].style.position = "relative";
-    nizLinija.forEach(linije => linije.forEach(linija => {
+    niz_linija.forEach(linije => linije.forEach(linija => {
       try {
         linija.remove();
         console.log("Linija obrisana");
@@ -238,12 +238,12 @@ resetBtn.addEventListener("click", () => {
   // Zastava se postavlja na 0 jer je sortiranje gotovo
   sortiranjeUToku = 0;
 
-  // Pomoćni nizovi inicijalno nevidljivi
-  document.getElementsByClassName("pomocniKontejner")[0].style.visibility = "hidden";
-  document.getElementsByClassName("pomocniKontejner")[0].style.position = "absolute";
-  document.getElementsByClassName("sipkeCon3")[0].style.visibility = "hidden";
-  document.getElementsByClassName("sipkeCon3")[0].style.position = "absolute";
-  document.getElementsByClassName("sipkeCon")[0].style.width = "100%";
+  // Sakrivanje pomoćnih kontejnera
+  document.getElementsByClassName("pomocni-kontejner")[0].style.visibility = "hidden";
+  document.getElementsByClassName("pomocni-kontejner")[0].style.position = "absolute";
+  document.getElementsByClassName("counting-kontejner")[0].style.visibility = "hidden";
+  document.getElementsByClassName("counting-kontejner")[0].style.position = "absolute";
+  document.getElementsByClassName("sipke-kontejner")[0].style.width = "100%";
 
   generateFromTheList();
 })
@@ -268,13 +268,13 @@ let trenutniAlgoritam = "Bubble Sort";
 for (let i = 0; i < algoritmi.length; i++) {
   algoritmi[i].addEventListener("click", function () {
     trenutniAlgoritam = algoritmi[i].innerHTML;
-    document.getElementById("naziv").innerHTML = trenutniAlgoritam.toUpperCase();
+    document.getElementById("nazivMetode").innerHTML = trenutniAlgoritam.toUpperCase();
 
     // Dodavanje odgovarajuće kompleksnosti u naziv metode sortiranja
     let slozenost = nizKompleksnosti.filter(function (element) {
       return element.a == trenutniAlgoritam;
     })[0].tc;
-    document.getElementById("naziv").innerHTML += (" - O(" + slozenost + ")");
+    document.getElementById("nazivMetode").innerHTML += (" - O(" + slozenost + ")");
 
     // Promjena maksimalne vrijednosti slider-aa za veličinu niza na 20, ukoliko nije u pitanju Counting Sort
     document.getElementById("velicinaNiza")["max"] = 20
@@ -323,7 +323,7 @@ for (let i = 0; i < algoritmi.length; i++) {
 function enable() {
   document.querySelector(".dropdown-toggle").classList.remove("disabled");
   sortBtn.classList.remove("disabled");
-  resetBtn.classList.add("disabled");
+  stopBtn.classList.add("disabled");
   brzinaSortiranja.removeAttribute("disabled");
   if (!isMobileDevice()) velicinaNiza.removeAttribute("disabled");
   faktorSkaliranja.removeAttribute("disabled");
@@ -333,7 +333,7 @@ function enable() {
 function disable() {
   document.querySelector(".dropdown-toggle").classList.add("disabled");
   sortBtn.classList.add("disabled");
-  resetBtn.classList.remove("disabled");
+  stopBtn.classList.remove("disabled");
   brzinaSortiranja.setAttribute("disabled", "");
   //velicinaNiza.setAttribute("disabled", "");
   faktorSkaliranja.setAttribute("disabled", "");
@@ -367,12 +367,12 @@ let indeksi_C = [];
 
 // Za Address, Merge i Heap
 let novi_kontejneri = []
-let nizLinija = []
+let niz_linija = []
 
 // Reference na kontejnere
-let sipkeKontejner = document.querySelector(".sipkeCon");
-let sipkeKontejnerB = document.querySelector(".pomocniKontejner");
-let sipkeKontejnerC = document.querySelector(".sipkeCon3");
+let sipkeKontejner = document.querySelector(".sipke-kontejner");
+let pomocniKontejner = document.querySelector(".pomocni-kontejner");
+let countingKontejner = document.querySelector(".counting-kontejner");
 
 // Generisanje iz liste
 function generateFromTheList() {
@@ -390,8 +390,8 @@ function generateFromTheList() {
   indeksi_C = []
 
   sipkeKontejner.innerHTML = "";
-  sipkeKontejnerB.innerHTML = "";
-  sipkeKontejnerC.innerHTML = "";
+  pomocniKontejner.innerHTML = "";
+  countingKontejner.innerHTML = "";
 
   // Uzmi podatke iu polja za unos niza
   let brojeviIzInputPolja = document.getElementById("nizInput").value;
@@ -469,8 +469,8 @@ function generateNewArray() {
   enable();
 
   sipkeKontejner.innerHTML = "";
-  sipkeKontejnerB.innerHTML = "";
-  sipkeKontejnerC.innerHTML = "";
+  pomocniKontejner.innerHTML = "";
+  countingKontejner.innerHTML = "";
 
   // Regenerisanje nizova:
   sipke_visina = []
@@ -592,12 +592,12 @@ document.getElementsByClassName("razmaciDiv")[0].style.position = "absolute";
 document.getElementsByClassName("countingDiv")[0].style.visibility = "hidden";
 document.getElementsByClassName("countingDiv")[0].style.position = "absolute";
 
-// Za pomoćne kontejnere
-document.getElementsByClassName("pomocniKontejner")[0].style.visibility = "hidden";
-document.getElementsByClassName("pomocniKontejner")[0].style.position = "absolute";
-document.getElementsByClassName("sipkeCon3")[0].style.visibility = "hidden";
-document.getElementsByClassName("sipkeCon3")[0].style.position = "absolute";
-document.getElementsByClassName("sipkeCon")[0].style.width = "100%";
+// Pomoćni kontejneri inicijalno nevidljivi
+document.getElementsByClassName("pomocni-kontejner")[0].style.visibility = "hidden";
+document.getElementsByClassName("pomocni-kontejner")[0].style.position = "absolute";
+document.getElementsByClassName("counting-kontejner")[0].style.visibility = "hidden";
+document.getElementsByClassName("counting-kontejner")[0].style.position = "absolute";
+document.getElementsByClassName("sipke-kontejner")[0].style.width = "100%";
 
 // Za alerte i upozorenja
 for (let i = 0; i < document.getElementsByClassName("alert").length; i++) {

@@ -3,15 +3,15 @@ function mergeSort(l, u) {
 
     // Kontejner za Merge Sort
     let stabloKontejner = document.createElement("div");
-    stabloKontejner.classList.add("stabloKontejner")
-    sipkeKontejnerB.appendChild(stabloKontejner);
+    stabloKontejner.classList.add("stablo-kontejner")
+    pomocniKontejner.appendChild(stabloKontejner);
 
     // Kreiranje elemenata za čuvanje kreiranih podnizova
     let k = 0;
     for (let i = 1; ; i *= 2) {
         for (let j = 0; j < i; j++) {
             novi_kontejneri[k] = document.createElement("div");
-            novi_kontejneri[k].classList.add("kontejner");
+            novi_kontejneri[k].classList.add("list-kontejner");
             let sirina = 100 / i;
             novi_kontejneri[k].style.width = sirina + "%";
             novi_kontejneri[k].innerHTML = "-"

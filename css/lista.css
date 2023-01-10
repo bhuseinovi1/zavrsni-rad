@@ -1,8 +1,4 @@
-.listeKontejner {
-  height: 90%;
-}
-
-.klasaListe {
+.klasa-liste-kontejner {
   color: black;
   text-align: center;
   font-size: 1.5em;
@@ -16,7 +12,7 @@
   border-right: 40px solid white;
 }
 
-.elementiListe {
+.elementi-liste-kontejner {
   position: absolute;
   left: 200%;
   top: 0;
@@ -24,7 +20,7 @@
   text-align: left;
 }
 
-.elementListe {
+.element-liste-kontejner {
   width: 80px;
   text-align: center;
   font-size: 1em;

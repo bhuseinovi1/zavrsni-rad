@@ -1,9 +1,8 @@
-.stabloKontejner {
+.stablo-kontejner {
   text-align: left;
-  height: 90%;
 }
 
-.kontejner {
+.list-kontejner {
   color: black;
   text-align: center;
   font-size: 1em;

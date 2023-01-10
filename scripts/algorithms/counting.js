@@ -12,7 +12,7 @@ function countingSort() {
         sipke_B_div[i].classList.add("sipka");
         sipke_B_div[i].style.height = "0px";
         if (n > 15) sipke_B_div[i].style.marginLeft = "14px";
-        sipkeKontejnerB.appendChild(sipke_B_div[i]);
+        pomocniKontejner.appendChild(sipke_B_div[i]);
 
         // Vrijednosti elemenata
         iznosi_B[i] = document.createElement("p");
@@ -31,7 +31,7 @@ function countingSort() {
     fiktivni1.classList.add("sipka");
     fiktivni1.style.height = "500px";
     fiktivni1.style.visibility = "hidden";
-    sipkeKontejnerB.appendChild(fiktivni1);
+    pomocniKontejner.appendChild(fiktivni1);
 
     // Kreiranje pomoćnog niza C
     for (let i = 0; i <= K; i++) {
@@ -41,7 +41,7 @@ function countingSort() {
         sipke_C_div[i].classList.add("sipka");
         sipke_C_div[i].style.height = "0px";
         if (n > 15) sipke_C_div[i].style.marginLeft = "14px";
-        sipkeKontejnerC.appendChild(sipke_C_div[i]);
+        countingKontejner.appendChild(sipke_C_div[i]);
 
         // Vrijednosti elemenata
         iznosi_C[i] = document.createElement("p");
@@ -60,7 +60,7 @@ function countingSort() {
     fiktivni2.classList.add("sipka");
     fiktivni2.style.height = "500px";
     fiktivni2.style.visibility = "hidden";
-    sipkeKontejnerC.appendChild(fiktivni2);
+    countingKontejner.appendChild(fiktivni2);
 
     // Prva faza algoritma - za svako X iz niza A, povećati vrijednost na indeksu X niza C
     for (let j = 0; j < n; j++) {

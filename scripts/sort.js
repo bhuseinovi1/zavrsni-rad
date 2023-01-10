@@ -36,15 +36,15 @@ sortBtn.addEventListener("click", () => {
         }
 
         // Dijeljenje Sorting sekcije na dvije podsekcije
-        document.getElementsByClassName("pomocniKontejner")[0].style.visibility = "visible";
-        document.getElementsByClassName("pomocniKontejner")[0].style.position = "relative";
+        document.getElementsByClassName("pomocni-kontejner")[0].style.visibility = "visible";
+        document.getElementsByClassName("pomocni-kontejner")[0].style.position = "relative";
         if (isMobileDevice()) {
-            document.getElementsByClassName("sipkeCon")[0].style.width = "100%";
-            document.getElementsByClassName("pomocniKontejner")[0].style.width = "100%";
+            document.getElementsByClassName("sipke-kontejner")[0].style.width = "100%";
+            document.getElementsByClassName("pomocni-kontejner")[0].style.width = "100%";
         }
         else {
-            document.getElementsByClassName("sipkeCon")[0].style.width = "50%";
-            document.getElementsByClassName("pomocniKontejner")[0].style.width = "50%";
+            document.getElementsByClassName("sipke-kontejner")[0].style.width = "50%";
+            document.getElementsByClassName("pomocni-kontejner")[0].style.width = "50%";
         }
     }
     // Validacija Shell Sort
@@ -61,19 +61,19 @@ sortBtn.addEventListener("click", () => {
         if (window.innerWidth <= 1600) document.documentElement.style.setProperty("--width", "20px");
 
         // Dijeljenje Sorting sekcije na tri podsekcije
-        document.getElementsByClassName("pomocniKontejner")[0].style.visibility = "visible";
-        document.getElementsByClassName("pomocniKontejner")[0].style.position = "relative";
-        document.getElementsByClassName("sipkeCon3")[0].style.visibility = "visible";
-        document.getElementsByClassName("sipkeCon3")[0].style.position = "relative";
+        document.getElementsByClassName("pomocni-kontejner")[0].style.visibility = "visible";
+        document.getElementsByClassName("pomocni-kontejner")[0].style.position = "relative";
+        document.getElementsByClassName("counting-kontejner")[0].style.visibility = "visible";
+        document.getElementsByClassName("counting-kontejner")[0].style.position = "relative";
         if (isMobileDevice()) {
-            document.getElementsByClassName("sipkeCon")[0].style.width = "100%";
-            document.getElementsByClassName("pomocniKontejner")[0].style.width = "100%";
-            document.getElementsByClassName("sipkeCon3")[0].style.width = "100%";
+            document.getElementsByClassName("sipke-kontejner")[0].style.width = "100%";
+            document.getElementsByClassName("pomocni-kontejner")[0].style.width = "100%";
+            document.getElementsByClassName("counting-kontejner")[0].style.width = "100%";
         }
         else {
-            document.getElementsByClassName("sipkeCon")[0].style.width = "calc(100% / 3)";
-            document.getElementsByClassName("pomocniKontejner")[0].style.width = "calc(100% / 3)";
-            document.getElementsByClassName("sipkeCon3")[0].style.width = "calc(100% / 3)";
+            document.getElementsByClassName("sipke-kontejner")[0].style.width = "calc(100% / 3)";
+            document.getElementsByClassName("pomocni-kontejner")[0].style.width = "calc(100% / 3)";
+            document.getElementsByClassName("counting-kontejner")[0].style.width = "calc(100% / 3)";
         }
     }
     else if (trenutniAlgoritam == "Radix Sort") {
@@ -86,23 +86,23 @@ sortBtn.addEventListener("click", () => {
         }
 
         // Dijeljenje Sorting sekcije na dvije podsekcije
-        document.getElementsByClassName("pomocniKontejner")[0].style.visibility = "visible";
-        document.getElementsByClassName("pomocniKontejner")[0].style.position = "relative";
+        document.getElementsByClassName("pomocni-kontejner")[0].style.visibility = "visible";
+        document.getElementsByClassName("pomocni-kontejner")[0].style.position = "relative";
         if (isMobileDevice()) {
-            document.getElementsByClassName("sipkeCon")[0].style.width = "100%";
-            document.getElementsByClassName("pomocniKontejner")[0].style.width = "100%";
+            document.getElementsByClassName("sipke-kontejner")[0].style.width = "100%";
+            document.getElementsByClassName("pomocni-kontejner")[0].style.width = "100%";
         }
         else {
-            document.getElementsByClassName("sipkeCon")[0].style.width = "50%";
-            document.getElementsByClassName("pomocniKontejner")[0].style.width = "50%";
+            document.getElementsByClassName("sipke-kontejner")[0].style.width = "50%";
+            document.getElementsByClassName("pomocni-kontejner")[0].style.width = "50%";
         }
     }
     else if (trenutniAlgoritam == "Heap Sort" || trenutniAlgoritam == "Merge Sort") {
         // Dijeljenje Sorting sekcije na dvije podsekcije, jedna ispod druge
-        document.getElementsByClassName("pomocniKontejner")[0].style.visibility = "visible";
-        document.getElementsByClassName("pomocniKontejner")[0].style.position = "relative";
-        document.getElementsByClassName("sipkeCon")[0].style.width = "100%";
-        document.getElementsByClassName("pomocniKontejner")[0].style.width = "100%";
+        document.getElementsByClassName("pomocni-kontejner")[0].style.visibility = "visible";
+        document.getElementsByClassName("pomocni-kontejner")[0].style.position = "relative";
+        document.getElementsByClassName("sipke-kontejner")[0].style.width = "100%";
+        document.getElementsByClassName("pomocni-kontejner")[0].style.width = "100%";
     }
     else if (trenutniAlgoritam == "Insertion Sort" || trenutniAlgoritam == "Insertion Sort Modificirani") {
         if (n > 15 && window.innerWidth <= 1200) document.documentElement.style.setProperty("--width", "20px");

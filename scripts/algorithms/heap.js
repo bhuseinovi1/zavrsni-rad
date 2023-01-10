@@ -51,15 +51,15 @@ function heapSort() {
 
     // Novi kontejner za prikaz gomile
     let stabloKontejner = document.createElement("div");
-    stabloKontejner.classList.add("stabloKontejner")
-    sipkeKontejnerB.appendChild(stabloKontejner);
+    stabloKontejner.classList.add("stablo-kontejner")
+    pomocniKontejner.appendChild(stabloKontejner);
 
     // Kreiranje kontejnera za prikaz elemenata gomile u obliku stabla
     let k = 0;
     for (let i = 1; i <= n; i *= 2) {
         for (let j = 0; j < i; j++) {
             novi_kontejneri[k] = document.createElement("div");
-            novi_kontejneri[k].classList.add("kontejner");
+            novi_kontejneri[k].classList.add("list-kontejner");
             // Računanje širine elemenata
             let sirina = 100 / i;
             novi_kontejneri[k].style.width = sirina + "%";

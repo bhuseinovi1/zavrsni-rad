@@ -223,28 +223,27 @@
       </div>
 
       <!-- Sadržaj sekcije Sortiranje -->
-      <div
-        class="row col-9 sortiranje px-4 pt-4 pb-2 my-3 me-5"
-        style="margin: auto"
-      >
+      <div class="row col-9 sortiranje px-4 pt-4 pb-2 my-3 me-5">
         <!-- Naziv metode sortiranja -->
-        <div class="nazivSortiranja">
-          <h2 id="naziv">BUBBLE SORT - O(n<sup>2</sup>)</h2>
+        <div class="naziv-metode-kontejner text-white mb-2">
+          <h2 id="nazivMetode">BUBBLE SORT - O(n<sup>2</sup>)</h2>
         </div>
 
         <!-- Glavni niz -->
-        <div class="sipkeCon"></div>
+        <div class="sipke-kontejner"></div>
 
         <!-- Pomoćni kontejneri -->
-        <div class="pomocniKontejner"></div>
+        <div class="pomocni-kontejner mt-2"></div>
 
         <!-- Treći pomoćni niz -->
-        <div class="sipkeCon3"></div>
+        <div class="counting-kontejner mt-2"></div>
 
         <!-- Stopiraj dugme -->
-        <button class="btn btn-outline-light rounded-pill" id="resetBtn">
-          Stopiraj
-        </button>
+        <div class="stop-btn">
+          <button class="btn btn-outline-light rounded-pill" id="stopBtn">
+            Stopiraj
+          </button>
+        </div>
       </div>
     </div>
 
@@ -254,8 +253,8 @@
       crossorigin="anonymous"
     ></script>
     <script src="scripts/alerts.js"></script>
-    <script async defer src="script.js"></script>
     <script src="scripts/leader-line.min.js"></script>
+    <script async defer src="script.js"></script>
     <script src="scripts/algorithms/address.js"></script>
     <script src="scripts/jplista.js"></script>
     <script src="scripts/algorithms/bubble.js"></script>

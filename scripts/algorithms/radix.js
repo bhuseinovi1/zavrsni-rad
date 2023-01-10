@@ -10,7 +10,7 @@ function radixSort() {
         // Ako ima vise od 15 elemenata, dodaj margin
         if (n > 15) sipke_B_div[i].style.marginLeft = "14px";
 
-        sipkeKontejnerB.appendChild(sipke_B_div[i]);
+        pomocniKontejner.appendChild(sipke_B_div[i]);
         sipke_B_div[i].style.height = "0px";
 
         // Vrijednosti elemenata
@@ -31,7 +31,7 @@ function radixSort() {
     fiktivni.classList.add("sipka");
     fiktivni.style.height = "500px";
     fiktivni.style.visibility = "hidden";
-    sipkeKontejnerB.appendChild(fiktivni);
+    pomocniKontejner.appendChild(fiktivni);
 
     let najveciBroj = Math.max(...sipke_visina);
     let brojCifara = najveciBroj.toString().length;
