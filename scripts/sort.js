@@ -48,16 +48,28 @@ sortBtn.addEventListener("click", () => {
         }
     }
     // Validacija Shell Sort
-    else if (trenutniAlgoritam == "Shell Sort") {
+    else if (trenutniAlgoritam == "Shell Sort" || trenutniAlgoritam == "Radix Sort") {
         // Validacija niza razmaka
-        var razmaciValidacija = document.getElementById('razmaciInput').value;
-        var razmaciRegex = /^[0-9]+(,[0-9]+)*$/;
-        if (!razmaciRegex.test(razmaciValidacija) && razmaciValidacija != '') {
-            prikaziAlert("Unesite opcije u validnom obliku!");
-            return;
+        if (trenutniAlgoritam == "Shell Sort") {
+            var razmaciValidacija = document.getElementById('razmaciInput').value;
+            var razmaciRegex = /^[0-9]+(,[0-9]+)*$/;
+            if (!razmaciRegex.test(razmaciValidacija) && razmaciValidacija != '') {
+                prikaziAlert("Unesite opcije u validnom obliku!");
+                return;
+            }
         }
+
+        if (window.innerWidth <= 1600) {
+            if (n > 15) document.documentElement.style.setProperty("--width", "14px");
+            else document.documentElement.style.setProperty("--width", "20px");
+        }
+        else {
+            if (n > 15) document.documentElement.style.setProperty("--width", "22px");
+        }
+
         document.getElementsByClassName("pomocni-kontejner")[0].style.visibility = "visible";
         document.getElementsByClassName("pomocni-kontejner")[0].style.position = "relative";
+        
         if (isMobileDevice()) {
             document.getElementsByClassName("sipke-kontejner")[0].style.width = "100%";
             document.getElementsByClassName("pomocni-kontejner")[0].style.width = "100%";
@@ -84,27 +96,6 @@ sortBtn.addEventListener("click", () => {
             document.getElementsByClassName("sipke-kontejner")[0].style.width = "calc(100% / 3)";
             document.getElementsByClassName("pomocni-kontejner")[0].style.width = "calc(100% / 3)";
             document.getElementsByClassName("counting-kontejner")[0].style.width = "calc(100% / 3)";
-        }
-    }
-    else if (trenutniAlgoritam == "Radix Sort") {
-        if (window.innerWidth <= 1600) {
-            if (n > 15) document.documentElement.style.setProperty("--width", "14px");
-            else document.documentElement.style.setProperty("--width", "20px");
-        }
-        else {
-            if (n > 15) document.documentElement.style.setProperty("--width", "22px");
-        }
-
-        // Dijeljenje Sorting sekcije na dvije podsekcije
-        document.getElementsByClassName("pomocni-kontejner")[0].style.visibility = "visible";
-        document.getElementsByClassName("pomocni-kontejner")[0].style.position = "relative";
-        if (isMobileDevice()) {
-            document.getElementsByClassName("sipke-kontejner")[0].style.width = "100%";
-            document.getElementsByClassName("pomocni-kontejner")[0].style.width = "100%";
-        }
-        else {
-            document.getElementsByClassName("sipke-kontejner")[0].style.width = "50%";
-            document.getElementsByClassName("pomocni-kontejner")[0].style.width = "50%";
         }
     }
     else if (trenutniAlgoritam == "Heap Sort" || trenutniAlgoritam == "Merge Sort") {

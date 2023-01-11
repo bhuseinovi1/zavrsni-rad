@@ -46,7 +46,7 @@ window.addEventListener("resize", function () {
       if (window.innerWidth <= 1600) document.documentElement.style.setProperty("--width", "18px");
       else document.documentElement.style.setProperty("--width", "28px");
     }
-    else if (trenutniAlgoritam == "Radix Sort" || trenutniAlgoritam == "Address Sort") {
+    else if (trenutniAlgoritam == "Radix Sort" || trenutniAlgoritam == "Address Sort" || trenutniAlgoritam == "Shell Sort") {
       if (window.innerWidth <= 1600) {
         if (n > 15) {
           document.documentElement.style.setProperty("--width", "14px");
