@@ -1,9 +1,6 @@
 function countingSort() {
     disable();
 
-    // Najveći element niza
-    let K = Math.max(...sipke_visina);
-
     // Kreiranje pomoćnog niza B
     for (let i = 0; i < n; i++) {
         // Kreiranje šipki
@@ -34,6 +31,8 @@ function countingSort() {
     pomocniKontejner.appendChild(fiktivni1);
 
     // Kreiranje pomoćnog niza C
+    // Najveći element niza
+    let K = Math.max(...sipke_visina);
     for (let i = 0; i <= K; i++) {
         // Kreiranje šipki
         sipke_C_visina[i] = 0;

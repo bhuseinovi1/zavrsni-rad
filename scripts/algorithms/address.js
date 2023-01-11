@@ -9,6 +9,7 @@ function addressSort(funkcija) {
         if (rezultat > brojKlasa) brojKlasa = rezultat;
     }
     brojKlasa++;
+
     // Kreiranje nizova linija
     for (let i = 0; i < brojKlasa; i++) {
         niz_linija[i] = [];
@@ -77,6 +78,5 @@ function addressSort(funkcija) {
             k++;
         }
     }
-
     cvor_kontejneri = [];
 }

@@ -3,15 +3,13 @@ function radixSort() {
 
     // Kreiranje pomoćnog niza B
     for (let i = 0; i < n; i++) {
+        // Kreiranje šipki
         sipke_B_visina[i] = 0;
         sipke_B_div[i] = document.createElement("div");
         sipke_B_div[i].classList.add("sipka");
-
-        // Ako ima vise od 15 elemenata, dodaj margin
-        if (n > 15) sipke_B_div[i].style.marginLeft = "14px";
-
-        pomocniKontejner.appendChild(sipke_B_div[i]);
         sipke_B_div[i].style.height = "0px";
+        if (n > 15) sipke_B_div[i].style.marginLeft = "14px";
+        pomocniKontejner.appendChild(sipke_B_div[i]);
 
         // Vrijednosti elemenata
         iznosi_B[i] = document.createElement("p");
@@ -33,9 +31,11 @@ function radixSort() {
     fiktivni.style.visibility = "hidden";
     pomocniKontejner.appendChild(fiktivni);
 
+    // Broj cifara najvećeg broja u nizu
     let najveciBroj = Math.max(...sipke_visina);
     let brojCifara = najveciBroj.toString().length;
 
+    // Radix Sort
     let index = 0;
     for (let k = 0; k < brojCifara; k++) {
         for (let znamenka = 0; znamenka <= 9; znamenka++) {

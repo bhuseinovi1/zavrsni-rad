@@ -78,23 +78,11 @@ input[type="text"]:focus {
   color: white;
 }
 
-
 #sortBtn {
   font-size: 1.5em;
   font-weight: bold;
   width: 95%;
   border-width: 2px;
-}
-
-/* #resetBtn {
-  position: absolute;
-  bottom: 8px;
-  left: 50%;
-  -ms-transform: translate(-50%, 0);
-  transform: translate(-50%, 0);
-} */
-
-#sortBtn {
   position: absolute;
   bottom: 8px;
   left: 50%;

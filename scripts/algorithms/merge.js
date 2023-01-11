@@ -58,7 +58,7 @@ function mergeSortStart(l, u, iteracija) {
 
 // FAZA 2 - SASTAVLJANJE
 function merge(l, p, q, u, counter) {
-    let novaBoja = nijanse_zelene[Math.floor(Math.log2(counter+1))];
+    let novaBoja = nijanse_zelene[Math.floor(Math.log2(counter + 1))];
     let i = 0;
     let j = q - l;
     let k = l;

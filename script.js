@@ -200,16 +200,16 @@ let stopBtn = document.getElementById("stopBtn");
 
 stopBtn.addEventListener("click", () => {
   if (trenutniAlgoritam == 'Shell Sort') {
-    document.getElementsByClassName("razmaciDiv")[0].style.visibility = "visible";
-    document.getElementsByClassName("razmaciDiv")[0].style.position = "relative";
+    document.getElementsByClassName("razmaci-div")[0].style.visibility = "visible";
+    document.getElementsByClassName("razmaci-div")[0].style.position = "relative";
   }
   else if (trenutniAlgoritam == 'Counting Sort') {
-    document.getElementsByClassName("countingDiv")[0].style.visibility = "visible";
-    document.getElementsByClassName("countingDiv")[0].style.position = "relative";
+    document.getElementsByClassName("counting-div")[0].style.visibility = "visible";
+    document.getElementsByClassName("counting-div")[0].style.position = "relative";
   }
   else if (trenutniAlgoritam == 'Address Sort') {
-    document.getElementsByClassName("funkcijaDiv")[0].style.visibility = "visible";
-    document.getElementsByClassName("funkcijaDiv")[0].style.position = "relative";
+    document.getElementsByClassName("funkcija-div")[0].style.visibility = "visible";
+    document.getElementsByClassName("funkcija-div")[0].style.position = "relative";
     niz_linija.forEach(linije => linije.forEach(linija => {
       try {
         linija.remove();
@@ -280,25 +280,25 @@ for (let i = 0; i < algoritmi.length; i++) {
     document.getElementById("velicinaNiza")["max"] = 20
 
     // Prilikom promjene vrste algoritma ukloniti opcije 
-    document.getElementsByClassName("funkcijaDiv")[0].style.visibility = "hidden";
-    document.getElementsByClassName("funkcijaDiv")[0].style.position = "absolute";
-    document.getElementsByClassName("razmaciDiv")[0].style.visibility = "hidden";
-    document.getElementsByClassName("razmaciDiv")[0].style.position = "absolute";
-    document.getElementsByClassName("countingDiv")[0].style.visibility = "hidden";
-    document.getElementsByClassName("countingDiv")[0].style.position = "absolute";
+    document.getElementsByClassName("funkcija-div")[0].style.visibility = "hidden";
+    document.getElementsByClassName("funkcija-div")[0].style.position = "absolute";
+    document.getElementsByClassName("razmaci-div")[0].style.visibility = "hidden";
+    document.getElementsByClassName("razmaci-div")[0].style.position = "absolute";
+    document.getElementsByClassName("counting-div")[0].style.visibility = "hidden";
+    document.getElementsByClassName("counting-div")[0].style.position = "absolute";
 
     // Vraćanje potrebnih opcija
     if (trenutniAlgoritam == "Address Sort") {
-      document.getElementsByClassName("funkcijaDiv")[0].style.visibility = "visible";
-      document.getElementsByClassName("funkcijaDiv")[0].style.position = "relative";
+      document.getElementsByClassName("funkcija-div")[0].style.visibility = "visible";
+      document.getElementsByClassName("funkcija-div")[0].style.position = "relative";
     }
     else if (trenutniAlgoritam == "Shell Sort") {
-      document.getElementsByClassName("razmaciDiv")[0].style.visibility = "visible";
-      document.getElementsByClassName("razmaciDiv")[0].style.position = "relative";
+      document.getElementsByClassName("razmaci-div")[0].style.visibility = "visible";
+      document.getElementsByClassName("razmaci-div")[0].style.position = "relative";
     }
     else if (trenutniAlgoritam == "Counting Sort") {
-      document.getElementsByClassName("countingDiv")[0].style.visibility = "visible";
-      document.getElementsByClassName("countingDiv")[0].style.position = "relative";
+      document.getElementsByClassName("counting-div")[0].style.visibility = "visible";
+      document.getElementsByClassName("counting-div")[0].style.position = "relative";
       if (isMobileDevice()) {
         document.getElementById("velicinaNiza").value = 6;
         n = 6;
@@ -339,14 +339,14 @@ function disable() {
   faktorSkaliranja.setAttribute("disabled", "");
 
   // Posebno za specifične algoritme
-  document.getElementsByClassName("funkcijaDiv")[0].style.visibility = "hidden";
-  document.getElementsByClassName("funkcijaDiv")[0].style.position = "absolute";
+  document.getElementsByClassName("funkcija-div")[0].style.visibility = "hidden";
+  document.getElementsByClassName("funkcija-div")[0].style.position = "absolute";
 
-  document.getElementsByClassName("razmaciDiv")[0].style.visibility = "hidden";
-  document.getElementsByClassName("razmaciDiv")[0].style.position = "absolute";
+  document.getElementsByClassName("razmaci-div")[0].style.visibility = "hidden";
+  document.getElementsByClassName("razmaci-div")[0].style.position = "absolute";
 
-  document.getElementsByClassName("countingDiv")[0].style.visibility = "hidden";
-  document.getElementsByClassName("countingDiv")[0].style.position = "absolute";
+  document.getElementsByClassName("counting-div")[0].style.visibility = "hidden";
+  document.getElementsByClassName("counting-div")[0].style.position = "absolute";
 }
 
 // Šipke - Numeričke vrijednsoti
@@ -366,8 +366,8 @@ let indeksi_B = [];
 let indeksi_C = [];
 
 // Za Address, Merge i Heap
-let cvor_kontejneri = []
-let niz_linija = []
+let cvor_kontejneri = [];
+let niz_linija = [];
 
 // Reference na kontejnere
 let sipkeKontejner = document.querySelector(".sipke-kontejner");
@@ -588,14 +588,14 @@ let nijanse_zelene = ['#AAFF00', '#50C878', '#108000', '#7CFC00','#109E60'];
 let sortiranMergeBoja = '#003600';
 
 // Za opcije Shell, Counting i Address Sorta
-document.getElementsByClassName("funkcijaDiv")[0].style.visibility = "hidden";
-document.getElementsByClassName("funkcijaDiv")[0].style.position = "absolute";
+document.getElementsByClassName("funkcija-div")[0].style.visibility = "hidden";
+document.getElementsByClassName("funkcija-div")[0].style.position = "absolute";
 
-document.getElementsByClassName("razmaciDiv")[0].style.visibility = "hidden";
-document.getElementsByClassName("razmaciDiv")[0].style.position = "absolute";
+document.getElementsByClassName("razmaci-div")[0].style.visibility = "hidden";
+document.getElementsByClassName("razmaci-div")[0].style.position = "absolute";
 
-document.getElementsByClassName("countingDiv")[0].style.visibility = "hidden";
-document.getElementsByClassName("countingDiv")[0].style.position = "absolute";
+document.getElementsByClassName("counting-div")[0].style.visibility = "hidden";
+document.getElementsByClassName("counting-div")[0].style.position = "absolute";
 
 // Pomoćni kontejneri inicijalno nevidljivi
 document.getElementsByClassName("pomocni-kontejner")[0].style.visibility = "hidden";

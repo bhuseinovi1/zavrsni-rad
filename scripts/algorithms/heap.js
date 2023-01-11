@@ -1,6 +1,6 @@
 // 'i'-ti element stabla je zadnji element u stablu koji nije list
 // 'vel' je broj elemenata niza od kojeg se pravi gomila
-function POPRAVI_DOLJE(i, vel) {
+function popraviDolje(i, vel) {
     while (!(i >= Math.floor(vel / 2) && i < vel)) {
         animateHeap(cvor_kontejneri[i], iznosi[i], sipke_div[i], sipke_visina[i], pivotBoja);
         let veci = 2 * i + 1;
@@ -37,13 +37,13 @@ function POPRAVI_DOLJE(i, vel) {
 }
 
 // 'zadnji' je ažurirana vrijednost broja elemenata u gomili nakon izbacivanja prvog elementa - korijena
-function IZBACI_PRVI(zadnji) {
+function izbaciPrvi(zadnji) {
     [sipke_visina[0], sipke_visina[zadnji]] = [sipke_visina[zadnji], sipke_visina[0]];
     animateHeap(cvor_kontejneri[0], iznosi[0], sipke_div[0], sipke_visina[0], helperBoja);
     animateHeap(cvor_kontejneri[zadnji], iznosi[zadnji], sipke_div[zadnji], sipke_visina[zadnji], helperBoja);
     animateHeap(cvor_kontejneri[0], iznosi[0], sipke_div[0], sipke_visina[0], resetirajBoja);
     animateHeap(cvor_kontejneri[zadnji], iznosi[zadnji], sipke_div[zadnji], sipke_visina[zadnji], sortiranBoja);
-    POPRAVI_DOLJE(0, zadnji);
+    popraviDolje(0, zadnji);
 }
 
 function heapSort() {
@@ -72,14 +72,13 @@ function heapSort() {
 
     // Stvaranje gomile
     for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
-        POPRAVI_DOLJE(i, n);
+        popraviDolje(i, n);
     }
 
     // Sortiranje niza
     for (let odKraja = n - 1; odKraja >= 1; odKraja--) {
-        IZBACI_PRVI(odKraja);
+        izbaciPrvi(odKraja);
     }
     animateHeap(cvor_kontejneri[0], iznosi[0], sipke_div[0], sipke_visina[0], sortiranBoja, 100);
-
     cvor_kontejneri = [];
 }
