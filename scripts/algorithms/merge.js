@@ -49,7 +49,7 @@ function mergeSortStart(l, u, iteracija) {
         }
         else {
             // FAZA 2 - Kada se u podnizu nađe jedan element, nema potrebe za sortiranjem
-            animateMerge(0, cvor_kontejneri[counter], iznosi[u], sipke_div[u], sipke_visina[u], '#BFFF80');
+            animateMerge(0, cvor_kontejneri[counter], iznosi[u], sipke_div[u], sipke_visina[u], '#109E60');
             return 1;
         }
     }

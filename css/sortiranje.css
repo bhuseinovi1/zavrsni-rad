@@ -10,6 +10,10 @@
   justify-content: center;
 }
 
+.naziv-metode-kontejner {
+  margin-bottom: 80px;
+}
+
 .sipke-kontejner,
 .pomocni-kontejner,
 .counting-kontejner {
