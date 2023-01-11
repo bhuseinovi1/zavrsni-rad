@@ -1,11 +1,12 @@
 .stablo-kontejner {
   text-align: left;
+  margin-top: 20px;
 }
 
 .list-kontejner {
   color: black;
   text-align: center;
-  font-size: 1em;
+  font-size: 1.2em;
   font-weight: bolder;
   display: inline-block;
   background-color: whitesmoke;
