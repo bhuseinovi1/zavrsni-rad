@@ -56,6 +56,16 @@ sortBtn.addEventListener("click", () => {
             prikaziAlert("Unesite opcije u validnom obliku!");
             return;
         }
+        document.getElementsByClassName("pomocni-kontejner")[0].style.visibility = "visible";
+        document.getElementsByClassName("pomocni-kontejner")[0].style.position = "relative";
+        if (isMobileDevice()) {
+            document.getElementsByClassName("sipke-kontejner")[0].style.width = "100%";
+            document.getElementsByClassName("pomocni-kontejner")[0].style.width = "100%";
+        }
+        else {
+            document.getElementsByClassName("sipke-kontejner")[0].style.width = "50%";
+            document.getElementsByClassName("pomocni-kontejner")[0].style.width = "50%";
+        }
     }
     else if (trenutniAlgoritam == "Counting Sort") {
         if (window.innerWidth <= 1600) document.documentElement.style.setProperty("--width", "18px");

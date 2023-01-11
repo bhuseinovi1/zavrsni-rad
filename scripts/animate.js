@@ -9,6 +9,20 @@ const anim = (iznos, sipka, visina, boja, factorAnim = delay) => {
     }, (c += factorAnim));
 };
 
+// Animate za Shell Sort
+const animCell = (iznos, sipka, visina, celija, boja, factorAnim = delay) => {
+    setTimeout(() => {
+        celija.innerHTML = '';
+        celija.appendChild(document.createTextNode(visina));
+        celija.style.backgroundColor = boja;
+        sipka.style.height = visina * scaleFactor + "px";
+        sipka.style.backgroundColor = boja;
+        iznos.innerHTML = visina;
+        iznos.style.color = boja;
+        iznos.style.borderColor = boja;
+    }, (c += factorAnim));
+};
+
 // Animate za Heap Sort
 const animateHeap = (kontejnerHeap, iznos, sipka, visina, boja, factorAnim = delay) => {
     setTimeout(() => {

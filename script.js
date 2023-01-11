@@ -581,6 +581,11 @@ let zadnjiPromijenjeniBoja = '#F44336';
 let helperBoja = '#D60060';
 let parcijalnoSortiranBoja = '#BFFF00';
 let sortiranBoja = '#40FF00';
+let dodajCelijuBoja = '#05e9c1'
+
+// Nijanse zelene za Merge Sort
+let nijanse_zelene = ['#AAFF00', '#50C878', '#108000', '#7CFC00','#109E60'];
+let sortiranMergeBoja = '#003600';
 
 // Za opcije Shell, Counting i Address Sorta
 document.getElementsByClassName("funkcijaDiv")[0].style.visibility = "hidden";

@@ -23,6 +23,7 @@ function mergeSort(l, u) {
 
     // Pokretanje Merge Sort
     let iteracija = 0;
+    let levelIteracija = Math.floor(Math.log2(n)) + 1;
     let kraj = mergeSortStart(l, u, iteracija);
     cvor_kontejneri = [];
 }
@@ -48,7 +49,7 @@ function mergeSortStart(l, u, iteracija) {
         }
         else {
             // FAZA 2 - Kada se u podnizu nađe jedan element, nema potrebe za sortiranjem
-            animateMerge(0, cvor_kontejneri[counter], iznosi[u], sipke_div[u], sipke_visina[u], parcijalnoSortiranBoja);
+            animateMerge(0, cvor_kontejneri[counter], iznosi[u], sipke_div[u], sipke_visina[u], '#BFFF80');
             return 1;
         }
     }
@@ -57,6 +58,7 @@ function mergeSortStart(l, u, iteracija) {
 
 // FAZA 2 - SASTAVLJANJE
 function merge(l, p, q, u, counter) {
+    let novaBoja = nijanse_zelene[Math.floor(Math.log2(counter+1))];
     let i = 0;
     let j = q - l;
     let k = l;
@@ -74,20 +76,20 @@ function merge(l, p, q, u, counter) {
             j++;
         }
         animateMerge(1, cvor_kontejneri[counter], iznosi[k], sipke_div[k], sipke_visina[k], zamijeniBoja);
-        animateMerge(1, cvor_kontejneri[counter], iznosi[k], sipke_div[k], sipke_visina[k], parcijalnoSortiranBoja);
+        animateMerge(1, cvor_kontejneri[counter], iznosi[k], sipke_div[k], sipke_visina[k], novaBoja);
         k++;
     }
     while (i <= p - l) {
         sipke_visina[k] = B[i];
         animateMerge(1, cvor_kontejneri[counter], iznosi[k], sipke_div[k], sipke_visina[k], zamijeniBoja);
-        animateMerge(1, cvor_kontejneri[counter], iznosi[k], sipke_div[k], sipke_visina[k], parcijalnoSortiranBoja);
+        animateMerge(1, cvor_kontejneri[counter], iznosi[k], sipke_div[k], sipke_visina[k], novaBoja);
         k++;
         i++;
     }
     while (j <= u - l) {
         sipke_visina[k] = B[j];
         animateMerge(1, cvor_kontejneri[counter], iznosi[k], sipke_div[k], sipke_visina[k], zamijeniBoja);
-        animateMerge(1, cvor_kontejneri[counter], iznosi[k], sipke_div[k], sipke_visina[k], parcijalnoSortiranBoja);
+        animateMerge(1, cvor_kontejneri[counter], iznosi[k], sipke_div[k], sipke_visina[k], novaBoja);
         k++;
         j++;
     }
