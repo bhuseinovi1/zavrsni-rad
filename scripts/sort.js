@@ -1,6 +1,6 @@
 let sortBtn = document.getElementById("sortBtn");
 
-sortBtn.addEventListener("click", () => {
+sortBtn.addEventListener('click', () => {
     // Validacija Address Sort
     if (trenutniAlgoritam == "Address Sort") {
         // Validiraj funkciju
@@ -137,7 +137,7 @@ sortBtn.addEventListener("click", () => {
         stopBtn.classList.remove("disabled");
         brzinaSortiranja.setAttribute("disabled", "");
         velicinaNiza.setAttribute("disabled", "");
-        faktorSkaliranja.setAttribute("disabled", "");
+        faktorSkaliranjaRange.setAttribute("disabled", "");
 
         // Posebno za specifične algoritme
         document.getElementsByClassName("funkcija-div")[0].style.visibility = "hidden";
@@ -200,5 +200,5 @@ sortBtn.addEventListener("click", () => {
             anim(iznosi[i], sipke_div[i], sipke_visina[i], sortiranBoja, 100)
         }
     }
-    c = 0;
+    pocetakAnimacije = 0;
 });

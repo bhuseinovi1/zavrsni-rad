@@ -1,12 +1,12 @@
 // Signal da sortiranje nije u toku
 let sortiranjeUToku = 0;
 
-// Šipke - numeričke vrijednsoti
+// Šipke - numeričke vrijednosti
 let sipke_visina = [];
 let sipke_B_visina = [];
 let sipke_C_visina = [];
 
-// Kontejneri
+// Kontejneri za prikaz šipki
 let sipke_div = [];
 let sipke_B_div = [];
 let sipke_C_div = [];
@@ -17,7 +17,7 @@ let indeksi = [];
 let indeksi_B = [];
 let indeksi_C = [];
 
-// Kontejneri za Address, Heap i Merge Sort
+// Pomoćni kontejneri
 let cvor_kontejneri = [];
 let niz_linija = [];
 
@@ -31,7 +31,7 @@ document.body.addEventListener('click', function (arg1, arg2) {
   ukloniAlert();
 }, true);
 
-// Podesi širinu sekcije na širinu pretraživača
+// Podešavanje širine sekcije na širinu pretraživača
 function fullWidthSection(section) {
   if (section == "sortiranje") {
     document.getElementsByClassName(section)[0].classList.remove("me-5");
@@ -45,7 +45,7 @@ function fullWidthSection(section) {
   document.getElementsByClassName(section)[0].style.borderRadius = "0px";
 }
 
-// Podesi širinu sekcije
+// Podešavanje širine sekcije
 function partialWidthSection(section) {
   if (section == "sortiranje") {
     document.getElementsByClassName(section)[0].classList.add("me-5");
@@ -60,7 +60,7 @@ function partialWidthSection(section) {
 }
 
 // Promjena dimenzija pretraživača
-window.addEventListener("resize", function () {
+window.addEventListener('resize', function () {
   if (!Boolean(sortiranjeUToku)) {
     if (window.innerWidth <= 1200) {
       fullWidthSection("opcije");
@@ -110,18 +110,16 @@ window.addEventListener("resize", function () {
   }
 });
 
-// GENERIŠI NASUMIČNI NIZ
+// Generisanje nasumičnog niza
 let generisiRandom = document.getElementById("generisiRandomNiz");
+generisiRandom.addEventListener('click', generisiRandomNiz);
 
-generisiRandom.addEventListener("click", generateNewArray);
-
-// GENERIŠI NIZ
+// Generisanje niza
 let generisiIzListe = document.getElementById("generisiNiz");
-
-generisiIzListe.addEventListener("click", checkAndGenerateFromTheList);
+generisiIzListe.addEventListener('click', validirajIGenerisiIzListe);
 
 // Validacija ulaza
-function checkAndGenerateFromTheList() {
+function validirajIGenerisiIzListe() {
   // Provjera smislenosti ulaza
   let niz_str = document.getElementById("nizInput").value;
   var nizRegex = /^[0-9]+(,[0-9]+)*$/;
@@ -130,7 +128,7 @@ function checkAndGenerateFromTheList() {
     return;
   }
 
-  // Provjeri dužinu niza i najveći element
+  // Provjera dužine niza i najvećeg elementa
   let niz = niz_str.match(/\d+/g);
   let najveciBroj = Math.max(...niz);
   if (isMobileDevice() && niz.length != 6) {
@@ -171,38 +169,36 @@ let n = 10;
 
 function promijeniBrojElemenata(changed) {
   n = changed;
-  generateNewArray();
+  generisiRandomNiz();
 }
 
 // Brzina sortiranja
 let brzinaSortiranja = document.getElementById("brzinaSortiranja");
-let speed = 16;
-let c = 0;
-let delay = 10000 / speed;
+let pocetakAnimacije = 0;
 let mapirane_brzine = [4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 25, 40, 80, 100, 150, 200, 500, 1000];
+let kasnjenjeAnimacije = 10000 / mapirane_brzine[9];
 
 function promijeniBrzinu(changed) {
-  speed = mapirane_brzine[changed];
-  delay = 10000 / speed;
-  console.log(delay);
+  kasnjenjeAnimacije = 10000 / mapirane_brzine[changed];
+  console.log(kasnjenjeAnimacije);
 }
 
 // Faktor skaliranja
-let faktorSkaliranja = document.getElementById("faktorSkaliranja");
-let scaleFactor = 1;
+let faktorSkaliranjaRange = document.getElementById("faktorSkaliranja");
+let faktorSkaliranja = 1;
 
 function promijeniFaktorSkaliranja(changed) {
-  scaleFactor = changed;
+  faktorSkaliranja = changed;
 
   for (let index = 0; index < n; index++) {
-    sipke_div[index].style.height = sipke_visina[index] * scaleFactor + "px";
+    sipke_div[index].style.height = sipke_visina[index] * faktorSkaliranja + "px";
   }
 
   let preko500 = sipke_visina.some(function (item) {
-    return item * scaleFactor > 500;
+    return item * faktorSkaliranja > 500;
   })
   let ispod20 = sipke_visina.some(function (item) {
-    return item * scaleFactor < 20 && item * scaleFactor != 0;
+    return item * faktorSkaliranja < 20 && item * faktorSkaliranja != 0;
   })
 
   if (Boolean(preko500)) {
@@ -219,7 +215,7 @@ function promijeniFaktorSkaliranja(changed) {
 // Stopiraj dugme
 let stopBtn = document.getElementById("stopBtn");
 
-stopBtn.addEventListener("click", () => {
+stopBtn.addEventListener('click', () => {
   if (trenutniAlgoritam == "Shell Sort") {
     document.getElementsByClassName("razmaci-div")[0].style.visibility = "visible";
     document.getElementsByClassName("razmaci-div")[0].style.position = "relative";
@@ -242,7 +238,7 @@ stopBtn.addEventListener("click", () => {
     }));
   }
 
-  // Sekcija Opcije je ponovo vidljiva
+  // Sekcija 'Opcije' je ponovo vidljiva
   document.getElementsByClassName("opcije")[0].style.position = "relative";
   document.getElementsByClassName("opcije")[0].style.visibility = "visible";
 
@@ -256,7 +252,7 @@ stopBtn.addEventListener("click", () => {
     partialWidthSection("sortiranje");
   }
 
-  // Signal se postavlja na 0 jer je sortiranje gotovo
+  // Vraćanje signala za sortiranje na 0
   sortiranjeUToku = 0;
 
   // Sakrivanje pomoćnih kontejnera
@@ -286,7 +282,7 @@ var nizKompleksnosti = [{ a: "Bubble Sort", tc: "n<sup>2</sup>" },
 let algoritmi = document.getElementsByClassName("dropdown-item");
 let trenutniAlgoritam = "Bubble Sort";
 for (let i = 0; i < algoritmi.length; i++) {
-  algoritmi[i].addEventListener("click", function () {
+  algoritmi[i].addEventListener('click', function () {
     trenutniAlgoritam = algoritmi[i].innerHTML;
     document.getElementById("nazivMetode").innerHTML = trenutniAlgoritam.toUpperCase();
 
@@ -329,9 +325,9 @@ for (let i = 0; i < algoritmi.length; i++) {
       }
       document.getElementById("velicinaNiza")["max"] = 10;
       document.getElementById("faktorSkaliranja").value = 50;
-      scaleFactor = 50;
-      
-      generateNewArray();
+      faktorSkaliranja = 50;
+
+      generisiRandomNiz();
     }
     algoritmi[i].innerHTML = document.getElementById(
       "navbarDropdownMenuLink"
@@ -345,9 +341,9 @@ function omoguci() {
   document.querySelector(".dropdown-toggle").classList.remove("disabled");
   sortBtn.classList.remove("disabled");
   stopBtn.classList.add("disabled");
-  brzinaSortiranja.removeAttribute("disabled");
   if (!isMobileDevice()) velicinaNiza.removeAttribute("disabled");
-  faktorSkaliranja.removeAttribute("disabled");
+  brzinaSortiranja.removeAttribute("disabled");
+  faktorSkaliranjaRange.removeAttribute("disabled");
 }
 
 // Generisanje iz polja za unos elemenata
@@ -388,11 +384,11 @@ function generateFromTheList() {
     sipke_div[index] = document.createElement("div");
     sipke_div[index].classList.add("sipka");
     if (n > 15) sipke_div[index].style.marginLeft = "14px";
-    sipke_div[index].style.height = sipke_visina[index] * scaleFactor + "px";
+    sipke_div[index].style.height = sipke_visina[index] * faktorSkaliranja + "px";
     sipkeKontejner.appendChild(sipke_div[index]);
 
-    if (sipke_visina[index] * scaleFactor > 500) preko500 = 1;
-    if (sipke_visina[index] * scaleFactor < 20 && sipke_visina[index] * scaleFactor != 0) ispod20 = 1;
+    if (sipke_visina[index] * faktorSkaliranja > 500) preko500 = 1;
+    if (sipke_visina[index] * faktorSkaliranja < 20 && sipke_visina[index] * faktorSkaliranja != 0) ispod20 = 1;
 
     iznosi[index] = document.createElement("p");
     iznosi[index].classList.add("iznosi");
@@ -427,10 +423,10 @@ function generateFromTheList() {
 }
 
 // Generisanje niza nasumičnih elemenata
-function generateNewArray() {
+function generisiRandomNiz() {
   omoguci();
 
-  // Regenerisanje nizova
+  // Brisanje sadržaja nizova nizova
   sipke_visina = [];
   sipke_B_visina = [];
   sipke_C_visina = [];
@@ -462,7 +458,7 @@ function generateNewArray() {
 
   // Faktor skaliranja
   if (trenutniAlgoritam != "Counting Sort") {
-    scaleFactor = 1;
+    faktorSkaliranja = 1;
     document.getElementById("faktorSkaliranja").value = 1;
   }
 
@@ -480,14 +476,14 @@ function generateNewArray() {
     sipke_div[i] = document.createElement("div");
     sipke_div[i].classList.add("sipka");
 
-    // Margin u slučaju velikog boja elemenata
+    // Udaljenost šipki za veliki broj elemenata
     if (n > 15) sipke_div[i].style.marginLeft = "14px";
-    sipke_div[i].style.height = sipke_visina[i] * scaleFactor + "px";
+    sipke_div[i].style.height = sipke_visina[i] * faktorSkaliranja + "px";
     sipkeKontejner.appendChild(sipke_div[i]);
 
     // Kontrola signala za validaciju
-    if (sipke_visina[i] * scaleFactor > 500) preko500 = 1;
-    if (sipke_visina[i] * scaleFactor < 20 && sipke_visina[i] * scaleFactor != 0) ispod20 = 1;
+    if (sipke_visina[i] * faktorSkaliranja > 500) preko500 = 1;
+    if (sipke_visina[i] * faktorSkaliranja < 20 && sipke_visina[i] * faktorSkaliranja != 0) ispod20 = 1;
 
     // Vrijednosti elemenata
     iznosi[i] = document.createElement("p");
@@ -521,6 +517,7 @@ function generateNewArray() {
   var fiktivni = document.createElement("div");
   fiktivni.classList.add("sipka");
   fiktivni.style.height = "500px";
+  // Sakrivanje fiktivnog elementa
   fiktivni.style.visibility = "hidden";
   sipkeKontejner.appendChild(fiktivni);
 
@@ -583,7 +580,7 @@ fileInput.addEventListener('change', async function () {
     const text = await readFileAsync(file);
     document.getElementById("nizInput").value = text;
     document.getElementById("fileLabel").innerHTML = this.value.split("\\").pop();
-    checkAndGenerateFromTheList();
+    validirajIGenerisiIzListe();
   }
   catch {
     console.log("Niste odabrali fajl!");
@@ -617,7 +614,7 @@ function afterLoading() {
     document.getElementById("velicinaNiza").value = 6;
     document.getElementById("velicinaNiza").disabled = true;
   }
-  generateNewArray();
+  generisiRandomNiz();
   if (isMobileDevice()) {
     prikaziUpozorenje("Pristupate ovoj stranici koristeći mobilni uređaj! Neke funkcionalnosti neće raditi u skladu sa očekivanjima!");
   }
@@ -637,7 +634,7 @@ function stopTimer() {
   clearTimeout(timeoutId);
 }
 
-window.addEventListener("load", function () {
+window.addEventListener('load', function () {
   stopTimer();
   afterLoading();
 });
