@@ -50,6 +50,7 @@ const animateAddress = (elementiListe, elementListe, kontejner_kljuc, iznos, sip
         iznos.style.color = boja;
         iznos.style.borderColor = boja;
         kontejner_kljuc.style.backgroundColor = boja;
+
         if (boja != resetirajBoja) {
             elementListe.innerHTML = visina;
             let children = elementiListe.querySelectorAll("*");
@@ -108,16 +109,6 @@ const animateAddressRemove = (elementiListe, kontejner_kljuc, linije, boja, fact
         }
     }, (c += factorAnim));
 };
-
-const animateJPList = (elementListe1, elementListe2, factorAnim = delay) => {
-    setTimeout(() => {
-        if (elementListe1.innerHTML < elementListe2.innerHTML) {
-            let priv = elementListe2.innerHTML;
-            elementListe2.innerHTML = elementListe1.innerHTML;
-            elementListe1.innerHTML = priv;
-        }
-    }, (c += factorAnim));
-}
 
 // Animate za Merge Sort
 const animateMerge = (zaSortirati, kontejnerMerge, iznos, sipka, visina, boja, factorAnim = delay) => {

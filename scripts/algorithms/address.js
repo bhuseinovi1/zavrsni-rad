@@ -1,6 +1,6 @@
 function addressSort(funkcija) {
     disable();
-
+    
     // Računanje ukupnog broja klasa
     let brojKlasa = 0;
     for (let i = 0; i < n; i++) {
@@ -50,7 +50,7 @@ function addressSort(funkcija) {
         let elementListe = document.createElement("div");
         elementListe.classList.add("element-liste-kontejner");
 
-        // Animiraj dodavanje elementa u listu
+        // Animiracija dodavanja elementa u listu na odgovarajuću poziciju
         animateAddress(elementiListe[kod], elementListe, cvor_kontejneri[kod], iznosi[i], sipke_div[i], sipke_visina[i], niz_linija[kod], parcijalnoSortiranBoja);
         animateAddress(elementiListe[kod], elementListe, cvor_kontejneri[kod], iznosi[i], sipke_div[i], sipke_visina[i], niz_linija[kod], resetirajBoja);
     }
@@ -73,7 +73,7 @@ function addressSort(funkcija) {
             let elementListe = document.createElement("div");
             elementListe.classList.add("element-liste-kontejner");
 
-            // Animiraj dodavanje elementa u listu
+            // Animiracija dodavanja elementa u listu
             animateAddress(elementiListe[i], elementListe, cvor_kontejneri[i], iznosi[k], sipke_div[k], sipke_visina[k], niz_linija[i], parcijalnoSortiranBoja);
             k++;
         }

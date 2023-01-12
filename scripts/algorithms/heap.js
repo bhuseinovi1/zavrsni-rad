@@ -63,8 +63,8 @@ function heapSort() {
             // Računanje širine elemenata
             let sirina = 100 / i;
             cvor_kontejneri[k].style.width = sirina + "%";
-            cvor_kontejneri[k].innerHTML = sipke_visina[k]
-            stabloKontejner.appendChild(cvor_kontejneri[k])
+            cvor_kontejneri[k].innerHTML = sipke_visina[k];
+            stabloKontejner.appendChild(cvor_kontejneri[k]);
             k++;
             if (k == n) break;
         }
@@ -79,6 +79,7 @@ function heapSort() {
     for (let odKraja = n - 1; odKraja >= 1; odKraja--) {
         izbaciPrvi(odKraja);
     }
+
     animateHeap(cvor_kontejneri[0], iznosi[0], sipke_div[0], sipke_visina[0], sortiranBoja, 100);
     cvor_kontejneri = [];
 }

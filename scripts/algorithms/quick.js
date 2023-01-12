@@ -59,6 +59,5 @@ function quickSortStart(prvi, zadnji) {
 
 function quickSort(prvi, zadnji) {
     disable();
-    // Quick Sort
     quickSortStart(prvi, zadnji);
 }

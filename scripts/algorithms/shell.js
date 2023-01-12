@@ -1,4 +1,4 @@
-function shellSort(razmaci) {
+function shellSort(razmaci_str) {
     disable();
 
     // Privremeni element
@@ -7,8 +7,8 @@ function shellSort(razmaci) {
         sipke_B_visina[0] = 0;
         sipke_B_div[0] = document.createElement("div");
         sipke_B_div[0].classList.add("sipka");
-        sipkeKontejner.appendChild(sipke_B_div[0]);
         sipke_B_div[0].style.height = "0px";
+        sipkeKontejner.appendChild(sipke_B_div[0]);
 
         // Vrijednost elementa
         iznosi_B[0] = document.createElement("p");
@@ -27,37 +27,39 @@ function shellSort(razmaci) {
     let niz_tabela = [];
 
     // Niz za vrijednosti razmaka
-    let matches = [];
+    let razmaci = [];
 
-    // Ako je niz razmaka prazan - obaviti obični Inserion Sort
-    if (razmaci == '') {
-        matches[0] = 1;
+    // Ako je niz razmaka prazan - obaviti obični Insertion Sort
+    if (razmaci_str == '') {
+        razmaci[0] = 1;
     }
     // U suprotnom - popuniti niz sa odgovarajućim vrijednostima
     else {
-        matches = razmaci.match(/\d+/g);
+        razmaci = razmaci_str.match(/\d+/g);
     }
 
     // Kreiranje struktura svih potrebnih tabela
-    for (let index = 0; index < matches.length; index++) {
+    for (let index = 0; index < razmaci.length; index++) {
         niz_tabela[index] = document.createElement("table");
         niz_tabela[index].classList.add("tabela-kontejner");
         pomocniKontejner.appendChild(niz_tabela[index]);
-        let h = parseInt(matches[index], 10);
+
+        let razmak = parseInt(razmaci[index], 10);
+
         // Posljednju tabelu predstaviti kao vektor zbog praktičnosti
-        if (h == 1) {
+        if (razmak == 1) {
             let _red = niz_tabela[index].insertRow();
             for (let j = 0; j < n; j++) {
                 let celija = _red.insertCell();
                 celija.classList.add("celija-kontejner");
             }
         }
-        // U suprotnom - kreiraj tabelu sa odgovarajućim brojem redova i kolona
+        // U suprotnom - kreirati tabelu sa odgovarajućim brojem redova i kolona
         else {
-            for (let i = 0; i < Math.ceil(n / h); i++) {
+            for (let i = 0; i < Math.ceil(n / razmak); i++) {
                 let _red = niz_tabela[index].insertRow();
                 _red.classList.add("red-kontejner");
-                for (let j = i * h; j < (i + 1) * h; j++) {
+                for (let j = i * razmak; j < (i + 1) * razmak; j++) {
                     let celija = _red.insertCell();
                     celija.classList.add("celija-kontejner");
                 }
@@ -65,10 +67,11 @@ function shellSort(razmaci) {
         }
     }
 
-    for (let index = 0; index < matches.length; index++) {
-        let h = parseInt(matches[index], 10);
+    for (let index = 0; index < razmaci.length; index++) {
+        let razmak = parseInt(razmaci[index], 10);
+
         // Dodavanje elemenata u ćelije organizirane kao vektor
-        if (h == 1) {
+        if (razmak == 1) {
             let _red = niz_tabela[index].insertRow();
             for (let j = 0; j < n; j++) {
                 animCell(iznosi[j], sipke_div[j], sipke_visina[j], niz_tabela[index].rows[0].cells[j], dodajCelijuBoja, 50);
@@ -77,53 +80,53 @@ function shellSort(razmaci) {
         }
         // Dodavanje elemenata u ćelije organizirane kao tabela
         else {
-            for (let i = 0; i < Math.ceil(n / h); i++) {
+            for (let i = 0; i < Math.ceil(n / razmak); i++) {
                 let _red = niz_tabela[index].insertRow();
                 _red.classList.add("red-kontejner");
-                for (let j = i * h; j < (i + 1) * h; j++) {
+                for (let j = i * razmak; j < (i + 1) * razmak; j++) {
                     if (j < n) {
-                        animCell(iznosi[j], sipke_div[j], sipke_visina[j], niz_tabela[index].rows[i].cells[j % h], dodajCelijuBoja, 50);
-                        animCell(iznosi[j], sipke_div[j], sipke_visina[j], niz_tabela[index].rows[i].cells[j % h], resetirajBoja, 50);
+                        animCell(iznosi[j], sipke_div[j], sipke_visina[j], niz_tabela[index].rows[i].cells[j % razmak], dodajCelijuBoja, 50);
+                        animCell(iznosi[j], sipke_div[j], sipke_visina[j], niz_tabela[index].rows[i].cells[j % razmak], resetirajBoja, 50);
                     }
                 }
             }
         }
 
         // Shell Sort
-        for (let brojac = 0; brojac < h; brojac++) {
-            for (let i = brojac + h; i < n; i = i + h) {
+        for (let brojac = 0; brojac < razmak; brojac++) {
+            for (let i = brojac + razmak; i < n; i = i + razmak) {
                 let priv = sipke_visina[i];
-                if (h == 1) animCell(iznosi[i], sipke_div[i], sipke_visina[i], niz_tabela[index].rows[0].cells[i], privremeniBoja);
-                else animCell(iznosi[i], sipke_div[i], sipke_visina[i], niz_tabela[index].rows[Math.floor(i / h)].cells[i % h], privremeniBoja);
+                if (razmak == 1) animCell(iznosi[i], sipke_div[i], sipke_visina[i], niz_tabela[index].rows[0].cells[i], privremeniBoja);
+                else animCell(iznosi[i], sipke_div[i], sipke_visina[i], niz_tabela[index].rows[Math.floor(i / razmak)].cells[i % razmak], privremeniBoja);
                 sipke_B_visina[0] = sipke_visina[i];
                 anim(iznosi_B[0], sipke_B_div[0], sipke_B_visina[0], privremeniBoja);
-                let j = i - h;
+                let j = i - razmak;
                 while (j >= 0) {
-                    if (h == 1) animCell(iznosi[j], sipke_div[j], sipke_visina[j], niz_tabela[index].rows[0].cells[j], iteracijaBoja);
-                    else animCell(iznosi[j], sipke_div[j], sipke_visina[j], niz_tabela[index].rows[Math.floor(j / h)].cells[j % h], iteracijaBoja);
+                    if (razmak == 1) animCell(iznosi[j], sipke_div[j], sipke_visina[j], niz_tabela[index].rows[0].cells[j], iteracijaBoja);
+                    else animCell(iznosi[j], sipke_div[j], sipke_visina[j], niz_tabela[index].rows[Math.floor(j / razmak)].cells[j % razmak], iteracijaBoja);
                     if (sipke_visina[j] <= priv) {
-                        if (h == 1) animCell(iznosi[j], sipke_div[j], sipke_visina[j], niz_tabela[index].rows[0].cells[j], resetirajBoja);
-                        else animCell(iznosi[j], sipke_div[j], sipke_visina[j], niz_tabela[index].rows[Math.floor(j / h)].cells[j % h], resetirajBoja);
+                        if (razmak == 1) animCell(iznosi[j], sipke_div[j], sipke_visina[j], niz_tabela[index].rows[0].cells[j], resetirajBoja);
+                        else animCell(iznosi[j], sipke_div[j], sipke_visina[j], niz_tabela[index].rows[Math.floor(j / razmak)].cells[j % razmak], resetirajBoja);
                         break;
                     }
-                    sipke_visina[j + h] = sipke_visina[j];
-                    if (h == 1) animCell(iznosi[j + h], sipke_div[j + h], sipke_visina[j + h], niz_tabela[index].rows[0].cells[j + h], helperBoja);
-                    else animCell(iznosi[j + h], sipke_div[j + h], sipke_visina[j + h], niz_tabela[index].rows[Math.floor((j + h) / h)].cells[(j + h) % h], helperBoja);
-                    j = j - h;
+                    sipke_visina[j + razmak] = sipke_visina[j];
+                    if (razmak == 1) animCell(iznosi[j + razmak], sipke_div[j + razmak], sipke_visina[j + razmak], niz_tabela[index].rows[0].cells[j + razmak], helperBoja);
+                    else animCell(iznosi[j + razmak], sipke_div[j + razmak], sipke_visina[j + razmak], niz_tabela[index].rows[Math.floor((j + razmak) / razmak)].cells[(j + razmak) % razmak], helperBoja);
+                    j = j - razmak;
                 }
-                sipke_visina[j + h] = priv;
-                if (i != j + h) {
-                    if (h == 1) animCell(iznosi[j + h], sipke_div[j + h], sipke_visina[j + h], niz_tabela[index].rows[0].cells[j + h], privremeniBoja);
-                    else animCell(iznosi[j + h], sipke_div[j + h], sipke_visina[j + h], niz_tabela[index].rows[Math.floor((j + h) / h)].cells[(j + h) % h], privremeniBoja);
+                sipke_visina[j + razmak] = priv;
+                if (i != j + razmak) {
+                    if (razmak == 1) animCell(iznosi[j + razmak], sipke_div[j + razmak], sipke_visina[j + razmak], niz_tabela[index].rows[0].cells[j + razmak], privremeniBoja);
+                    else animCell(iznosi[j + razmak], sipke_div[j + razmak], sipke_visina[j + razmak], niz_tabela[index].rows[Math.floor((j + razmak) / razmak)].cells[(j + razmak) % razmak], privremeniBoja);
                 } else {
-                    if (h == 1) animCell(iznosi[j + h], sipke_div[j + h], sipke_visina[j + h], niz_tabela[index].rows[0].cells[j + h], resetirajBoja);
-                    else animCell(iznosi[j + h], sipke_div[j + h], sipke_visina[j + h], niz_tabela[index].rows[Math.floor((j + h) / h)].cells[(j + h) % h], resetirajBoja);
+                    if (razmak == 1) animCell(iznosi[j + razmak], sipke_div[j + razmak], sipke_visina[j + razmak], niz_tabela[index].rows[0].cells[j + razmak], resetirajBoja);
+                    else animCell(iznosi[j + razmak], sipke_div[j + razmak], sipke_visina[j + razmak], niz_tabela[index].rows[Math.floor((j + razmak) / razmak)].cells[(j + razmak) % razmak], resetirajBoja);
                 }
                 sipke_B_visina[0] = 0;
                 anim(iznosi_B[0], sipke_B_div[0], sipke_B_visina[0], resetirajBoja);
-                for (let k = (j > 0) ? j : j + h; k <= i; k = k + h) {
-                    if (h == 1) animCell(iznosi[k], sipke_div[k], sipke_visina[k], niz_tabela[index].rows[0].cells[k], resetirajBoja, 100);
-                    else animCell(iznosi[k], sipke_div[k], sipke_visina[k], niz_tabela[index].rows[Math.floor(k / h)].cells[k % h], resetirajBoja, 100);
+                for (let k = (j > 0) ? j : j + razmak; k <= i; k = k + razmak) {
+                    if (razmak == 1) animCell(iznosi[k], sipke_div[k], sipke_visina[k], niz_tabela[index].rows[0].cells[k], resetirajBoja, 100);
+                    else animCell(iznosi[k], sipke_div[k], sipke_visina[k], niz_tabela[index].rows[Math.floor(k / razmak)].cells[k % razmak], resetirajBoja, 100);
                 }
             }
         }

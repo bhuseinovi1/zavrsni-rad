@@ -1,7 +1,5 @@
 function selectionSort() {
     disable();
-
-    // Selection Sort
     for (let i = 0; i < n - 1; i++) {
         anim(iznosi[i], sipke_div[i], sipke_visina[i], pivotBoja);
         let min = sipke_visina[i];

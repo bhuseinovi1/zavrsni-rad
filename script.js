@@ -55,9 +55,12 @@ window.addEventListener("resize", function () {
       }
       else {
         if (n > 15) {
-          document.documentElement.style.setProperty("--width", "22px");
+          if (trenutniAlgoritam == "Shell Sort") document.documentElement.style.setProperty("--width", "20px");
+          else document.documentElement.style.setProperty("--width", "22px");
         }
-        else document.documentElement.style.setProperty("--width", "28px");
+        else {
+          document.documentElement.style.setProperty("--width", "28px");
+        }
       }
     }
     else if (trenutniAlgoritam == "Insertion Sort" || trenutniAlgoritam == "Insertion Sort Modificirani") {

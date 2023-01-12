@@ -7,8 +7,8 @@ function insertionSortModificirani() {
         sipke_B_visina[0] = 0;
         sipke_B_div[0] = document.createElement("div");
         sipke_B_div[0].classList.add("sipka");
-        sipkeKontejner.appendChild(sipke_B_div[0]);
         sipke_B_div[0].style.height = "0px";
+        sipkeKontejner.appendChild(sipke_B_div[0]);
 
         // Vrijednost elementa
         iznosi_B[0] = document.createElement("p");

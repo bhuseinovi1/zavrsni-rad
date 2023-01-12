@@ -2,34 +2,36 @@ function radixSort() {
     disable();
 
     // Kreiranje pomoćnog niza B
-    for (let i = 0; i < n; i++) {
-        // Kreiranje šipki
-        sipke_B_visina[i] = 0;
-        sipke_B_div[i] = document.createElement("div");
-        sipke_B_div[i].classList.add("sipka");
-        sipke_B_div[i].style.height = "0px";
-        if (n > 15) sipke_B_div[i].style.marginLeft = "14px";
-        pomocniKontejner.appendChild(sipke_B_div[i]);
+    {
+        for (let i = 0; i < n; i++) {
+            // Kreiranje šipki
+            sipke_B_visina[i] = 0;
+            sipke_B_div[i] = document.createElement("div");
+            sipke_B_div[i].classList.add("sipka");
+            sipke_B_div[i].style.height = "0px";
+            if (n > 15) sipke_B_div[i].style.marginLeft = "14px";
+            pomocniKontejner.appendChild(sipke_B_div[i]);
 
-        // Vrijednosti elemenata
-        iznosi_B[i] = document.createElement("p");
-        iznosi_B[i].classList.add("iznosi");
-        iznosi_B[i].innerHTML = sipke_B_visina[i];
-        sipke_B_div[i].appendChild(iznosi_B[i]);
+            // Vrijednosti elemenata
+            iznosi_B[i] = document.createElement("p");
+            iznosi_B[i].classList.add("iznosi");
+            iznosi_B[i].innerHTML = sipke_B_visina[i];
+            sipke_B_div[i].appendChild(iznosi_B[i]);
 
-        // Indeksi elemenata
-        indeksi_B[i] = document.createElement("p");
-        indeksi_B[i].classList.add("indeksi");
-        indeksi_B[i].innerHTML = i;
-        sipke_B_div[i].appendChild(indeksi_B[i]);
+            // Indeksi elemenata
+            indeksi_B[i] = document.createElement("p");
+            indeksi_B[i].classList.add("indeksi");
+            indeksi_B[i].innerHTML = i;
+            sipke_B_div[i].appendChild(indeksi_B[i]);
+        }
+
+        // Fiktivni element visine 500px
+        var fiktivni = document.createElement("div");
+        fiktivni.classList.add("sipka");
+        fiktivni.style.height = "500px";
+        fiktivni.style.visibility = "hidden";
+        pomocniKontejner.appendChild(fiktivni);
     }
-
-    // Fiktivni element visine 500px
-    var fiktivni = document.createElement("div");
-    fiktivni.classList.add("sipka");
-    fiktivni.style.height = "500px";
-    fiktivni.style.visibility = "hidden";
-    pomocniKontejner.appendChild(fiktivni);
 
     // Broj cifara najvećeg broja u nizu
     let najveciBroj = Math.max(...sipke_visina);

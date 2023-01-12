@@ -64,12 +64,15 @@ sortBtn.addEventListener("click", () => {
             else document.documentElement.style.setProperty("--width", "20px");
         }
         else {
-            if (n > 15) document.documentElement.style.setProperty("--width", "22px");
+            if (n > 15) {
+                if (trenutniAlgoritam == "Shell Sort") document.documentElement.style.setProperty("--width", "20px");
+                document.documentElement.style.setProperty("--width", "22px");
+            }
         }
 
         document.getElementsByClassName("pomocni-kontejner")[0].style.visibility = "visible";
         document.getElementsByClassName("pomocni-kontejner")[0].style.position = "relative";
-        
+
         if (isMobileDevice()) {
             document.getElementsByClassName("sipke-kontejner")[0].style.width = "100%";
             document.getElementsByClassName("pomocni-kontejner")[0].style.width = "100%";
