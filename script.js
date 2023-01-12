@@ -426,7 +426,7 @@ function generateFromTheList() {
 function generisiRandomNiz() {
   omoguci();
 
-  // Brisanje sadržaja nizova nizova
+  // Brisanje sadržaja nizova
   sipke_visina = [];
   sipke_B_visina = [];
   sipke_C_visina = [];
