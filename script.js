@@ -622,6 +622,10 @@ fileInput.addEventListener('click', function () {
 fileInput.addEventListener('change', async function () {
   try {
     const file = this.files[0];
+    if (file.size > 65536) {
+      prikaziAlert("Fajl je prevelik! Maksimalna veličina fajla je 64KB!");
+      return;
+    }
     const text = await readFileAsync(file);
     document.getElementById("nizInput").value = text;
     document.getElementById('fileLabel').innerHTML = this.value.split('\\').pop();
