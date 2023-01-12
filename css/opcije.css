@@ -84,7 +84,7 @@ input[type="text"]:focus {
   width: 95%;
   border-width: 2px;
   position: absolute;
-  bottom: 8px;
+  bottom: 24px;
   left: 50%;
   -ms-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
