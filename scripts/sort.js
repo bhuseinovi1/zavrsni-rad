@@ -112,7 +112,7 @@ sortBtn.addEventListener("click", () => {
         if (n > 15 && window.innerWidth <= 1200) document.documentElement.style.setProperty("--width", "20px");
     }
 
-    // Zastava da je sortiranje u toku
+    // Signal da je sortiranje u toku
     sortiranjeUToku = 1;
 
     // Sakrivanje sekcije Opcije
@@ -129,6 +129,26 @@ sortBtn.addEventListener("click", () => {
         if (i != n - 1) upisiUInputPolje += ',';
     }
     document.getElementById('nizInput').value = upisiUInputPolje;
+
+    // Onemogućivanje slider-a, dugmadi i opcija
+    {
+        document.querySelector(".dropdown-toggle").classList.add("disabled");
+        sortBtn.classList.add("disabled");
+        stopBtn.classList.remove("disabled");
+        brzinaSortiranja.setAttribute("disabled", "");
+        velicinaNiza.setAttribute("disabled", "");
+        faktorSkaliranja.setAttribute("disabled", "");
+
+        // Posebno za specifične algoritme
+        document.getElementsByClassName("funkcija-div")[0].style.visibility = "hidden";
+        document.getElementsByClassName("funkcija-div")[0].style.position = "absolute";
+
+        document.getElementsByClassName("razmaci-div")[0].style.visibility = "hidden";
+        document.getElementsByClassName("razmaci-div")[0].style.position = "absolute";
+
+        document.getElementsByClassName("counting-div")[0].style.visibility = "hidden";
+        document.getElementsByClassName("counting-div")[0].style.position = "absolute";
+    }
 
     // Odabir algoritma za sortiranje
     switch (trenutniAlgoritam) {

@@ -47,8 +47,6 @@ function izbaciPrvi(zadnji) {
 }
 
 function heapSort() {
-    disable();
-
     // Novi kontejner za prikaz gomile
     let stabloKontejner = document.createElement("div");
     stabloKontejner.classList.add("stablo-kontejner")

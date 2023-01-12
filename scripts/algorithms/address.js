@@ -1,6 +1,4 @@
 function addressSort(funkcija) {
-    disable();
-    
     // Računanje ukupnog broja klasa
     let brojKlasa = 0;
     for (let i = 0; i < n; i++) {

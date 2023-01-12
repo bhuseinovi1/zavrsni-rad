@@ -1,6 +1,4 @@
 function mergeSort(l, u) {
-    disable();
-
     // Kontejner za Merge Sort
     let stabloKontejner = document.createElement("div");
     stabloKontejner.classList.add("stablo-kontejner");
@@ -48,7 +46,7 @@ function mergeSortStart(l, u, iteracija) {
         }
         else {
             // FAZA 2 - SPAJANJE
-            animateMerge(0, cvor_kontejneri[cvor], iznosi[u], sipke_div[u], sipke_visina[u], nijanse_zelene[Math.floor(Math.log2(cvor + 1))]);
+            animateMerge(0, cvor_kontejneri[cvor], iznosi[u], sipke_div[u], sipke_visina[u], merge_sort_boje[Math.floor(Math.log2(cvor + 1))]);
             return;
         }
     }
@@ -57,7 +55,7 @@ function mergeSortStart(l, u, iteracija) {
 
 // FAZA 2 - SPAJANJE
 function merge(l, p, q, u, cvor) {
-    let novaBoja = nijanse_zelene[Math.floor(Math.log2(cvor + 1))];
+    let novaBoja = merge_sort_boje[Math.floor(Math.log2(cvor + 1))];
     let i = 0;
     let j = q - l;
     let k = l;

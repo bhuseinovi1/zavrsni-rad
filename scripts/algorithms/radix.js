@@ -1,6 +1,4 @@
 function radixSort() {
-    disable();
-
     // Kreiranje pomoćnog niza B
     {
         for (let i = 0; i < n; i++) {

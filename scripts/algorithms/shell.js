@@ -1,6 +1,4 @@
 function shellSort(razmaci_str) {
-    disable();
-
     // Privremeni element
     {
         // Kreiranje šipke

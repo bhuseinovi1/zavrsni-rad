@@ -1,6 +1,4 @@
 function insertionSortModificirani() {
-    disable();
-
     // Privremeni element
     {
         // Kreiranje šipke

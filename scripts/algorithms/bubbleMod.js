@@ -1,5 +1,4 @@
 function bubbleSortModificirani() {
-    disable();
     let sortirajDo = n;
     let sortirajOd = n - 1;
     do {

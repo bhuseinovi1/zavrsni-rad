@@ -58,6 +58,5 @@ function quickSortStart(prvi, zadnji) {
 }
 
 function quickSort(prvi, zadnji) {
-    disable();
     quickSortStart(prvi, zadnji);
 }
