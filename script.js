@@ -42,7 +42,7 @@ function fullWidthSection(section) {
   document.getElementsByClassName(section)[0].classList.add("col-12");
   document.getElementsByClassName(section)[0].style.borderRight = "none";
   document.getElementsByClassName(section)[0].style.borderLeft = "none";
-  document.getElementsByClassName(section)[0].style.borderRadius = "0px"
+  document.getElementsByClassName(section)[0].style.borderRadius = "0px";
 }
 
 // Podesi širinu sekcije
@@ -56,7 +56,7 @@ function partialWidthSection(section) {
   document.getElementsByClassName(section)[0].classList.remove("col-12");
   document.getElementsByClassName(section)[0].style.borderRight = "2px solid #737373";
   document.getElementsByClassName(section)[0].style.borderLeft = "2px solid #737373";
-  document.getElementsByClassName(section)[0].style.borderRadius = "10px"
+  document.getElementsByClassName(section)[0].style.borderRadius = "10px";
 }
 
 // Promjena dimenzija pretraživača
@@ -124,7 +124,7 @@ generisiIzListe.addEventListener("click", checkAndGenerateFromTheList);
 function checkAndGenerateFromTheList() {
   // Provjera smislenosti ulaza
   let niz_str = document.getElementById("nizInput").value;
-  var nizRegex = /^[0-9]+(,[0-9]+)*$/
+  var nizRegex = /^[0-9]+(,[0-9]+)*$/;
   if (!nizRegex.test(niz_str)) {
     prikaziAlert("Unesite niz u validnom obliku!");
     return;
@@ -307,7 +307,7 @@ for (let i = 0; i < algoritmi.length; i++) {
     document.getElementsByClassName("counting-div")[0].style.visibility = "hidden";
     document.getElementsByClassName("counting-div")[0].style.position = "absolute";
 
-    // Opcije ponovo vidljive
+    // Opcije ponovo vidljive za određene metode
     if (trenutniAlgoritam == "Address Sort") {
       document.getElementsByClassName("funkcija-div")[0].style.visibility = "visible";
       document.getElementsByClassName("funkcija-div")[0].style.position = "relative";
@@ -330,6 +330,7 @@ for (let i = 0; i < algoritmi.length; i++) {
       document.getElementById("velicinaNiza")["max"] = 10;
       document.getElementById("faktorSkaliranja").value = 50;
       scaleFactor = 50;
+      
       generateNewArray();
     }
     algoritmi[i].innerHTML = document.getElementById(
