@@ -50,21 +50,46 @@ const animateAddress = (elementiListe, elementListe, kontejner_kljuc, iznos, sip
         iznos.style.color = boja;
         iznos.style.borderColor = boja;
         kontejner_kljuc.style.backgroundColor = boja;
-        elementListe.innerHTML = visina;
-        elementiListe.appendChild(elementListe);
-        elementListe.style.backgroundColor = boja;
-        try {
-            if (elementListe.previousElementSibling != null && elementListe != null) {
-                let line = new LeaderLine(
-                    LeaderLine.pointAnchor(elementListe.previousSibling, { x: 60, y: 18 }),
-                    elementListe,
-                    { startPlug: 'square', color: 'red', size: 3 }
-                );
-                linije.push(line)
+        if (boja != resetirajBoja) {
+            elementListe.innerHTML = visina;
+            let children = elementiListe.querySelectorAll("*");
+            if (children.length == 0) {
+                elementListe.style.backgroundColor = boja;
+            }
+            else {
+                let flag = 0;
+                for (let i = 0; i < children.length; i++) {
+                    if (Number(children[i].innerHTML) > Number(elementListe.innerHTML)) {
+                        let sadrzaj = children[i].innerHTML;
+                        children[i].innerHTML = elementListe.innerHTML;
+                        elementListe.innerHTML = sadrzaj;
+                        if (flag == 0) children[i].style.backgroundColor = boja;
+                        flag = 1;
+                    }
+                }
+                if (flag == 0) elementListe.style.backgroundColor = boja;
+                else elementListe.style.backgroundColor = resetirajBoja;
+            }
+            elementiListe.appendChild(elementListe);
+            try {
+                if (elementListe.previousElementSibling != null && elementListe != null) {
+                    let line = new LeaderLine(
+                        LeaderLine.pointAnchor(elementListe.previousSibling, { x: 60, y: 18 }),
+                        elementListe,
+                        { startPlug: 'square', color: 'red', size: 3 }
+                    );
+                    linije.push(line)
+                }
+            }
+            catch {
+                console.log("Linija nije uspješno unesena");
             }
         }
-        catch {
-            console.log("Linija nije uspješno unesena");
+        else {
+            let children = elementiListe.querySelectorAll("*");
+            children.forEach(function (child) {
+                child.style.backgroundColor = boja;
+            });
         }
     }, (c += factorAnim));
 };
@@ -83,6 +108,16 @@ const animateAddressRemove = (elementiListe, kontejner_kljuc, linije, boja, fact
         }
     }, (c += factorAnim));
 };
+
+const animateJPList = (elementListe1, elementListe2, factorAnim = delay) => {
+    setTimeout(() => {
+        if (elementListe1.innerHTML < elementListe2.innerHTML) {
+            let priv = elementListe2.innerHTML;
+            elementListe2.innerHTML = elementListe1.innerHTML;
+            elementListe1.innerHTML = priv;
+        }
+    }, (c += factorAnim));
+}
 
 // Animate za Merge Sort
 const animateMerge = (zaSortirati, kontejnerMerge, iznos, sipka, visina, boja, factorAnim = delay) => {

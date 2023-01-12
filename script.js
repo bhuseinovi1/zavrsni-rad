@@ -584,7 +584,7 @@ let sortiranBoja = '#40FF00';
 let dodajCelijuBoja = '#05e9c1'
 
 // Nijanse zelene za Merge Sort
-let nijanse_zelene = ['#AAFF00', '#50C878', '#108000', '#7CFC00','#109E60'];
+let nijanse_zelene = ['#003600', '#AAFF00', '#108000', '#7CFC00', '#109E60', '#50C878'];
 let sortiranMergeBoja = '#003600';
 
 // Za opcije Shell, Counting i Address Sorta
