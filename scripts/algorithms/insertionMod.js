@@ -26,7 +26,7 @@ function insertionSortModificirani() {
         let priv = sipke_visina[i];
         anim(iznosi[i], sipke_div[i], sipke_visina[i], privremeniBoja);
         sipke_B_visina[0] = sipke_visina[i];
-        anim(iznosi_B[0], sipke_B_div[0], sipke_B_visina[0], privremeniBoja);
+        anim(iznosi_B[0], sipke_B_div[0], sipke_B_visina[0], privremeniBoja, 100);
         let j = i - 1;
         let l = 0;
         let r = j;

@@ -26,7 +26,7 @@ function insertionSort() {
         let priv = sipke_visina[i];
         anim(iznosi[i], sipke_div[i], sipke_visina[i], privremeniBoja);
         sipke_B_visina[0] = sipke_visina[i];
-        anim(iznosi_B[0], sipke_B_div[0], sipke_B_visina[0], privremeniBoja);
+        anim(iznosi_B[0], sipke_B_div[0], sipke_B_visina[0], privremeniBoja, 100);
         let j = i - 1;
         while (j >= 0) {
             anim(iznosi[j], sipke_div[j], sipke_visina[j], iteracijaBoja);
