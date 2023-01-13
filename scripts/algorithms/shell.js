@@ -1,4 +1,4 @@
-function shellSort(razmaci_str) {
+function shellSort(razmaci) {
     // Privremeni element
     {
         // Kreiranje šipke
@@ -23,18 +23,6 @@ function shellSort(razmaci_str) {
 
     // Niz tabela potrebnih za vizuelizaciju
     let niz_tabela = [];
-
-    // Niz za vrijednosti razmaka
-    let razmaci = [];
-
-    // Ako je niz razmaka prazan - obaviti obični Insertion Sort
-    if (razmaci_str == '') {
-        razmaci[0] = 1;
-    }
-    // U suprotnom - popuniti niz sa odgovarajućim vrijednostima
-    else {
-        razmaci = razmaci_str.match(/\d+/g);
-    }
 
     // Kreiranje struktura svih potrebnih tabela
     for (let index = 0; index < razmaci.length; index++) {
@@ -97,7 +85,7 @@ function shellSort(razmaci_str) {
                 if (razmak == 1) animCell(iznosi[i], sipke_div[i], sipke_visina[i], niz_tabela[index].rows[0].cells[i], privremeniBoja);
                 else animCell(iznosi[i], sipke_div[i], sipke_visina[i], niz_tabela[index].rows[Math.floor(i / razmak)].cells[i % razmak], privremeniBoja);
                 sipke_B_visina[0] = sipke_visina[i];
-                anim(iznosi_B[0], sipke_B_div[0], sipke_B_visina[0], privremeniBoja);
+                anim(iznosi_B[0], sipke_B_div[0], sipke_B_visina[0], privremeniBoja, 100);
                 let j = i - razmak;
                 while (j >= 0) {
                     if (razmak == 1) animCell(iznosi[j], sipke_div[j], sipke_visina[j], niz_tabela[index].rows[0].cells[j], iteracijaBoja);

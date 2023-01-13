@@ -79,7 +79,7 @@ const animateAddress = (elementiListe, elementListe, kontejner_kljuc, iznos, sip
                         elementListe,
                         { startPlug: 'square', color: 'red', size: 3 }
                     );
-                    linije.push(line)
+                    linije.push(line);
                 }
             }
             catch {

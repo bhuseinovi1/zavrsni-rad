@@ -27,48 +27,48 @@ let pomocniKontejner = document.querySelector(".pomocni-kontejner");
 let countingKontejner = document.querySelector(".counting-kontejner");
 
 // Uklanjanje alerta
-document.body.addEventListener('click', function (arg1, arg2) {
+document.body.addEventListener('click', function () {
   ukloniAlert();
 }, true);
 
-// Podešavanje širine sekcije na širinu pretraživača
-function fullWidthSection(section) {
-  if (section == "sortiranje") {
-    document.getElementsByClassName(section)[0].classList.remove("me-5");
+// Proširivanje sekcije
+function prosiriSekciju(sekcija) {
+  if (sekcija == "sortiranje") {
+    document.getElementsByClassName(sekcija)[0].classList.remove("me-5");
   }
   else {
-    document.getElementsByClassName(section)[0].classList.remove("ms-5");
+    document.getElementsByClassName(sekcija)[0].classList.remove("ms-5");
   }
-  document.getElementsByClassName(section)[0].classList.add("col-12");
-  document.getElementsByClassName(section)[0].style.borderRight = "none";
-  document.getElementsByClassName(section)[0].style.borderLeft = "none";
-  document.getElementsByClassName(section)[0].style.borderRadius = "0px";
+  document.getElementsByClassName(sekcija)[0].classList.add("col-12");
+  document.getElementsByClassName(sekcija)[0].style.borderRight = "none";
+  document.getElementsByClassName(sekcija)[0].style.borderLeft = "none";
+  document.getElementsByClassName(sekcija)[0].style.borderRadius = "0px";
 }
 
-// Podešavanje širine sekcije
-function partialWidthSection(section) {
-  if (section == "sortiranje") {
-    document.getElementsByClassName(section)[0].classList.add("me-5");
+// Sažimanje sekcije
+function sazmiSekciju(sekcija) {
+  if (sekcija == "sortiranje") {
+    document.getElementsByClassName(sekcija)[0].classList.add("me-5");
   }
   else {
-    document.getElementsByClassName(section)[0].classList.add("ms-5");
+    document.getElementsByClassName(sekcija)[0].classList.add("ms-5");
   }
-  document.getElementsByClassName(section)[0].classList.remove("col-12");
-  document.getElementsByClassName(section)[0].style.borderRight = "2px solid #737373";
-  document.getElementsByClassName(section)[0].style.borderLeft = "2px solid #737373";
-  document.getElementsByClassName(section)[0].style.borderRadius = "10px";
+  document.getElementsByClassName(sekcija)[0].classList.remove("col-12");
+  document.getElementsByClassName(sekcija)[0].style.borderRight = "2px solid #737373";
+  document.getElementsByClassName(sekcija)[0].style.borderLeft = "2px solid #737373";
+  document.getElementsByClassName(sekcija)[0].style.borderRadius = "10px";
 }
 
 // Promjena dimenzija pretraživača
 window.addEventListener('resize', function () {
   if (!Boolean(sortiranjeUToku)) {
     if (window.innerWidth <= 1200) {
-      fullWidthSection("opcije");
-      fullWidthSection("sortiranje");
+      prosiriSekciju("opcije");
+      prosiriSekciju("sortiranje");
     }
     else {
-      partialWidthSection("opcije");
-      partialWidthSection("sortiranje");
+      sazmiSekciju("opcije");
+      sazmiSekciju("sortiranje");
     }
   }
   else {
@@ -130,7 +130,7 @@ function validirajIGenerisiIzListe() {
 
   // Provjera dužine niza i najvećeg elementa
   let niz = niz_str.match(/\d+/g);
-  let najveciBroj = Math.max(...niz);
+  let najveci = Math.max(...niz);
   if (isMobileDevice() && niz.length != 6) {
     prikaziAlert("Na mobilnim uređajima je dozvoljeno isključivo 6 elemenata!");
     return;
@@ -141,11 +141,11 @@ function validirajIGenerisiIzListe() {
   }
   else if (trenutniAlgoritam == "Counting Sort") {
     if (niz.length > 10) {
-      prikaziAlert("Dozvoljeno je najviše 10 elemenata!");
+      prikaziAlert("Dozvoljeno je najviše 10 elemenata (Counting Sort)!");
       return;
     }
-    if (najveciBroj > 9) {
-      prikaziAlert("Najveći element niza ne smije da bude veći od 9!");
+    if (najveci > 9) {
+      prikaziAlert("Najveći element niza ne smije da bude veći od 9 (Counting Sort)!");
       return;
     }
   }
@@ -154,7 +154,7 @@ function validirajIGenerisiIzListe() {
       prikaziAlert("Dozvoljeno je najviše 20 elemenata!");
       return;
     }
-    if (najveciBroj > 500) {
+    if (najveci > 500) {
       prikaziAlert("Najveći element niza ne smije da bude veći od 500!");
       return;
     }
@@ -176,11 +176,11 @@ function promijeniBrojElemenata(changed) {
 let brzinaSortiranja = document.getElementById("brzinaSortiranja");
 let pocetakAnimacije = 0;
 let mapirane_brzine = [4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 25, 40, 80, 100, 150, 200, 500, 1000];
-let kasnjenjeAnimacije = 10000 / mapirane_brzine[9];
+let kasnjenjeAnimacije = 10000 / mapirane_brzine[brzinaSortiranja.value];
 
 function promijeniBrzinu(changed) {
   kasnjenjeAnimacije = 10000 / mapirane_brzine[changed];
-  console.log(kasnjenjeAnimacije);
+  console.log("Kašnjenje animacije " + kasnjenjeAnimacije + "ms.");
 }
 
 // Faktor skaliranja
@@ -212,7 +212,7 @@ function promijeniFaktorSkaliranja(changed) {
   }
 }
 
-// Stopiraj dugme
+// 'Stopiraj' dugme
 let stopBtn = document.getElementById("stopBtn");
 
 stopBtn.addEventListener('click', () => {
@@ -233,7 +233,7 @@ stopBtn.addEventListener('click', () => {
         console.log("Linija obrisana");
       }
       catch {
-        console.log("Ne može se obrisati nedefinirana linija");
+        console.log("Ne može se obrisati nedefinisana linija");
       }
     }));
   }
@@ -244,12 +244,12 @@ stopBtn.addEventListener('click', () => {
 
   // Podešavanje širina sekcija
   if (window.innerWidth <= 1200) {
-    fullWidthSection("opcije");
-    fullWidthSection("sortiranje");
+    prosiriSekciju("opcije");
+    prosiriSekciju("sortiranje");
   }
   else {
-    partialWidthSection("opcije");
-    partialWidthSection("sortiranje");
+    sazmiSekciju("opcije");
+    sazmiSekciju("sortiranje");
   }
 
   // Vraćanje signala za sortiranje na 0
@@ -266,7 +266,7 @@ stopBtn.addEventListener('click', () => {
 });
 
 // Mapiranje algoritama sortiranja sa respektivnim vremenskim složenostima
-var nizKompleksnosti = [{ a: "Bubble Sort", tc: "n<sup>2</sup>" },
+var niz_kompleksnosti = [{ a: "Bubble Sort", tc: "n<sup>2</sup>" },
 { a: "Bubble Sort Modificirani", tc: "n<sup>2</sup>" },
 { a: "Insertion Sort", tc: "n<sup>2</sup>" },
 { a: "Shell Sort", tc: "n<sup>1.3</sup>" },
@@ -287,7 +287,7 @@ for (let i = 0; i < algoritmi.length; i++) {
     document.getElementById("nazivMetode").innerHTML = trenutniAlgoritam.toUpperCase();
 
     // Dodavanje odgovarajuće kompleksnosti u naziv metode sortiranja
-    let slozenost = nizKompleksnosti.filter(function (element) {
+    let slozenost = niz_kompleksnosti.filter(function (element) {
       return element.a == trenutniAlgoritam;
     })[0].tc;
     document.getElementById("nazivMetode").innerHTML += (" - O(" + slozenost + ")");
@@ -303,7 +303,7 @@ for (let i = 0; i < algoritmi.length; i++) {
     document.getElementsByClassName("counting-div")[0].style.visibility = "hidden";
     document.getElementsByClassName("counting-div")[0].style.position = "absolute";
 
-    // Opcije ponovo vidljive za određene metode
+    // Opcije ponovo vidljive za određene metode sortiranja
     if (trenutniAlgoritam == "Address Sort") {
       document.getElementsByClassName("funkcija-div")[0].style.visibility = "visible";
       document.getElementsByClassName("funkcija-div")[0].style.position = "relative";
@@ -336,7 +336,7 @@ for (let i = 0; i < algoritmi.length; i++) {
   });
 }
 
-// Omogući opcije, slider-e i dugmad
+// Omogućivanje funkcionalnosti
 function omoguci() {
   document.querySelector(".dropdown-toggle").classList.remove("disabled");
   sortBtn.classList.remove("disabled");
@@ -502,7 +502,7 @@ function generisiRandomNiz() {
     if (i != n - 1) vrijednosti_visina += ",";
   }
 
-  // Validacija elemenata niza
+  // Validacija elemenata niza nakon skaliranja
   if (Boolean(preko500)) {
     prikaziUpozorenje("Postoje elementi koji nakon skaliranja imaju visinu veću od 500px. Ovo može uzrokovati nepravilan prikaz elemenata!");
   }
@@ -598,8 +598,8 @@ async function readFileAsync(file) {
 
 // Prvo učitavanje
 if (window.innerWidth <= 1200) {
-  fullWidthSection("opcije");
-  fullWidthSection("sortiranje");
+  prosiriSekciju("opcije");
+  prosiriSekciju("sortiranje");
 }
 
 // Testiranje tipa uređaja sa kojeg se pristupa stranici
@@ -608,7 +608,7 @@ function isMobileDevice() {
 }
 
 // Nakon učitavanja stranice
-function afterLoading() {
+function nakonUcitavanja() {
   if (isMobileDevice()) {
     n = 6;
     document.getElementById("velicinaNiza").value = 6;
@@ -626,7 +626,7 @@ let timeoutId;
 function startTimer() {
   timeoutId = setTimeout(function () {
     window.stop();
-    afterLoading();
+    nakonUcitavanja();
   }, 2000);
 }
 
@@ -636,7 +636,7 @@ function stopTimer() {
 
 window.addEventListener('load', function () {
   stopTimer();
-  afterLoading();
+  nakonUcitavanja();
 });
 
 startTimer();

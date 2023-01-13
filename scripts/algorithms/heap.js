@@ -58,7 +58,7 @@ function heapSort() {
         for (let j = 0; j < i; j++) {
             cvor_kontejneri[k] = document.createElement("div");
             cvor_kontejneri[k].classList.add("list-kontejner");
-            // Računanje širine elemenata
+            // Računanje širine kontejnera
             let sirina = 100 / i;
             cvor_kontejneri[k].style.width = sirina + "%";
             cvor_kontejneri[k].innerHTML = sipke_visina[k];

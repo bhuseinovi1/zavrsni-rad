@@ -32,8 +32,8 @@ function radixSort() {
     }
 
     // Broj cifara najvećeg broja u nizu
-    let najveciBroj = Math.max(...sipke_visina);
-    let brojCifara = najveciBroj.toString().length;
+    let najveci = Math.max(...sipke_visina);
+    let brojCifara = najveci.toString().length;
 
     // Radix Sort
     let index = 0;
